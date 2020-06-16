@@ -1,0 +1,31 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.buttonForm {
+  @include styleForText($fontSizeContent, $fontMain, #9a9a9a);
+
+  background-color: $colorAvatarBackground;
+  border-radius: 8px;
+  width: 100%;
+  padding: 17px 0 16px;
+}
+
+.buttonFormActive {
+  background: $colorButtons;
+  color: $colorWhite;
+}
+
+.buttonBlack {
+  color: $colorWhite;
+  background: $colorContent;
+}
+
+.buttonGrey {
+  background: $colorBackground;
+}
+
+.buttonGreen {
+  color: $colorWhite;
+  background: $colorButtons;
+  font-size: 18px;
+}

@@ -1,0 +1,108 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 100%;
+  min-height: 91.7vh;
+  text-align: center;
+  position: relative;
+  border-right: 1px solid $colorBorder;
+}
+
+.avatarBlock {
+  max-width: 180px;
+  width: 100%;
+  height: 200px;
+  background-color: $colorAvatarBackground;
+  margin: 50px 60px 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.noAvatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $colorGreyLink;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 34px;
+}
+
+.mailLink {
+  color: $colorGreyLink;
+}
+
+.menu {
+  margin: 65px 0 186px;
+}
+
+.menuLinks {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuLink {
+  height: 55px;
+  opacity: .8;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 1;
+    background: $colorAvatarBackground;
+
+    &:before {
+      width: 5px;
+      height: 55px;
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      border-radius: 0 5px 5px 0;
+      z-index: 9;
+      background: $colorContent;
+    }
+  }
+}
+
+.activeLink {
+  opacity: 1;
+  background: $colorAvatarBackground;
+
+  &:before {
+    width: 5px;
+    height: 55px;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    border-radius: 0 5px 5px 0;
+    z-index: 9;
+    background: $colorContent;
+  }
+}
+
+.buttonSticky {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  right: 30px;
+  width: 100%;
+  text-align: center;
+  max-width: 240px;
+  opacity: .8;
+  font-size: 18px;
+  padding: 17px;
+  border-radius: 10px;
+}

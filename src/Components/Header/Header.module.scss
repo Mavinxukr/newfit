@@ -1,0 +1,74 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.header {
+  padding: 18px 60px 18px 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $colorBorder;
+  justify-content: space-between;
+}
+
+.logoText {
+  font-style: italic;
+  font-size: 18px;
+}
+
+.headerBlockInfo {
+  background: $colorBackground;
+  border-radius: 10px;
+  padding: 13px 25px 12px 24px;
+  display: flex;
+  align-items: center;
+  margin-left: 178px;
+}
+
+.headerBtn {
+  color: $colorButtons;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.leftBlock,
+.rightBlock {
+  display: flex;
+  align-items: center;
+}
+
+.horizontalLine {
+  width: 1px;
+  height: 40px;
+  background: $colorBorder;
+  margin: 0 30px;
+}
+
+.darkBtn {
+  padding: 11px 15px 10px 14px;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '+';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $colorWhite;
+    left: 12px;
+    bottom: 13px;
+    z-index: 9;
+    color: $colorButtons;
+    font-size: 9px;
+  }
+}
+
+.btn {
+  opacity: .8;
+  margin-left: 20px;
+  font-size: 16px;
+}

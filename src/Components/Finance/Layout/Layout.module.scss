@@ -1,0 +1,89 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.flex {
+  display: flex;
+}
+
+.mainContent {
+  margin: 50px 60px 0 50px;
+  width: 100%;
+}
+
+.contentInfo {
+  margin-top: 30px;
+  border: 1px solid $colorBorder;
+  border-radius: 5px;
+  padding: 30px 30px 0;
+}
+
+.balance {
+  font-size: 42px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.opacityText {
+  opacity: .5;
+}
+
+.buttonWithdraw {
+  padding: 17px 43px;
+  border-radius: 10px;
+  height: 55px;
+}
+
+.contentBetween {
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  min-height: 76px;
+  border-bottom: 1px solid $colorLine;
+}
+
+.contentMoreInfo {
+  padding: 30px 0 0;
+  width: 100%;
+
+  & + .contentMoreInfo {
+    border-left: 1px solid $colorLine;
+  }
+}
+
+.title {
+  margin-left: 30px;
+}
+
+.contentCenter {
+  margin: 14px 0 30px;
+  width: 100%;
+  text-align: center;
+  opacity: .8;
+}
+
+.fullWidth {
+  width: 100%;
+  margin: 30px 15px 0 0;
+
+  & + .fullWidth {
+    margin: 30px 0 0 15px;
+  }
+}
+
+.contentBottom {
+  align-items: center;
+  margin: 30px 0;
+  justify-content: space-between;
+}
+
+.btn {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text {
+  color: $colorOpacityText;
+}

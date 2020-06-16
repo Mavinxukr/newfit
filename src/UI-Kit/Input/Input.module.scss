@@ -1,0 +1,55 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  fill: none;
+  stroke: $colorGreyDark;
+  stroke-width: 2px;
+}
+
+.correctIcon {
+  stroke: $colorButtons;
+}
+
+.ActiveIcon {
+  fill: $colorButtons;
+}
+
+.errorLine {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  display: block;
+  width: 2px;
+  height: 29px;
+  background-color: $colorRedDark;
+}
+
+.entryInput {
+  @include styleForText($fontSizeContent, $fontAdditional);
+
+  padding: 16px 20px 15px;
+  border-radius: 5px;
+  width: 89.3%;
+  border: none;
+
+  &::placeholder {
+    color: grey;
+  }
+}
+
+.entryInputNoActive {
+  background-color: #f2f2f2;
+}
+
+.entryInputActive {
+  border: 1px solid $colorGrey;
+}

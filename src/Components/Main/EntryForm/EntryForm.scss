@@ -1,0 +1,91 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.popupWrapper {
+  padding: 50px 109px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  @include styleForText($fontSizeContent, $fontAdditional);
+
+  margin-top: 6px;
+  opacity: 0.5;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+
+  & span {
+    display: block;
+    width: 195px;
+  }
+}
+
+.facebookButton {
+  @include styleForText($fontSizeContent, $fontMain, $colorBlue);
+
+  border: 1px solid #cbe2f2;
+
+  &::before {
+    content: url("/static/svg/fb-blue.svg");
+    padding-top: 2px;
+    padding-right: 8px;
+  }
+
+  &:hover {
+    background: #CCE2F3;
+    border: 1px solid #CCE2F3;
+  }
+}
+
+.facebookButton,
+.googleButton {
+  width: 195px;
+  background-color: white;
+  padding: 11px 0 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 5px;
+}
+
+.googleButton {
+  margin-left: 8px;
+
+  @include styleForText($fontSizeContent, $fontMain, $colorRed);
+
+  border: 1px solid #FBDBD7;
+
+  &::before {
+    content: url("/static/svg/google-plus.svg");
+    padding-top: 1px;
+    height: 8px;
+    padding-right: 8px;
+  }
+
+  &:hover {
+    background: #FBDBD7;
+    border: 1px solid #FBDBD7;
+  }
+}
+
+.inputWrapper {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 0.2px solid $colorGrey;
+}
+
+.buttonWrapper {
+  margin-top: 40px;
+}
+

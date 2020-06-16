@@ -1,0 +1,47 @@
+@import "../../../../../scss/core/mixins";
+@import "../../../../../scss/core/vars";
+
+.loginPopup {
+  padding: 52px 70px 50px;
+}
+
+.loginTitle {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputWrapper {
+  width: 398px;
+  background: $colorWhite;
+  border: 1px solid $colorGreyDark;
+}
+
+.loginSubmit {
+  margin-top: 40px;
+}
+
+.formikWrapper {
+  margin-bottom: 20px;
+}
+
+.forgotPassword {
+  text-align: right;
+  width: 100%;
+}
+
+.forgotLink {
+  color: $colorGreyLink;
+}
+
+.bntBack {
+  position: absolute;
+  top: 36px;
+  left: 30px;
+}
+

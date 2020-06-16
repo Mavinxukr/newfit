@@ -1,0 +1,24 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.backgroundPopup {
+  background: $colorContent;
+  opacity: .2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $colorWhite;
+  z-index: 100;
+  border-radius: 10px;
+  overflow: auto;
+}

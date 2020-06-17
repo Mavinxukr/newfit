@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import Button from '../../UI-Kit/Button/Button';
-import styles from './Finance.module\'.scss';
+import Button from '../../../UI-Kit/Button/Button';
+import styles from './Layout.scss';
 
 const Layout = () => (
   <div className={styles.mainContent}>
@@ -14,7 +14,7 @@ const Layout = () => (
         </div>
         <Button classNameWrapper={styles.buttonWithdraw} type="button" viewType="green">
           Вывести
-        </Button>
+        </Button>s
       </div>
       <div className={styles.flex}>
         <div className={styles.contentMoreInfo}>

@@ -3,7 +3,7 @@ import IconLogo from '../../static/svg/EF.svg';
 import IconDumbbell from '../../static/svg/fdsfs.svg';
 import IconVideo from '../../static/svg/film.svg';
 import Button from '../../UI-Kit/Button/Button';
-import styles from './Header.module.scss';
+import styles from './Header.scss';
 
 const Header = () => (
   <header className={styles.header}>

@@ -1,9 +1,5 @@
-@import "../../../../../scss/core/mixins";
-@import "../../../../../scss/core/vars";
-
-.singUpPopup {
-  padding: 50px 70px 40px;
-}
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
 
 .singUpTitle {
   margin-bottom: 40px;
@@ -22,7 +18,7 @@
   @include styleForText($fontSizeContent, $fontMain, $colorBlue);
 
   &:before {
-    content: url("/svg/fb-blue.svg");
+    content: url("../../../static/svg/fb-blue.svg");
     left: -7px;
     top: 1px;
   }
@@ -32,7 +28,7 @@
   @include styleForText($fontSizeContent, $fontMain, $colorRed);
 
   &::before {
-    content: url("/svg/google-plus.svg");
+    content: url("../../../static/svg/google-plus.svg");
     left: -12px;
     top: 1px;
   }
@@ -59,6 +55,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px 70px 40px;
 }
 
 .inputWrapper {

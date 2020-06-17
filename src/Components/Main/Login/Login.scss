@@ -1,9 +1,5 @@
-@import "../../../../../scss/core/mixins";
-@import "../../../../../scss/core/vars";
-
-.loginPopup {
-  padding: 52px 70px 50px;
-}
+@import "src/styles/core/mixins";
+@import "src/styles/core/vars";
 
 .loginTitle {
   margin-bottom: 40px;
@@ -14,6 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  padding: 52px 70px 50px;
 }
 
 .inputWrapper {

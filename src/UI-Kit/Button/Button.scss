@@ -1,18 +1,23 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
-.buttonForm {
+.button {
   @include styleForText($fontSizeContent, $fontMain, #9a9a9a);
 
-  background-color: $colorAvatarBackground;
   border-radius: 8px;
   width: 100%;
   padding: 17px 0 16px;
 }
 
-.buttonFormActive {
-  background: $colorButtons;
-  color: $colorWhite;
+.buttonWhite {
+  background: white;
+  color: $colorButtons;
+  border: 1px solid $colorButtons;
+
+  &:hover {
+    background-color: $colorButtons;
+    color: $colorWhite;
+  }
 }
 
 .buttonBlack {
@@ -21,11 +26,19 @@
 }
 
 .buttonGrey {
-  background: $colorBackground;
+  color: $colorGreyLink;
+  background: $colorAvatarBackground;
+
+  &:hover {
+    color: #9a9a9a;
+  }
 }
 
 .buttonGreen {
   color: $colorWhite;
   background: $colorButtons;
-  font-size: 18px;
+
+  &:hover {
+    background-color: #51A563;
+  }
 }

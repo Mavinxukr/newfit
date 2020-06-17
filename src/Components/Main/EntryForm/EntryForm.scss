@@ -1,14 +1,11 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
-.popupWrapper {
-  padding: 50px 109px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px 109px;
 }
 
 .text {
@@ -36,8 +33,7 @@
   border: 1px solid #cbe2f2;
 
   &::before {
-    content: url("/static/svg/fb-blue.svg");
-    padding-top: 2px;
+    content: url("../../../static/svg/fb-blue.svg");
     padding-right: 8px;
   }
 
@@ -66,7 +62,7 @@
   border: 1px solid #FBDBD7;
 
   &::before {
-    content: url("/static/svg/google-plus.svg");
+    content: url("../../../static/svg/google-plus.svg");
     padding-top: 1px;
     height: 8px;
     padding-right: 8px;

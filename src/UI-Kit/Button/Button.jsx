@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './Button.module.scss';
+import styles from './Button.scss';
 
 const Button = ({
   children,
@@ -11,16 +11,14 @@ const Button = ({
   type,
   viewType,
   disabled,
-  active,
 }) => {
   const TagName = href ? 'a' : 'button';
 
   const classNameForButton = cx(cx(styles.button, classNameWrapper), {
-    [styles.buttonForm]: viewType === 'formButton',
-    [styles.buttonFormActive]: viewType === 'formButton' && active,
     [styles.buttonBlack]: viewType === 'black',
     [styles.buttonGrey]: viewType === 'grey',
     [styles.buttonGreen]: viewType === 'green',
+    [styles.buttonWhite]: viewType === 'white',
   });
 
   return (
@@ -42,9 +40,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   type: PropTypes.string,
-  viewType: PropTypes.oneOf(['formButton', 'black', 'grey', 'green']),
+  viewType: PropTypes.oneOf(['white', 'black', 'grey', 'green']),
   disabled: PropTypes.bool,
-  active: PropTypes.bool,
 };
 
 export default Button;

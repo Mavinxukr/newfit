@@ -1,17 +1,27 @@
 import React from 'react';
-import { Formik } from 'formik';
 import PropTypes from 'prop-types';
-import * as Yup from 'yup';
-import InputFormik from '../../../InputFormik/InputFormik';
-import Popup from '../../../Popup/Popup';
-import Button from '../../../Button/Button';
-import IconArrowBack from '../../../../../public/svg/BackArrow.svg';
+import { Field, reduxForm } from 'redux-form';
+import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
+import Button from '../../../UI-Kit/Button/Button';
+import IconArrowBack from '../../../static/svg/BackArrow.svg';
 import styles from './SingUp.scss';
-import Registration from '../Registration/Registration';
-import { api } from '../../../../service/api';
 
-const SingUp = ({ setStatus, email, status }) => (
-  <Popup classNameWrapper={styles.singUpPopup}>
+const SingUp = ({
+  setStatus, status, handleSubmit, submitting, invalid, dirty,
+}) => (
+  <form className={styles.singUpForm} onSubmit={handleSubmit}>
+    <h2 className={styles.singUpTitle}>Заполните поля</h2>
+    {status === 'registerViaFacebook' && (
+    <div className={styles.facebookBLock}>
+      <p className={styles.facebookTitle}>Facebook</p>
+      <p className={styles.username}>@ethpierce</p>
+    </div>
+    ) || status === 'registerViaGoogle' && (
+    <div className={styles.googleBLock}>
+      <p className={styles.googleTitle}>Google</p>
+      <p className={styles.username}>@ethpierce</p>
+    </div>
+    )}
     <Button
       classNameWrapper={styles.bntBack}
       type="button"
@@ -19,86 +29,57 @@ const SingUp = ({ setStatus, email, status }) => (
     >
       <IconArrowBack />
     </Button>
-    <h2 className={styles.singUpTitle}>Заполните поля</h2>
-    {status === 'registerViaFacebook' && (
-      <div className={styles.facebookBLock}>
-        <p className={styles.facebookTitle}>Facebook</p>
-        <p className={styles.username}>@ethpierce</p>
-      </div>
-    ) || status === 'registerViaGoogle' && (
-      <div className={styles.googleBLock}>
-        <p className={styles.googleTitle}>Google</p>
-        <p className={styles.username}>@ethpierce</p>
-      </div>
+    <Field
+      name="email"
+      type="email"
+      viewType="entry"
+      label="Ваш e-mail"
+      placeholder="name@company.com"
+      classNameWrapper={styles.formikWrapper}
+      classNameWrapperForInput={styles.inputWrapper}
+      component={ReduxInputWrapper}
+    />
+    <Field
+      name="name"
+      type="text"
+      viewType="entry"
+      label="Имя и Фамилия"
+      placeholder="Ethan Pierce"
+      classNameWrapper={styles.formikWrapper}
+      classNameWrapperForInput={styles.inputWrapper}
+      component={ReduxInputWrapper}
+    />
+    {(status !== 'registerViaFacebook' && status !== 'registerViaGoogle') && (
+      <Field
+        name="password"
+        type="password"
+        viewType="entry"
+        label="Создайте пароль"
+        placeholder="*****"
+        classNameWrapper={styles.formikWrapper}
+        classNameWrapperForInput={styles.inputWrapper}
+        component={ReduxInputWrapper}
+      />
     )}
-    <Formik
-      initialValues={{ email: email || '', name: '', password: '' }}
-      validationSchema={Yup.object({
-        email: Yup.string()
-          .email('e-mail не валиден')
-          .required('Вы не ввели e-mail'),
-        name: Yup.string()
-          .required('Введите имя'),
-        password: Yup.string()
-          .min(8, 'Мин 8 символов')
-          .required('Вы не ввели пароль'),
-      })}
-      onSubmit={(values) => api.login('register', values)}
+    <Button
+      classNameWrapper={styles.singUpSubmit}
+      viewType={(invalid || submitting || !dirty) && 'grey' || 'green'}
+      type="submit"
     >
-      {(formik) => (
-        <form className={styles.singUpForm} onSubmit={formik.handleSubmit}>
-          <InputFormik
-            classNameWrapper={styles.formikWrapper}
-            formikProps={{
-              ...formik,
-              name: 'email',
-              label: 'Ваш e-mail',
-              viewType: 'entry',
-              classNameWrapper: styles.inputWrapper,
-            }}
-          />
-          <InputFormik
-            classNameWrapper={styles.formikWrapper}
-            formikProps={{
-              ...formik,
-              name: 'name',
-              label: 'Имя и Фамилия',
-              viewType: 'entry',
-              placeholder: 'Ethan Pierce',
-              classNameWrapper: styles.inputWrapper,
-            }}
-          />
-          {(status !== 'registerViaFacebook' && status !== 'registerViaGoogle') && (
-            <InputFormik
-              classNameWrapper={styles.formikWrapper}
-              formikProps={{
-                ...formik,
-                name: 'password',
-                label: 'Создайте пароль',
-                viewType: 'entry',
-                placeholder: '*****',
-                classNameWrapper: styles.inputWrapper,
-              }}
-            />
-          )}
-          <Button
-            classNameWrapper={styles.singUpSubmit}
-            viewType="formButton"
-            type="submit"
-            active={formik.dirty && formik.isValid}
-          >
-            Создать аккаунт
-          </Button>
-        </form>
-      )}
-    </Formik>
-  </Popup>
+      Создать аккаунт
+    </Button>
+  </form>
 );
 
-Registration.propTypes = {
+SingUp.propTypes = {
   setStatus: PropTypes.func,
-  email: PropTypes.string,
   status: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  submitting: PropTypes.bool,
+  invalid: PropTypes.bool,
+  dirty: PropTypes.bool,
 };
 
-export default SingUp;
+export default reduxForm({
+  form: 'signIpForm',
+})(SingUp);

@@ -7,13 +7,13 @@ const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
 
   const closePopup = () => setIsOpenPopup(false);
   const openPopup = ({ PopupContentComponent, ...propsPopup }) => {
-    setPopupContent(<PopupContentComponent {...propsPopup} closePopup={closePopup} />);
+    setPopupContent(<PopupContentComponent {...propsPopup} closePopup={closePopup} />);  {/*eslint-disable-line*/}
     setIsOpenPopup(true);
   };
 
   return (
     <>
-      <Component {...props} openPopup={openPopup} />
+      <Component {...props} openPopup={openPopup} />  {/*eslint-disable-line*/}
       {isOpenPopup && (
         <Popup closePopup={closePopup}>
           {popupContent}

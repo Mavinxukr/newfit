@@ -80,41 +80,41 @@
     "template-tag-spacing": "error"
   },
   "overrides": [
-  {
-    "files": ["**/__tests__/**/*.js", "**/__mocks__/**/*.js"],
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true,
-      "es6": true
-    },
+    {
+      "files": ["**/__tests__/**/*.js", "**/__mocks__/**/*.js"],
+      "env": {
+        "browser": true,
+        "node": true,
+        "jest": true,
+        "es6": true
+      },
 
-    "globals": {
-      "page": true,
-      "browser": true,
-      "context": true,
-      "jestPuppeteer": true
+      "globals": {
+        "page": true,
+        "browser": true,
+        "context": true,
+        "jestPuppeteer": true
+      }
+    },
+    {
+      "files": [
+        "autotest/**/**/*.js"
+      ],
+      "rules": {
+        "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
+        "enforceInMethodNames": 2
+      }
+    },
+    {
+      "files": ["server/**"],
+      "rules": {
+        "no-restricted-syntax": [
+          "error",
+          "ForInStatement",
+          "LabeledStatement",
+          "WithStatement"
+        ]
+      }
     }
-  },
-  {
-    "files": [
-      "autotest/**/**/*.js"
-    ],
-    "rules": {
-      "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
-      "enforceInMethodNames": 2
-    }
-  },
-  {
-    "files": ["server/**"],
-    "rules": {
-      "no-restricted-syntax": [
-        "error",
-        "ForInStatement",
-        "LabeledStatement",
-        "WithStatement"
-      ]
-    }
-  }
   ]
 }

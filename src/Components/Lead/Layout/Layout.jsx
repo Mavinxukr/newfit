@@ -3,7 +3,7 @@ import cx from 'classnames';
 import Button from '../../UI-Kit/Button/Button';
 import IconFeedBack from '../../static/svg/feedback.svg';
 import IconDelete from '../../static/svg/delete.svg';
-import styles from './Layout.module.scss';
+import styles from './Layout.scss';
 
 const Layout = () => (
   <div className={styles.mainContent}>

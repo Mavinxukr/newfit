@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import okIcon from '../../static/svg/Path324.svg';
-import styles from './Input.module.scss';
+import OkIcon from '../../static/svg/Path324.svg';
+import styles from './Input.scss';
 
 const Input = ({
   formProps: {
@@ -26,18 +26,17 @@ const Input = ({
 
   return (
     <div className={styles.inputWrapper}>
-      {/*{viewType === 'entry'*/}
-      {/*&& (status === 'noActive' || !isError)*/}
-      {/*&& (*/}
-      {/*  <OkIcon className={cx(styles.icon, {*/}
-      {/*    [styles.correctIcon]: !isError && status === 'active',*/}
-      {/*  })}*/}
-      {/*  />*/}
-      {/*)}*/}
+      {viewType === 'entry'
+       && (status === 'noActive' || !isError)
+       && (
+       <OkIcon className={cx(styles.icon, {
+         [styles.correctIcon]: !isError && status === 'active',
+       })}
+       />
+       )}
       {viewType === 'entry' && isError && (
         <span className={styles.errorLine} />
       )}
-      <img src={okIcon} alt="ok" />
       <input
         type={type}
         value={value}

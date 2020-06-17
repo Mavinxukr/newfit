@@ -8,7 +8,7 @@ import Button from '../../../UI-Kit/Button/Button';
 import styles from './EntryForm.scss';
 
 const EntryForm = ({
-  setStatus, handleSubmit, submitting, invalid,
+  setStatus, handleSubmit, submitting, invalid, dirty,
 }) => {
   const onSubmit = (values) => {
     console.log(values);
@@ -54,11 +54,11 @@ const EntryForm = ({
         type="email"
         viewType="entry"
         placeholder="name@company.com"
+        classNameWrapper={styles.inputWrapper}
         component={ReduxInputWrapper}
       />
       <Button
-        viewType="formButton"
-        active={submitting && invalid}
+        viewType={(invalid || submitting || !dirty) && 'white' || 'green'}
         type="submit"
         classNameWrapper={styles.buttonWrapper}
       >
@@ -73,6 +73,7 @@ EntryForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
+  dirty: PropTypes.bool,
 };
 
 export default reduxForm({

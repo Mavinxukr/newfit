@@ -32,8 +32,9 @@
 
 .buttonWithdraw {
   padding: 17px 43px;
+  width: auto;
   border-radius: 10px;
-  height: 55px;
+  height: 52px;
 }
 
 .contentBetween {
@@ -82,8 +83,100 @@
 .btn {
   font-size: 18px;
   font-weight: bold;
+  width: auto;
+  padding: 0;
 }
 
 .text {
   color: $colorOpacityText;
+}
+
+.titleLive {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.subTitleLive {
+  opacity: .8;
+}
+
+.btnEdit {
+  background: transparent;
+  padding: 0;
+  width: auto;
+}
+
+.blockLive {
+  justify-content: space-between;
+  margin-bottom: 12px;
+  min-width: 455px;
+
+  & + .blockLive {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $colorLine;
+    margin-bottom: 20px;
+  }
+}
+
+.contentFlexStart {
+  align-items: flex-start;
+}
+
+.infoPrice {
+  margin-bottom: 11px;
+  display: flex;
+  position: relative;
+}
+.firstPrice {
+  color: $colorGreyLink;
+}
+
+.thirdPrice {
+  opacity: .5;
+}
+
+.firstPrice,
+.secondPrice,
+.thirdPrice{
+  margin-right: 42px;
+
+  &.activePrice {
+    margin-left: 8px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      background: $colorButtons;
+      border-radius: 50%;
+    }
+  }
+}
+
+.finance,
+.findings {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.finance {
+  margin-left: 30px;
+}
+
+.findings {
+  padding-right: 45px;
+
+  & + .findings {
+    margin-top: 6px;
+    margin-bottom: 40px;
+  }
+}
+
+.opacityTextFindings {
+  opacity: .3;
+  min-width: 175px;
 }

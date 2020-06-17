@@ -1,6 +1,6 @@
 import React from 'react';
 import IconLogo from '../../static/svg/EF.svg';
-import IconDumbbell from '../../static/svg/fdsfs.svg';
+import IconDumbbell from '../../static/svg/fdsf.svg';
 import IconVideo from '../../static/svg/film.svg';
 import Button from '../../UI-Kit/Button/Button';
 import styles from './Header.scss';
@@ -13,7 +13,7 @@ const Header = () => (
         <span className={styles.logoText}>Тренер</span>
       </a>
       <div className={styles.headerBlockInfo}>
-        <IconDumbbell className={styles.icon} />
+        <IconDumbbell className={styles.iconOpacity} />
         <p>У тебя есть 1 бесплатный: Групповой Live</p>
         <Button classNameWrapper={styles.headerBtn} type="button">
           Провести

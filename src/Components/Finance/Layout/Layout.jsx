@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
 import Withdraw from '../Withdraw/Withdraw';
@@ -75,15 +76,15 @@ const Layout = ({ openPopup }) => (
           <div>
             <div className={cx(styles.flex, styles.blockLive)}>
               <p className={styles.subTitleLive}>25 клиентов</p>
-              <Button type="button" viewType="grey" classNameWrapper={styles.btnEdit}>
+              <Link to="/pricing" className={styles.btnEdit}>
                 Изменить
-              </Button>
+              </Link>
             </div>
             <div className={cx(styles.flex, styles.blockLive)}>
               <p className={styles.subTitleLive}>2ч 30м занятие</p>
-              <Button type="button" viewType="grey" classNameWrapper={styles.btnEdit}>
+              <Link to="/pricing" className={styles.btnEdit}>
                 Изменить
-              </Button>
+              </Link>
             </div>
             <div className={styles.infoPrice}>
               <p className={cx(styles.activePrice, styles.firstPrice)}>1 месяц</p>

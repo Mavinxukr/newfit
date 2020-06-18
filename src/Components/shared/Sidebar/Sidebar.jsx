@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Button from '../../UI-Kit/Button/Button';
+import Button from '../../../UI-Kit/Button/Button';
 import styles from './Sidebar.scss';
 
 const Sidebar = ({ image }) => (

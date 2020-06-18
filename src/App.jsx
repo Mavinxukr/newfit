@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import Main from './Pages/Main/Main';
+import Finance from './Pages/Finance/Finance';
 import configureStore from './store';
 import history from './history';
 import './index.scss';
@@ -16,7 +16,7 @@ const App = () => (
         <Route
           exact
           path="/"
-          component={Main}
+          component={Finance}
         />
       </Switch>
     </ConnectedRouter>

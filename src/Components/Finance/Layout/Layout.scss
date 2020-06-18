@@ -33,15 +33,12 @@
 .buttonWithdraw {
   padding: 17px 43px;
   width: auto;
-  border-radius: 10px;
-  height: 52px;
 }
 
 .contentBetween {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
-  min-height: 76px;
   border-bottom: 1px solid $colorLine;
 }
 
@@ -82,9 +79,12 @@
 
 .btn {
   font-size: 18px;
-  font-weight: bold;
   width: auto;
   padding: 0;
+
+  &:hover {
+    color: $colorContent;
+  }
 }
 
 .text {

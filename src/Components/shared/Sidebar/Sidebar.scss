@@ -1,15 +1,22 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
+.wrapper {
+  max-width: 300px;
+  width: 100%;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  left: 0;
   max-width: 300px;
   width: 100%;
   min-height: 91.7vh;
   text-align: center;
-  position: relative;
   border-right: 1px solid $colorBorder;
+  z-index: 9997;
 }
 
 .avatarBlock {
@@ -35,7 +42,7 @@
 }
 
 .mailLink {
-  color: $colorGreyLink;
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink)
 }
 
 .menu {
@@ -76,6 +83,17 @@
   }
 }
 
+.menuLinkNoActive {
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noActiveLink {
+  @include styleForText(18px, $fontMain, $colorGreyLink);
+}
+
 .activeLink {
   opacity: 1;
   background: $colorAvatarBackground;
@@ -104,5 +122,4 @@
   opacity: .8;
   font-size: 18px;
   padding: 17px;
-  border-radius: 10px;
 }

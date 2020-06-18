@@ -19,6 +19,7 @@ const Button = ({
     [styles.buttonGrey]: viewType === 'grey',
     [styles.buttonGreen]: viewType === 'green',
     [styles.buttonWhite]: viewType === 'white',
+    [styles.buttonSmallGreen]: viewType === 'smallGreen',
   });
 
   return (
@@ -40,7 +41,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   type: PropTypes.string,
-  viewType: PropTypes.oneOf(['white', 'black', 'grey', 'green']),
+  viewType: PropTypes.oneOf(['white', 'black', 'grey', 'green', 'smallGreen']),
   disabled: PropTypes.bool,
 };
 

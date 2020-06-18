@@ -11,9 +11,9 @@ const Login = ({
 }) => (
   <form className={styles.loginForm} onSubmit={handleSubmit}>
     <h2 className={styles.loginTitle}>С возвращением</h2>
-    <Button classNameWrapper={styles.bntBack} type="button">
+    <button className={styles.bntBack} type="button">
       <IconArrowBack />
-    </Button>
+    </button>
     <Field
       name="email"
       type="email"

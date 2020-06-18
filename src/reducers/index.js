@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import { contacts } from './contacts';
+import { auth } from './auth';
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
-  contacts,
+  contacts: auth,
 });
 export default createRootReducer;

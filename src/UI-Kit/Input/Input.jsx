@@ -26,7 +26,7 @@ const Input = ({
 
   return (
     <div className={styles.inputWrapper}>
-      {viewType === 'entry'
+      {viewType === 'entry' && name !== 'name'
        && (status === 'noActive' || !isError)
        && (
        <OkIcon className={cx(styles.icon, {

@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 9998;
 }
 
 .popup {
@@ -18,7 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: $colorWhite;
-  z-index: 100;
+  z-index: 9999;
   border-radius: 10px;
   overflow: auto;
 }

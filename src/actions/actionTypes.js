@@ -1,2 +1,1 @@
-export const ASYNC_INC = 'ASYNC_INC';
-export const ASYNC_DEC = 'ASYNC_DEC';
+export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';

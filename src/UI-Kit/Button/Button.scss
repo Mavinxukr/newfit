@@ -34,11 +34,17 @@
   }
 }
 
-.buttonGreen {
+.buttonGreen,
+.buttonSmallGreen {
   color: $colorWhite;
   background: $colorButtons;
 
   &:hover {
     background-color: #51A563;
   }
+}
+
+.buttonSmallGreen {
+  padding: 15px 0 16px;
+  font-size: 18px;
 }

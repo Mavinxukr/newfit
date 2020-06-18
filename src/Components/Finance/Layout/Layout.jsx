@@ -1,9 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
+import Withdraw from '../Withdraw/Withdraw';
+import withPopup from '../../../HOC/withPopup';
 import styles from './Layout.scss';
 
-const Layout = () => (
+const Layout = ({ openPopup }) => (
   <div className={styles.mainContent}>
     <h3>Финансы</h3>
     <div className={styles.contentInfo}>
@@ -12,7 +15,16 @@ const Layout = () => (
           <p className={styles.balance}>18 990,89₴</p>
           <span className={styles.opacityText}>На вашем аккаунте</span>
         </div>
-        <Button classNameWrapper={styles.buttonWithdraw} type="button" viewType="green">
+        <Button
+          classNameWrapper={styles.buttonWithdraw}
+          type="button"
+          viewType="green"
+          onClick={() => {
+            openPopup({
+              PopupContentComponent: Withdraw,
+            });
+          }}
+        >
           Вывести
         </Button>
       </div>
@@ -27,7 +39,7 @@ const Layout = () => (
             <p>6 314,00₴</p>
           </div>
           <div className={styles.findings}>
-            <p>2 Апр, 20201</p>
+            <p>2 Апр, 2020</p>
             <p>Ethan Pierce … 9301</p>
             <p className={styles.opacityTextFindings} />
             <p>2 522,10₴</p>
@@ -36,7 +48,7 @@ const Layout = () => (
         <div className={styles.contentMoreInfo}>
           <h5 className={styles.title}>Доходы</h5>
           <div className={styles.finance}>
-            <p>Вывод</p>
+            <p>с 25 Июнь, 2019</p>
             <p>Hardcore Crossfit</p>
             <p>+ 54 009,24₴</p>
           </div>
@@ -105,4 +117,8 @@ const Layout = () => (
   </div>
 );
 
-export default Layout;
+Layout.propTypes = {
+  openPopup: PropTypes.func,
+};
+
+export default withPopup(Layout);

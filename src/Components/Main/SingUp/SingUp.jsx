@@ -22,13 +22,13 @@ const SingUp = ({
       <p className={styles.username}>@ethpierce</p>
     </div>
     )}
-    <Button
-      classNameWrapper={styles.bntBack}
+    <button
+      className={styles.bntBack}
       type="button"
       onClick={() => setStatus('entry')}
     >
       <IconArrowBack />
-    </Button>
+    </button>
     <Field
       name="email"
       type="email"

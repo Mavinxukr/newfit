@@ -1,0 +1,49 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px 0 39px;
+  border-bottom: 1px solid $colorBorder;
+}
+
+.opacityText {
+  opacity: .5;
+}
+
+.logoText {
+  font-style: italic;
+  font-size: 18px;
+}
+
+.headerSocial {
+  display: flex;
+  align-items: center;
+}
+
+.socialText {
+  margin-right: 15px;
+  opacity: .5;
+}
+
+.headerLink {
+  margin: 0 12.5px;
+}
+
+.socialLink {
+  margin-left: 5px;
+  border: 1px solid $colorSocialLink;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

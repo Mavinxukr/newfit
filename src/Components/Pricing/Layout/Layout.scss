@@ -73,3 +73,32 @@
 .footerIcon {
   margin-left: 40px;
 }
+
+.activeSocial {
+  opacity: .3;
+  margin-right: 70px;
+}
+
+.footerSocialButton {
+  display: none;
+  margin-right: 15px;
+  width: 70px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255,255,255, 0.2);
+  border-radius: 10px;
+  transition: all .3s;
+
+  &.active {
+    display: flex;
+  }
+
+  &:hover {
+    background: $colorWhite;
+
+    svg path {
+      fill: $colorButtons;
+    }
+  }
+}

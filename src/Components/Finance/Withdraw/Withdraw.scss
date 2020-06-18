@@ -1,0 +1,32 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.cardNumber {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.name {
+  @include styleForText($fontSizeContent, $fontAdditional);
+
+  margin-top: 3px;
+}
+
+.buttonOutput {
+  margin-top: 40px;
+  width: 158px;
+}

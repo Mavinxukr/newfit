@@ -4,7 +4,7 @@ import Layout from '../../Components/Finance/Layout/Layout';
 import Header from '../../Components/shared/Header/Header';
 import Sidebar from '../../Components/shared/Sidebar/Sidebar';
 import styles from './Finance.scss';
-import withPopup from '../../HOC/withPopup';
+// import withPopup from '../../HOC/withPopup';
 // import Login from '../../Components/Main/Login/Login';
 // import SingUp from '../../Components/Main/SingUp/SingUp';
 
@@ -28,4 +28,4 @@ const Finance = () => (
   </>
 );
 
-export default withPopup(Finance);
+export default Finance;

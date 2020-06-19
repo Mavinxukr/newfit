@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from '../../../UI-Kit/Button/Button';
+<<<<<<< HEAD
 import PricingNav from '../../shared/PricingNav/PricingNav';
 import Select from '../../../UI-Kit/Select/Select';
+=======
+import Accordion from '../../../UI-Kit/Accordion/Accordion';
+>>>>>>> bc1cc962acc9c83634ea2d21b182b3d0afa079ea
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
@@ -82,6 +86,15 @@ const Layout = () => {
           defaultValue={{ value: 'до 2ч занятие', label: 'до 2ч занятие' }}
           classNameWrapper={styles.selectWrapper}
         />
+        <Accordion title="dasdas">
+          dasdasda
+        </Accordion>
+        <Accordion title="dasds">
+          asdas
+        </Accordion>
+        <Accordion title="daas">
+          asdas
+        </Accordion>
       </main>
       <footer className={styles.footer}>
         <Button

@@ -1,0 +1,43 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.accordionSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  color: $colorContent;
+  padding: 0;
+  height: 31px;
+}
+
+.accordionContent {
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  opacity: 0;
+}
+
+.activeContent {
+  opacity: .6;
+}
+
+.icon {
+  position: relative;
+  transform: rotate(-90deg);
+  transition: transform 0.6s ease;
+}
+
+.iconRotate {
+  transform: rotate(0);
+}
+
+.active {
+  padding: 20px;
+  margin-right: 0;
+  background: $colorAvatarBackground;
+}

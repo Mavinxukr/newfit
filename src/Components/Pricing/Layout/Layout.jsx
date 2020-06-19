@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from '../../../UI-Kit/Button/Button';
-import Accordion from '../../../UI-Kit/Accordion/Accordion';
+import Curses from '../Curses/Curses';
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
@@ -11,6 +11,7 @@ import IconFooterFacebook from '../../../static/svg/facebook.svg';
 import IconFooterTelegram from '../../../static/svg/telegram.svg';
 import IconFooterEmail from '../../../static/svg/email.svg';
 import IconFooterArrow from '../../../static/svg/footerArrow.svg';
+import { curses } from '../data';
 import styles from './Layout.scss';
 
 const Layout = () => {
@@ -45,15 +46,7 @@ const Layout = () => {
         </div>
       </header>
       <main className={styles.content}>
-        <Accordion title="dasdas">
-          dasdasda
-        </Accordion>
-        <Accordion title="dasds">
-          asdas
-        </Accordion>
-        <Accordion title="daas">
-          asdas
-        </Accordion>
+        <Curses data={curses} />
       </main>
       <footer className={styles.footer}>
         <Button

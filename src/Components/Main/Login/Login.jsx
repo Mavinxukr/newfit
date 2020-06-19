@@ -4,14 +4,19 @@ import { Field, reduxForm } from 'redux-form';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
 import IconArrowBack from '../../../static/svg/BackArrow.svg';
+import { AUTH_STATUSES } from '../../../constans';
 import styles from './Login.scss';
 
 const Login = ({
-  handleSubmit, submitting, invalid, dirty,
+  handleSubmit, submitting, invalid, dirty, dispatch, setAuthStatus,
 }) => (
   <form className={styles.loginForm} onSubmit={handleSubmit}>
     <h2 className={styles.loginTitle}>С возвращением</h2>
-    <button className={styles.bntBack} type="button">
+    <button
+      className={styles.bntBack}
+      type="button"
+      onClick={() => dispatch(setAuthStatus(AUTH_STATUSES.entry))}
+    >
       <IconArrowBack />
     </button>
     <Field
@@ -54,6 +59,8 @@ Login.propTypes = {
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
   dirty: PropTypes.bool,
+  dispatch: PropTypes.bool,
+  setAuthStatus: PropTypes.bool,
 };
 
 export default reduxForm({

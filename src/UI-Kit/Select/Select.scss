@@ -1,0 +1,17 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectButton {
+  padding: 12px 55px 13px 20px;
+  font-size: 20px;
+  background-color: $colorAvatarBackground;
+  position: relative;
+
+  &:after {
+    position: absolute;
+  }
+}

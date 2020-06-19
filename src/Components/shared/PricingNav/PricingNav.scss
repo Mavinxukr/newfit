@@ -1,0 +1,29 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.navWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 43px;
+}
+
+.line,
+.navLink {
+  @include styleForText(30px, $fontMain, $colorGreyLink)
+}
+
+.navLink {
+  padding-bottom: 3px;
+}
+
+.navLinkActive {
+  color: $colorButtons;
+  border-bottom: 1px solid $colorButtons;
+}
+
+.line {
+  padding-left: 20px;
+  padding-right: 26px;
+}

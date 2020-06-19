@@ -1,6 +1,11 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
+.headerWrapper {
+  height: 80px;
+  width: 100%;
+}
+
 .header {
   position: fixed;
   background: $colorWhite;
@@ -13,6 +18,7 @@
   justify-content: space-between;
   padding: 0 60px 0 39px;
   border-bottom: 1px solid $colorBorder;
+  z-index: 999;
 }
 
 .opacityText {
@@ -21,8 +27,8 @@
 
 .logoText {
   font-style: italic;
-  font-size: 18px;
-  font-family: 'InterSemiBold';
+
+  @include styleForText($fontSizeBigText, $fontSemiBold);
 }
 
 .headerSocial {
@@ -51,7 +57,36 @@
 }
 
 .content {
-  margin-top: 160px;
+  @include container(1630px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.buttonExit {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorAvatarBackground;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+}
+
+.descLive {
+  width: 635px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.selectWrapper {
+  margin-bottom: 50px;
 }
 
 .footer {

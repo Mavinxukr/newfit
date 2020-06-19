@@ -4,6 +4,6 @@ import { auth } from './auth';
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
-  contacts: auth,
+  auth,
 });
 export default createRootReducer;

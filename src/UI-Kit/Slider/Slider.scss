@@ -1,0 +1,16 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  width: 100%;
+}
+
+.thumb {
+  top: -13px;
+}
+
+.track {
+  height: 5px;
+  border-radius: 47px;
+  background-color: $colorButtons;
+}

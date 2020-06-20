@@ -15,14 +15,15 @@ const Select = ({
         onClick={() => setIsOpenSelect(!isOpenSelect)}
         className={styles.selectButton}
       >
-        {defaultValue && defaultValue.label || value && value.label}
+        {value && value.label || defaultValue && defaultValue.label}
       </button>
       {isOpenSelect && (
-        <ul>
+        <ul className={styles.options}>
           {options && options.map((item) => (
-            <li key={item.value}>
+            <li key={item.value} className={styles.item}>
               <button
                 type="button"
+                className={styles.button}
                 onClick={() => {
                   setValue(item);
                   setIsOpenSelect(false);
@@ -31,10 +32,10 @@ const Select = ({
                 {item.label}
               </button>
             </li>
-          ))}
+          )) || (
+            <p>нет опций</p>
+          )}
         </ul>
-      ) || (
-        <p>нет опций</p>
       )}
     </div>
   );
@@ -48,7 +49,7 @@ Select.propTypes = {
   setValue: PropTypes.func,
   value: PropTypes.bool,
   classNameWrapper: PropTypes.string,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.object,
 };
 
 export default Select;

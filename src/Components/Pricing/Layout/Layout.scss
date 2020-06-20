@@ -13,6 +13,7 @@
   left: 0;
   right: 0;
   height: 80px;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,6 +87,51 @@
 
 .selectWrapper {
   margin-bottom: 50px;
+}
+
+.line {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: $colorContent;
+  opacity: 0.1;
+}
+
+.selectPlanWrapper {
+  margin-top: 40px;
+  border: 1px solid $colorGreyLink;
+  border-radius: 47px;
+}
+
+.buttonSelectPlan {
+  @include styleForText(20px, $fontMain, $colorGreyLink);
+
+  margin: 0 35px;
+  padding: 20px 0;
+}
+
+.buttonSelectPlanActive {
+  color: $colorContent;
+  border-bottom: 2px solid $colorContent;
+}
+
+.cardsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.smallCard {
+  border: 2px solid #0E0E0E0D;
+  background-color: $colorAvatarBackground;
+  width: 456px;
+}
+
+.bigCard {
+  border: 3px solid $colorAvatarBackground;
+  width: 604px;
 }
 
 .footer {

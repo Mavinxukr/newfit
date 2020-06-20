@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from '../../../UI-Kit/Button/Button';
-<<<<<<< HEAD
 import PricingNav from '../../shared/PricingNav/PricingNav';
 import Select from '../../../UI-Kit/Select/Select';
-=======
-import Accordion from '../../../UI-Kit/Accordion/Accordion';
->>>>>>> bc1cc962acc9c83634ea2d21b182b3d0afa079ea
+import Card from '../Card/Card';
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
@@ -17,6 +14,9 @@ import IconFooterTelegram from '../../../static/svg/telegram.svg';
 import IconFooterEmail from '../../../static/svg/email.svg';
 import IconFooterArrow from '../../../static/svg/footerArrow.svg';
 import IconExit from '../../../static/svg/Group150.svg';
+import imageCardOne from '../../../static/images/01.png';
+import imageCardTwo from '../../../static/images/02.png';
+import imageCardThree from '../../../static/images/03.png';
 import styles from './Layout.scss';
 
 const arrOptionsTimes = [
@@ -37,6 +37,7 @@ const arrOptionsTimes = [
 const Layout = () => {
   const [activeSocialButton, setIsActiveSocialButton] = useState(false);
   const [valueSelect, setValueSelect] = useState(null);
+  const [countParticipant, setCountParticipant] = useState(10);
 
   const classNameFooterButton = cx(styles.footerSocialButton, {
     [styles.active]: activeSocialButton,
@@ -86,15 +87,37 @@ const Layout = () => {
           defaultValue={{ value: 'до 2ч занятие', label: 'до 2ч занятие' }}
           classNameWrapper={styles.selectWrapper}
         />
-        <Accordion title="dasdas">
-          dasdasda
-        </Accordion>
-        <Accordion title="dasds">
-          asdas
-        </Accordion>
-        <Accordion title="daas">
-          asdas
-        </Accordion>
+        <hr className={styles.line} />
+        <div className={styles.selectPlanWrapper}>
+          <button type="button" className={styles.buttonSelectPlan}>1 Месяц</button>
+          <button type="button" className={cx(styles.buttonSelectPlan, styles.buttonSelectPlanActive)}>2 Месяца -3%</button>
+          <button type="button" className={styles.buttonSelectPlan}>3 Месяца -5%</button>
+        </div>
+        <div className={styles.cardsWrapper}>
+          <Card
+            classNameWrapper={styles.smallCard}
+            discount={3}
+            countParticipant={10}
+            price={4.5}
+            imageSrc={imageCardOne}
+          />
+          <Card
+            classNameWrapper={styles.smallCard}
+            discount={3}
+            countParticipant={25}
+            price={8}
+            imageSrc={imageCardTwo}
+          />
+          <Card
+            classNameWrapper={styles.bigCard}
+            discount={3}
+            countParticipant={countParticipant}
+            price={countParticipant * 2}
+            setCountParticipant={setCountParticipant}
+            imageSrc={imageCardThree}
+            isBigCard
+          />
+        </div>
       </main>
       <footer className={styles.footer}>
         <Button

@@ -29,14 +29,14 @@ const PricingNav = () => {
         });
 
         return (
-          <>
-            <Link to={item.href} key={item.title} className={classNameForLink}>
+          <div key={item.title}>
+            <Link to={item.href} className={classNameForLink}>
               {item.title}
             </Link>
             {index !== arrLinks.length - 1 && (
               <span className={styles.line}>/</span>
             )}
-          </>
+          </div>
         );
       })}
     </div>

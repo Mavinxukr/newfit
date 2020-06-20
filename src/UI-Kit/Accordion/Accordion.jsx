@@ -26,19 +26,17 @@ const Accordion = ({ title, children, classNameWrapper }) => {
   });
 
   return (
-    <div ref={sensitive}>
-      <div className={cx(styles.accordionSection, classNameWrapper, { [styles.active]: active })}>
-        <Button type="button" classNameWrapper={styles.accordion} onClick={toggleAccordion}>
-          <p>{title}</p>
-          <IconArrow className={cx(styles.icon, { [styles.iconRotate]: active })} />
-        </Button>
-        <div
-          ref={content}
-          style={{ maxHeight: `${height}` }}
-          className={cx(styles.accordionContent, { [styles.activeContent]: active })}
-        >
-          {children}
-        </div>
+    <div className={cx(styles.accordionSection, classNameWrapper, { [styles.active]: active })} ref={sensitive}>
+      <Button type="button" classNameWrapper={styles.accordion} onClick={toggleAccordion}>
+        <p>{title}</p>
+        <IconArrow className={cx(styles.icon, { [styles.iconRotate]: active })} />
+      </Button>
+      <div
+        ref={content}
+        style={{ maxHeight: `${height}` }}
+        className={cx(styles.accordionContent, { [styles.activeContent]: active })}
+      >
+        {children}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Button from '../../../UI-Kit/Button/Button';
 import PricingNav from '../../shared/PricingNav/PricingNav';
 import Select from '../../../UI-Kit/Select/Select';
 import Card from '../Card/Card';
+import Curses from '../Curses/Curses';
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
@@ -17,6 +18,7 @@ import IconExit from '../../../static/svg/Group150.svg';
 import imageCardOne from '../../../static/images/01.png';
 import imageCardTwo from '../../../static/images/02.png';
 import imageCardThree from '../../../static/images/03.png';
+import { curses } from '../data';
 import styles from './Layout.scss';
 
 const arrOptionsTimes = [
@@ -118,6 +120,7 @@ const Layout = () => {
             isBigCard
           />
         </div>
+        <Curses data={curses} />
       </main>
       <footer className={styles.footer}>
         <Button

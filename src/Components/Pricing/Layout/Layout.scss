@@ -19,7 +19,6 @@
   justify-content: space-between;
   padding: 0 60px 0 39px;
   border-bottom: 1px solid $colorBorder;
-  z-index: 999;
 }
 
 .opacityText {
@@ -30,6 +29,12 @@
   font-style: italic;
 
   @include styleForText($fontSizeBigText, $fontSemiBold);
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  margin-left: -117px;
 }
 
 .headerSocial {
@@ -90,12 +95,17 @@
   margin-bottom: 50px;
 }
 
+.lineTwo,
 .line {
   width: 100%;
   border: none;
   height: 1px;
   background-color: $colorContent;
   opacity: 0.1;
+}
+
+.lineTwo {
+  margin-top: 180px;
 }
 
 .selectPlanWrapper {
@@ -130,9 +140,55 @@
   width: 456px;
 }
 
+.smallCardActive {
+  background: #E9F2EB 0 0 no-repeat padding-box;
+  box-shadow: 0 20px 50px #56AF691A;
+  border: 2px solid $colorButtons;
+  margin-top: -25px;
+}
+
 .bigCard {
   border: 3px solid $colorAvatarBackground;
   width: 604px;
+}
+
+.titleWrapper {
+  position: relative;
+  margin-top: 180px;
+}
+
+.title {
+  width: 944px;
+  font-size: 56px;
+  text-align: center;
+}
+
+.linkToOpportunities {
+  @include styleForText(24px, $fontMain, $colorGreyLink);
+
+  position: absolute;
+  right: -247px;
+  top: 33px;
+  height: 69px;
+}
+
+.count {
+  @include styleForText(24px, $fontMain, $colorAvatarBackground);
+
+  position: absolute;
+  color: #e2e2e2;
+  top: 40px;
+}
+
+.linkIcon {
+  position: absolute;
+  top: 43px;
+  right: 2px;
+}
+
+.tabsWrapper {
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .footer {

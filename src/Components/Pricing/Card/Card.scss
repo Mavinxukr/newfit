@@ -31,6 +31,10 @@
   }
 }
 
+.titleActive::before {
+  content: "";
+}
+
 .sliderWrapper {
   margin-top: 33px;
 }
@@ -90,6 +94,21 @@
   margin-top: 16px;
 
   @include styleForText($fontSizeBigText, $fontAdditional, $colorGreyLink);
+}
+
+.bigCountPartsContent {
+  margin-top: 40px;
+}
+
+.bigCountPartsTitle {
+  width: 482px;
+  text-align: center;
+}
+
+.bigCountPartsDesc {
+  margin-top: 21px;
+  color: $colorGreyLink;
+  text-align: center;
 }
 
 .button {

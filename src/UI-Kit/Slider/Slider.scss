@@ -3,14 +3,17 @@
 
 .wrapper {
   width: 100%;
+  height: 20px
 }
 
 .thumb {
   top: -13px;
+  background-color: $colorWhite;
+  border-radius: 50px;
 }
 
 .track {
   height: 5px;
   border-radius: 47px;
-  background-color: $colorButtons;
+  //background-color: $colorButtons;
 }

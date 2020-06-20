@@ -1,0 +1,55 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabButtonWrapper {
+  padding: 10px 50px;
+  border-left: 1px solid $colorGreyLink;
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+.tabButtonWrapperActive {
+  border-left: none;
+  padding: 0 15px 0 0;
+
+  & + .tabButtonWrapper {
+    border-left: none;
+  }
+}
+
+.tabButton {
+  @include styleForText();
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    background-color: $colorButtons;
+    opacity: 0.3;
+    border-radius: 45px;
+    left: -24px;
+  }
+}
+
+.tabButtonActive {
+  padding: 20px 30px 20px 48px;
+  background-color: $colorButtons;
+  color: $colorWhite;
+  border-radius: 10px;
+
+  &::before {
+    content: url("../../static/svg/Group1298.svg");
+    left: 21px;
+  }
+}

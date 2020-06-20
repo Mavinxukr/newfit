@@ -17,7 +17,12 @@ const Card = ({
   <article className={cx(styles.wrapper, classNameWrapper)}>
     <img className={styles.image} src={imageSrc} alt={imageSrc} />
     <div className={styles.content}>
-      <h3 className={styles.title}>{countParticipant} участников</h3>
+      <h3 className={cx(styles.title, {
+        [styles.titleActive]: countParticipant > 100,
+      })}
+      >
+        {countParticipant > 100 && 'Больше'} {countParticipant <= 100 && countParticipant || 100} участников
+      </h3>
       {isBigCard && (
         <Slider
           setCountParticipant={setCountParticipant}
@@ -26,25 +31,36 @@ const Card = ({
         />
       )}
       <hr className={styles.line} />
-      <div className={cx(styles.pricingWrapper, {
-        [styles.pricingWrapperBigCard]: isBigCard,
-      })}
-      >
-        <p className={cx(styles.price, {
-          [styles.priceBigCard]: isBigCard,
+      {countParticipant <= 100 && (
+        <div className={cx(styles.pricingWrapper, {
+          [styles.pricingWrapperBigCard]: isBigCard,
         })}
         >
-          <span className={styles.priceDiscount}>-{discount}%</span>
-          <span className={styles.priceCount}>{price}$</span>
-          <span className={styles.pricePeriod}>/ месяц</span>
-        </p>
-        <p className={styles.offer}>Докупить за 0,10$ / 1 участник</p>
-      </div>
+          <p className={cx(styles.price, {
+            [styles.priceBigCard]: isBigCard,
+          })}
+          >
+            <span className={styles.priceDiscount}>-{discount}%</span>
+            <span className={styles.priceCount}>{price}$</span>
+            <span className={styles.pricePeriod}>/ месяц</span>
+          </p>
+          <p className={styles.offer}>Докупить за 0,10$ / 1 участник</p>
+        </div>
+      ) || (
+        <div className={styles.bigCountPartsContent}>
+          <h4 className={styles.bigCountPartsTitle}>
+            Сформировать подписку с менеджером с дополнительной скидкой
+          </h4>
+          <p className={styles.bigCountPartsDesc}>-10% от обычной подписки</p>
+        </div>
+      )}
       <Button
         classNameWrapper={styles.button}
         viewType="green"
       >
-        Купить подписку до {countParticipant} участников
+        {countParticipant <= 100
+        && `Купить подписку до ${countParticipant} участников`
+        || 'Отправить заявку менеджеру'}
       </Button>
     </div>
   </article>

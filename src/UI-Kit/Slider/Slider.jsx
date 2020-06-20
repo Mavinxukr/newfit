@@ -2,14 +2,14 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import ReactSlider from 'react-slider';
-import IconThumb from '../../static/svg/Group2840.svg';
+import IconThumb from '../../static/svg/Group284.svg';
 import styles from './Slider.scss';
 
 const Slider = ({ defaultValue, classNameWrapper, setCountParticipant }) => (
   <ReactSlider
     className={cx(styles.wrapper, classNameWrapper)}
     defaultValue={defaultValue}
-    step={1}
+    step={5}
     onChange={(value) => setCountParticipant(value)}
     renderThumb={(props) => (
       <button type="button" {...props}> {/*eslint-disable-line*/}
@@ -17,9 +17,20 @@ const Slider = ({ defaultValue, classNameWrapper, setCountParticipant }) => (
       </button>
     )}
     thumbClassName={styles.thumb}
-    trackClassName={styles.track}
-    min={1}
-    max={100}
+    renderTrack={(props, state) => (
+      <div
+          {...props} /*eslint-disable-line*/
+        style={{
+            ...props.style, /*eslint-disable-line*/
+          background: state.index === 1 && '#b1b1b1' || '#56af69',
+          height: '6px',
+          borderRadius: '50px',
+        }}
+      />
+    )}
+    min={30}
+    max={105}
+    withTracks
   />
 );
 

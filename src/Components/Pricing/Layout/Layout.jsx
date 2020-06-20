@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from '../../../UI-Kit/Button/Button';
 import PricingNav from '../../shared/PricingNav/PricingNav';
 import Select from '../../../UI-Kit/Select/Select';
 import Card from '../Card/Card';
 import Curses from '../Curses/Curses';
+import Tabs from '../../../UI-Kit/Tabs/Tabs';
+import { setTabIndex } from '../../../actions/pricingTab';
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
@@ -18,7 +21,8 @@ import IconExit from '../../../static/svg/Group150.svg';
 import imageCardOne from '../../../static/images/01.png';
 import imageCardTwo from '../../../static/images/02.png';
 import imageCardThree from '../../../static/images/03.png';
-import { curses } from '../data';
+import IconLink from '../../../static/svg/Group2072.svg';
+import { curses, cursesTwo } from '../data';
 import styles from './Layout.scss';
 
 const arrOptionsTimes = [
@@ -36,10 +40,21 @@ const arrOptionsTimes = [
   { value: '8ч', label: '8ч' },
 ];
 
+const cursesData = [curses, cursesTwo, curses];
+
+const tabs = ['Групповое занятие', 'Промо-сайт занятия', 'Финансы'];
+
+const arrButtons = ['1 Месяц', '2 Месяца -3%', '2 Месяца -3%'];
+
 const Layout = () => {
   const [activeSocialButton, setIsActiveSocialButton] = useState(false);
   const [valueSelect, setValueSelect] = useState(null);
-  const [countParticipant, setCountParticipant] = useState(10);
+  const [countParticipant, setCountParticipant] = useState(30);
+  const [indexButton, setIndexButton] = useState(1);
+
+  const indexTab = useSelector((state) => state.pricingTab.index);
+
+  const dispatch = useDispatch();
 
   const classNameFooterButton = cx(styles.footerSocialButton, {
     [styles.active]: activeSocialButton,
@@ -53,7 +68,7 @@ const Layout = () => {
             <IconLogo />
             <span className={styles.logoText}>Тренер</span>
           </Link>
-          <div>
+          <div className={styles.nav}>
             <a className={styles.headerLink} href="/">Подписки</a>
             <a className={cx(styles.headerLink, styles.opacityText)} href="/">Возможности</a>
           </div>
@@ -91,9 +106,17 @@ const Layout = () => {
         />
         <hr className={styles.line} />
         <div className={styles.selectPlanWrapper}>
-          <button type="button" className={styles.buttonSelectPlan}>1 Месяц</button>
-          <button type="button" className={cx(styles.buttonSelectPlan, styles.buttonSelectPlanActive)}>2 Месяца -3%</button>
-          <button type="button" className={styles.buttonSelectPlan}>3 Месяца -5%</button>
+          {arrButtons.map((item, index) => (
+            <button
+              type="button"
+              key={index}
+              className={cx(styles.buttonSelectPlan, {
+                [styles.buttonSelectPlanActive]: indexButton === index,
+              })}
+              onClick={() => setIndexButton(index)}
+            >{item}
+            </button>
+          ))}
         </div>
         <div className={styles.cardsWrapper}>
           <Card
@@ -104,7 +127,7 @@ const Layout = () => {
             imageSrc={imageCardOne}
           />
           <Card
-            classNameWrapper={styles.smallCard}
+            classNameWrapper={cx(styles.smallCard, styles.smallCardActive)}
             discount={3}
             countParticipant={25}
             price={8}
@@ -120,7 +143,22 @@ const Layout = () => {
             isBigCard
           />
         </div>
-        <Curses data={curses} />
+        <hr className={styles.lineTwo} />
+        <div className={styles.titleWrapper}>
+          <h1 className={styles.title}>Основные возможности групповых тренировок на EasyFit</h1>
+          <a href="/" className={styles.linkToOpportunities}>
+            <span className={styles.count}>34</span>
+            Все возможности
+            <IconLink className={styles.linkIcon} />
+          </a>
+        </div>
+        <Tabs
+          classNameWrapper={styles.tabsWrapper}
+          onChange={(i) => dispatch(setTabIndex(i))}
+          activeTab={indexTab}
+          tabs={tabs}
+        />
+        <Curses data={cursesData[indexTab]} />
       </main>
       <footer className={styles.footer}>
         <Button

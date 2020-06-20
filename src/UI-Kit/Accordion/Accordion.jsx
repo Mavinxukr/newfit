@@ -2,11 +2,12 @@ import React, { useState, useRef } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import IconArrow from '../../static/svg/arrow.svg';
-import Button from '../Button/Button';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import styles from './Accordion.scss';
 
-const Accordion = ({ title, children, classNameWrapper }) => {
+const Accordion = ({
+  title, children, classNameWrapper, onClick,
+}) => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState('0px');
 
@@ -18,6 +19,7 @@ const Accordion = ({ title, children, classNameWrapper }) => {
     setHeight(
       active ? '0px' : `${content.current.scrollHeight}px`,
     );
+    onClick();
   };
 
   useOnClickOutside(sensitive, () => {
@@ -27,10 +29,10 @@ const Accordion = ({ title, children, classNameWrapper }) => {
 
   return (
     <div className={cx(styles.accordionSection, classNameWrapper, { [styles.active]: active })} ref={sensitive}>
-      <Button type="button" classNameWrapper={styles.accordion} onClick={toggleAccordion}>
-        <p>{title}</p>
+      <button type="button" className={styles.accordion} onClick={toggleAccordion}>
+        <p className={styles.text}>{title}</p>
         <IconArrow className={cx(styles.icon, { [styles.iconRotate]: active })} />
-      </Button>
+      </button>
       <div
         ref={content}
         style={{ maxHeight: `${height}` }}
@@ -46,6 +48,7 @@ Accordion.propTypes = {
   children: PropTypes.node,
   classNameWrapper: PropTypes.string,
   title: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Accordion;

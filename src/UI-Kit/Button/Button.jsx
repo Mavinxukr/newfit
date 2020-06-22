@@ -14,21 +14,13 @@ const Button = ({
 }) => {
   const TagName = href ? 'a' : 'button';
 
-  const classNameForButton = cx(cx(styles.button, classNameWrapper), {
-    [styles.buttonBlack]: viewType === 'black',
-    [styles.buttonGrey]: viewType === 'grey',
-    [styles.buttonGreen]: viewType === 'green',
-    [styles.buttonWhite]: viewType === 'white',
-    [styles.buttonSmallGreen]: viewType === 'smallGreen',
-  });
-
   return (
     <TagName
       disabled={disabled}
       href={href}
       type={type}
       onClick={onClick}
-      className={classNameForButton}
+      className={cx(styles.button, classNameWrapper, `${styles.button}_${viewType}`)}
     >
       {children}
     </TagName>

@@ -1,6 +1,10 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
+.wrapperPricing {
+  position: relative;
+}
+
 .headerWrapper {
   height: 80px;
   width: 100%;
@@ -53,13 +57,36 @@
 
 .socialLink {
   margin-left: 5px;
-  border: 1px solid $colorSocialLink;
   border-radius: 10px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:nth-child(2) {
+    border: 1px solid $colorFacebook;
+
+    &:hover {
+      background-color: $colorFacebook;
+    }
+  }
+
+  &:nth-child(3) {
+    border: 1px solid $colorTelegram;
+
+    &:hover {
+      background-color: $colorTelegram;
+    }
+  }
+
+  &:last-child {
+    border: 1px solid $colorEmail;
+
+    &:hover {
+      background-color: $colorEmail;
+    }
+  }
 }
 
 .content {
@@ -74,7 +101,7 @@
 .buttonExit {
   position: absolute;
   right: 30px;
-  top: 30px;
+  top: 102px;
   width: 50px;
   height: 50px;
   display: flex;
@@ -85,8 +112,16 @@
   border: 1px solid #e5e5e5;
 }
 
+.iconExit {
+  stroke: $colorContent;
+  stroke-width: 1.5px;
+  fill: none;
+}
+
 .descLive {
-  width: 635px;
+  font-size: 20px;
+  line-height: 28px;
+  width: 750px;
   text-align: center;
   padding-bottom: 50px;
 }
@@ -110,7 +145,7 @@
 
 .selectPlanWrapper {
   margin-top: 40px;
-  border: 1px solid $colorGreyLink;
+  border: 1px solid $colorBackground;
   border-radius: 47px;
 }
 
@@ -119,6 +154,10 @@
 
   margin: 0 35px;
   padding: 20px 0;
+
+  &:nth-child(2) {
+    margin: 0;
+  }
 }
 
 .buttonSelectPlanActive {

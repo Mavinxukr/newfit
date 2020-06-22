@@ -15,7 +15,7 @@ const Select = ({
         onClick={() => setIsOpenSelect(!isOpenSelect)}
         className={styles.selectButton}
       >
-        {value && value.label || defaultValue && defaultValue.label}
+        {`до ${value && value.label || defaultValue.label} занятие`}
       </button>
       {isOpenSelect && (
         <ul className={styles.options}>

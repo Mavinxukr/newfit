@@ -7,14 +7,17 @@ const arrLinks = [
   {
     title: 'Групповые Live',
     href: '/pricing',
+    isSoon: false,
   },
   {
     title: 'Персональные тренировки',
     href: '/',
+    isSoon: true,
   },
   {
     title: 'Курсы',
     href: '/',
+    isSoon: true,
   },
 ];
 
@@ -26,11 +29,13 @@ const PricingNav = () => {
       {arrLinks.map((item, index) => {
         const classNameForLink = cx(styles.navLink, {
           [styles.navLinkActive]: router.pathname === item.href,
+          [styles.navLinkSoon]: item.isSoon,
         });
 
         return (
           <div key={item.title}>
             <Link to={item.href} className={classNameForLink}>
+              {item.isSoon && <span className={styles.soon}>Скоро</span>}
               {item.title}
             </Link>
             {index !== arrLinks.length - 1 && (

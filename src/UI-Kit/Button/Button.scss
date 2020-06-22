@@ -9,7 +9,7 @@
   padding: 17px 0 16px;
 }
 
-.buttonWhite {
+.button_white {
   background: white;
   color: $colorButtons;
   border: 1px solid $colorButtons;
@@ -20,12 +20,12 @@
   }
 }
 
-.buttonBlack {
+.button_black {
   color: $colorWhite;
   background: $colorContent;
 }
 
-.buttonGrey {
+.button_grey {
   color: $colorGreyLink;
   background: $colorAvatarBackground;
 
@@ -34,8 +34,8 @@
   }
 }
 
-.buttonGreen,
-.buttonSmallGreen {
+.button_green,
+.button_smallGreen {
   color: $colorWhite;
   background: $colorButtons;
 
@@ -44,7 +44,7 @@
   }
 }
 
-.buttonSmallGreen {
+.button_smallGreen {
   padding: 15px 0 16px;
   font-size: 18px;
 }

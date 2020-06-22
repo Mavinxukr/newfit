@@ -12,12 +12,12 @@ import { setTabIndex } from '../../../actions/pricingTab';
 import IconLogo from '../../../static/svg/EF.svg';
 import IconFacebook from '../../../static/svg/facebook1.svg';
 import IconTelegram from '../../../static/svg/telegram1.svg';
-import IconEmail from '../../../static/svg/email1.svg';
+import IconEmail from '../../../static/svg/Group3192.svg';
 import IconFooterFacebook from '../../../static/svg/facebook.svg';
 import IconFooterTelegram from '../../../static/svg/telegram.svg';
 import IconFooterEmail from '../../../static/svg/email.svg';
 import IconFooterArrow from '../../../static/svg/footerArrow.svg';
-import IconExit from '../../../static/svg/Group150.svg';
+import IconExit from '../../../static/svg/Group66.svg';
 import imageCardOne from '../../../static/images/01.png';
 import imageCardTwo from '../../../static/images/02.png';
 import imageCardThree from '../../../static/images/03.png';
@@ -44,12 +44,12 @@ const cursesData = [curses, cursesTwo, curses];
 
 const tabs = ['Групповое занятие', 'Промо-сайт занятия', 'Финансы'];
 
-const arrButtons = ['1 Месяц', '2 Месяца -3%', '2 Месяца -3%'];
+const arrButtons = ['1 Месяц', '2 Месяца -3%', '3 Месяца -5%'];
 
 const Layout = () => {
   const [activeSocialButton, setIsActiveSocialButton] = useState(false);
   const [valueSelect, setValueSelect] = useState(null);
-  const [countParticipant, setCountParticipant] = useState(30);
+  const [countParticipant, setCountParticipant] = useState(35);
   const [indexButton, setIndexButton] = useState(1);
 
   const indexTab = useSelector((state) => state.pricingTab.index);
@@ -61,7 +61,7 @@ const Layout = () => {
   });
 
   return (
-    <>
+    <div className={styles.wrapperPricing}>
       <div className={styles.headerWrapper}>
         <header className={styles.header}>
           <Link to="/">
@@ -86,10 +86,10 @@ const Layout = () => {
           </div>
         </header>
       </div>
+      <Link to="/" className={styles.buttonExit}>
+        <IconExit className={styles.iconExit} />
+      </Link>
       <main className={styles.content}>
-        <Link to="/" className={styles.buttonExit}>
-          <IconExit />
-        </Link>
         <PricingNav />
         <p className={styles.descLive}>
           Проводите платные групповые занятия и марафоны,
@@ -101,7 +101,7 @@ const Layout = () => {
           options={arrOptionsTimes}
           setValue={setValueSelect}
           value={valueSelect}
-          defaultValue={{ value: 'до 2ч занятие', label: 'до 2ч занятие' }}
+          defaultValue={{ value: '2ч', label: '2ч' }}
           classNameWrapper={styles.selectWrapper}
         />
         <hr className={styles.line} />
@@ -180,7 +180,7 @@ const Layout = () => {
           </a>
         </Button>
       </footer>
-    </>
+    </div>
   );
 };
 

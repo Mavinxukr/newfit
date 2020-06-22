@@ -12,8 +12,15 @@
   border-radius: 50px;
 }
 
+.thumbIcon {
+  border-radius: 50%;
+
+  & g {
+    opacity: 1;
+  }
+}
+
 .track {
   height: 5px;
   border-radius: 47px;
-  //background-color: $colorButtons;
 }

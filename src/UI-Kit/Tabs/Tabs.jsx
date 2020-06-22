@@ -5,25 +5,28 @@ import styles from './Tabs.scss';
 
 const Tabs = ({
   classNameWrapper, tabs, activeTab, onChange,
-}) => (
-  <div className={cx(styles.wrapper, classNameWrapper)}>
-    {tabs.map((item, index) => (
-      <div className={cx(styles.tabButtonWrapper, {
-        [styles.tabButtonWrapperActive]: activeTab === index,
-      })}
-      >
-        <button
-          onClick={() => onChange(index)}
-          type="button"
-          className={cx(styles.tabButton, {
-            [styles.tabButtonActive]: activeTab === index,
-          })}
-        >{item}
-        </button>
+}) => {
+  const getTab = (item, index) => {
+    const isActive = activeTab === index;
+    const buttonProps = {
+      type: 'button',
+      className: cx(styles.tabButton, { [styles.tabButtonActive]: isActive }),
+      onClick: () => onChange(index),
+    };
+
+    return (
+      <div className={cx(styles.tabButtonWrapper, { [styles.tabButtonWrapperActive]: isActive })}>
+        <button {...buttonProps}>{item}</button> {/*eslint-disable-line*/}
       </div>
-    ))}
-  </div>
-);
+    );
+  };
+
+  return (
+    <div className={cx(styles.wrapper, classNameWrapper)}>
+      {tabs.map(getTab)}
+    </div>
+  );
+};
 
 Tabs.propTypes = {
   classNameWrapper: PropTypes.string,

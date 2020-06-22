@@ -9,13 +9,31 @@
   padding-bottom: 43px;
 }
 
-.line,
-.navLink {
-  @include styleForText(30px, $fontMain, $colorGreyLink)
+.line {
+  @include styleForText(30px, $fontMain, $colorGrey)
 }
 
 .navLink {
+  @include styleForText(30px, $fontMain, $colorGreyLink);
+
   padding-bottom: 3px;
+}
+
+.navLinkSoon {
+  position: relative;
+  padding-left: 53px;
+}
+
+.soon {
+  padding: 4px 5px 5px;
+  background-color: $colorAvatarBackground;
+  border-radius: 4px;
+  display: inline-block;
+  position: absolute;
+  left: -10px;
+  top: 6px;
+
+  @include styleForText(14px, $fontMain, $colorGreyDark)
 }
 
 .navLinkActive {

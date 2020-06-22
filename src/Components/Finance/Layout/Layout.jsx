@@ -10,7 +10,7 @@ import styles from './Layout.scss';
 const Layout = ({ openPopup }) => (
   <div className={styles.mainContent}>
     <h3>Финансы</h3>
-    <div className={styles.contentInfo}>
+    <div className={styles.contentInfoFinance}>
       <div className={cx(styles.flex, styles.contentBetween)}>
         <div className={styles.column}>
           <p className={styles.balance}>18 990,89₴</p>
@@ -58,7 +58,7 @@ const Layout = ({ openPopup }) => (
       </div>
     </div>
     <div className={cx(styles.flex, styles.contentFlexStart)}>
-      <div className={cx(styles.contentInfo, styles.fullWidth)}>
+      <div className={cx(styles.contentInfoFinance, styles.fullWidth)}>
         <div className={cx(styles.flex, styles.contentBetween)}>
           <div className={styles.column}>
             <h4>Мои подписки</h4>
@@ -101,7 +101,7 @@ const Layout = ({ openPopup }) => (
           </div>
         </div>
       </div>
-      <div className={cx(styles.contentInfo, styles.fullWidth)}>
+      <div className={cx(styles.contentInfoFinance, styles.fullWidth)}>
         <div className={cx(styles.flex, styles.contentBetween)}>
           <div className={styles.column}>
             <h4>Методы оплаты</h4>

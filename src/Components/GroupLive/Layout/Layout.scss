@@ -1,9 +1,13 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
-.flex {
+.flexGroupLive {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
+}
+
+.fullWidthBlock {
+  width: 100%;
 }
 
 .titlePage {
@@ -14,11 +18,30 @@
   justify-content: space-between;
 }
 
-.titleInfo{
-  border-bottom: 1px solid $colorBorder;
-  padding-bottom: 19px;
-  width: 100%;
-  margin-bottom: 30px;
+.fullWidthBlock .contentBetween + .contentBetween {
+  padding-top: 30px;
+}
+
+.marginRight {
+  margin-right: 30px;
+}
+
+.showMore {
+  color: $colorContent;
+  opacity: .2;
+  margin-left: 10px;
+}
+
+.colorGreen {
+  color: $colorButtons;
+}
+
+.medium {
+  font-family: $fontMain;
+}
+
+.mainTitle {
+  margin-right: 30px;
 }
 
 .mainContent {
@@ -28,16 +51,20 @@
 
 .firstBlock {
   padding: 30px 40px;
-  border: 1px solid $colorButtons;
   border-radius: 10px;
+  background: $colorBackground;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.greenText {
-  color: $colorButtons;
+.iconPlus {
+  transform: rotate(30deg);
+}
+
+.textLive {
   font-size: 18px;
+  font-family: $fontMain;
 }
 
 .opacityText {
@@ -55,44 +82,8 @@
   opacity: .3;
 }
 
-.posR {
-  position: relative;
-
-}
-
-.fullWidth {
-  width: 100%;
-  text-align: left;
-
-  &:first-child {
-    min-width: 320px;
-  }
-
-  &:last-child {
-    text-align: right;
-  }
-}
-
 .icon {
   margin-right: 9px;
-}
-
-.demoBtn {
-  display: flex;
-  align-items: center;
-  padding: 11px 15px 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-right: 36px;
-}
-
-
-.deleteBtn {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
 }
 
 .rightBlock {
@@ -129,4 +120,81 @@
 
 .marginBottom {
   margin-bottom: 15px;
+}
+
+.titleContentInfo {
+  text-align: left;
+  width: auto;
+}
+
+.lastTitleContentInfo {
+  margin-right: 35px;
+  width: 280px;
+  text-align: right;
+}
+
+.firstTitleContentInfo {
+  width: 360px;
+  align-items: baseline;
+}
+
+.secondTitleContentInfo {
+  width: 180px;
+}
+
+.greyBtn {
+  color: $colorContent;
+  width: auto;
+  padding: 11px 15px 10px;
+  background: $colorBackground;
+  margin-top: 12px;
+}
+
+.sizeBtn {
+  padding: 11px 15px 10px;
+  margin-top: 12px;
+  width: auto;
+
+  & + .sizeBtn {
+    margin-left: 8px;
+  }
+}
+
+.dotsItems {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: rotate(90deg) translateY(-50%);
+  width: 21px;
+  height: 5px;
+  justify-content: space-between;
+  display: flex;
+
+  .dotItem {
+    width: 5px;
+    height: 5px;
+    background: $colorGreyDark;
+    border-radius: 50%;
+  }
+}
+
+.column {
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+}
+
+.lastItem {
+  border: none;
+  padding-bottom: 0;
+}
+
+.incomeInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  & + .incomeInfo {
+    margin-top: 10px;
+  }
 }

@@ -1,12 +1,15 @@
 import React from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
+import withPopup from '../../../HOC/withPopup';
+import MorePopup from '../MorePopup/MorePopup';
 import IconCopy from '../../../static/svg/copy.svg';
 import IconEdit from '../../../static/svg/edit.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
 import styles from './Layout.scss';
 
-const Layout = () => (
+const Layout = ({ openPopup }) => (
   <div className={styles.mainContent}>
     <h3 className={styles.titlePage}>Созданные</h3>
     <div className={styles.flexGroupLive}>
@@ -44,6 +47,11 @@ const Layout = () => (
                   <Button
                     classNameWrapper={styles.greyBtn}
                     type="button"
+                    onClick={() => {
+                      openPopup({
+                        PopupContentComponent: MorePopup,
+                      });
+                    }}
                   >
                     Создать промо-сайт
                   </Button>
@@ -149,4 +157,8 @@ const Layout = () => (
   </div>
 );
 
-export default Layout;
+Layout.propTypes = {
+  openPopup: PropTypes.func,
+};
+
+export default withPopup(Layout);

@@ -4,12 +4,12 @@ import FormLayout from '../Components/Main/FormLayout/FormLayout';
 
 const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
   const [isOpenPopup, setIsOpenPopup] = useState(isOpenByDefault);
-  const [popupContent, setPopupContent] = useState(null);
+  const [popupContent, setPopupContent] = useState(isOpenByDefault);
 
   const closePopup = () => setIsOpenPopup(false);
   const openPopup = ({ PopupContentComponent }) => {
-    setIsOpenPopup(true);
     setPopupContent(<PopupContentComponent closePopup={closePopup} />);
+    setIsOpenPopup(true);
   };
 
   return (

@@ -158,6 +158,10 @@
   & + .sizeBtn {
     margin-left: 8px;
   }
+
+  &:hover svg path {
+    fill: $colorWhite;
+  }
 }
 
 .dotsItems {

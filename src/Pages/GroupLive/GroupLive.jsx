@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../Components/Lead/Layout/Layout';
+import Layout from '../../Components/GroupLive/Layout/Layout';
 import Header from '../../Components/shared/Header/Header';
 import Sidebar from '../../Components/shared/Sidebar/Sidebar';
 import styles from './GroupLive.scss';

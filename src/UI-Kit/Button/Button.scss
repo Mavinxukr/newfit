@@ -44,6 +44,18 @@
   }
 }
 
+.buttonRed {
+  border: 1px solid $colorRedDark;
+  color: $colorRedDark;
+  background: $colorWhite;
+  width: 344px;
+
+  &:hover {
+    color: $colorWhite;
+    background: $colorRedDark;
+  }
+}
+
 .buttonSmallGreen {
   padding: 15px 0 16px;
   font-size: 18px;

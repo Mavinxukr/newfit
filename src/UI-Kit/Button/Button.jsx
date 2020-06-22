@@ -20,6 +20,7 @@ const Button = ({
     [styles.buttonGreen]: viewType === 'green',
     [styles.buttonWhite]: viewType === 'white',
     [styles.buttonSmallGreen]: viewType === 'smallGreen',
+    [styles.buttonRed]: viewType === 'red',
   });
 
   return (

@@ -47,7 +47,7 @@ const Layout = ({ openPopup }) => (
           </div>
         </div>
         <div className={styles.contentMoreInfo}>
-          <h5 className={styles.title}>Доходы</h5>
+          <h5 className={styles.titleFinance}>Доходы</h5>
           <div className={styles.finance}>
             <p>с 25 Июнь, 2019</p>
             <p>Hardcore Crossfit</p>

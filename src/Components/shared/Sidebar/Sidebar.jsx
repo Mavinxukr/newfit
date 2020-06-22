@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Button from '../../../UI-Kit/Button/Button';
@@ -21,14 +21,35 @@ const Sidebar = ({ image }) => (
       </a>
       <nav className={styles.menu}>
         <ul className={styles.menuLinks}>
-          <li className={styles.menuLink}>
-            <Link to="/">Групповой Live</Link>
+          <li>
+            <NavLink
+              className={styles.menuLink}
+              exact
+              activeClassName={styles.activeLink}
+              to="/group-live"
+            >
+              Групповой Live
+            </NavLink>
           </li>
-          <li className={styles.menuLinkNoActive}>
-            <Link to="/" className={styles.noActiveLink}>Профиль</Link>
+          <li>
+            <NavLink
+              className={cx(styles.menuLink, styles.noActiveLink)}
+              exact
+              activeClassName={styles.activeLink}
+              to="/profile"
+            >
+              Профиль
+            </NavLink>
           </li>
-          <li className={cx(styles.menuLink, styles.activeLink)}>
-            <Link to="/">Финансы</Link>
+          <li>
+            <NavLink
+              className={styles.menuLink}
+              exact
+              activeClassName={styles.activeLink}
+              to="/"
+            >
+              Финансы
+            </NavLink>
           </li>
         </ul>
       </nav>

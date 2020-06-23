@@ -18,14 +18,14 @@ const Header = () => (
         <div className={styles.headerBlockInfo}>
           <IconDumbbell className={styles.iconOpacity} />
           <p>У тебя есть 1 бесплатный: Групповой Live</p>
-          <Button classNameWrapper={styles.headerBtn} type="button">
+          <a href="/" className={styles.headerBtn}>
             Провести
-          </Button>
+          </a>
         </div>
       </div>
       <div className={styles.rightBlock}>
-        <Button classNameWrapper={cx(styles.btn, styles.btnActive)} type="button">Подписка</Button>
-        <Button classNameWrapper={styles.btn} type="button">Отправить отзыв</Button>
+        <a href="/" className={cx(styles.btn, styles.btnActive)}>Подписка</a>
+        <a href="/" className={styles.btn}>Отправить отзыв</a>
         <p className={styles.horizontalLine} />
         <Button viewType="black" classNameWrapper={styles.darkBtn}>
           <IconVideo className={styles.icon} />

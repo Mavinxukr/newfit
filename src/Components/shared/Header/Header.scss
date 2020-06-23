@@ -85,14 +85,13 @@
 }
 
 .btn {
-  opacity: .8;
+  opacity: .3;
   width: auto;
   margin-left: 20px;
-  font-size: 16px;
   padding: 0;
   white-space: nowrap;
 }
 
 .btnActive {
-  color: $colorContent;
+  opacity: .8;
 }

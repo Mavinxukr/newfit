@@ -33,7 +33,9 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   type: PropTypes.string,
-  viewType: PropTypes.oneOf(['white', 'black', 'grey', 'green', 'smallGreen']),
+  viewType: PropTypes.oneOf(
+    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy'],
+  ),
   disabled: PropTypes.bool,
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
-import IconExit from '../../../static/svg/Group150.svg';
+import IconExit from '../../../static/svg/close.svg';
 import styles from './MorePopup.scss';
 
 const MorePopup = ({ closePopup }) => (

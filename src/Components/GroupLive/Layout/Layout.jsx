@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
 import withPopup from '../../../HOC/withPopup';
 import MorePopup from '../MorePopup/MorePopup';
+import Participants from '../Participants/Participants';
 import IconCopy from '../../../static/svg/copy.svg';
 import IconEdit from '../../../static/svg/edit.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
@@ -59,7 +60,18 @@ const Layout = ({ openPopup }) => (
               </div>
               <div className={cx(styles.secondTitleContentInfo, styles.flexGroupLive)}>
                 <p className={styles.medium}>34</p>
-                <a className={styles.showMore} href="/">Показать</a>
+                <a
+                  className={styles.showMore}
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openPopup({
+                      PopupContentComponent: Participants,
+                    });
+                  }}
+                >
+                  Показать
+                </a>
               </div>
               <div className={styles.titleContentInfo}>
                 <p className={styles.medium}>9 860₴</p>
@@ -108,7 +120,18 @@ const Layout = ({ openPopup }) => (
               </div>
               <div className={cx(styles.secondTitleContentInfo, styles.flexGroupLive)}>
                 <p className={styles.medium}>25</p>
-                <a className={styles.showMore} href="/">Показать</a>
+                <a
+                  className={styles.showMore}
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openPopup({
+                      PopupContentComponent: Participants,
+                    });
+                  }}
+                >
+                  Показать
+                </a>
               </div>
               <div className={styles.titleContentInfo}>
                 <p className={styles.medium}>9 860₴</p>

@@ -8,6 +8,7 @@ import Participants from '../Participants/Participants';
 import IconCopy from '../../../static/svg/copy.svg';
 import IconEdit from '../../../static/svg/edit.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
+import IconGreenPlus from '../../../static/svg/greenPlus.svg';
 import styles from './Layout.scss';
 import { participants } from '../data';
 
@@ -55,6 +56,7 @@ const Layout = ({ openPopup }) => (
                       });
                     }}
                   >
+                    <IconGreenPlus className={styles.icon} />
                     Создать промо-сайт
                   </Button>
                 </div>

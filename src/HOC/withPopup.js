@@ -7,8 +7,8 @@ const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
   const [popupContent, setPopupContent] = useState(isOpenByDefault);
 
   const closePopup = () => setIsOpenPopup(false);
-  const openPopup = ({ PopupContentComponent }) => {
-    setPopupContent(<PopupContentComponent closePopup={closePopup} />);
+  const openPopup = ({ PopupContentComponent, content }) => {
+    setPopupContent(<PopupContentComponent content={content} closePopup={closePopup} />);
     setIsOpenPopup(true);
   };
 

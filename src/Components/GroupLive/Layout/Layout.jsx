@@ -9,6 +9,7 @@ import IconCopy from '../../../static/svg/copy.svg';
 import IconEdit from '../../../static/svg/edit.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
 import styles from './Layout.scss';
+import { participants } from '../data';
 
 const Layout = ({ openPopup }) => (
   <div className={styles.mainContent}>
@@ -67,6 +68,7 @@ const Layout = ({ openPopup }) => (
                     e.preventDefault();
                     openPopup({
                       PopupContentComponent: Participants,
+                      content: participants,
                     });
                   }}
                 >
@@ -127,6 +129,7 @@ const Layout = ({ openPopup }) => (
                     e.preventDefault();
                     openPopup({
                       PopupContentComponent: Participants,
+                      content: participants,
                     });
                   }}
                 >

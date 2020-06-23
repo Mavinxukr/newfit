@@ -5,9 +5,8 @@ import SimpleCopy from '../../../UI-Kit/SimpleCopy/SimpleCopy';
 import IconCopy from '../../../static/svg/copy.svg';
 import IconExit from '../../../static/svg/close.svg';
 import styles from './Participants.scss';
-import { participants } from '../data';
 
-const Participants = ({ closePopup, data = participants }) => (
+const Participants = ({ closePopup, content }) => (
   <div className={styles.wrapper}>
     <div className={styles.headerParticipants}>
       <h4>Участники <span className={styles.num}>23</span></h4>
@@ -26,7 +25,7 @@ const Participants = ({ closePopup, data = participants }) => (
         <p className={cx(styles.sale, styles.opacityText)}>Скидка</p>
         <p className={cx(styles.date, styles.opacityText)}>Дата</p>
       </div>
-      {data && data.map((item) => (
+      {content && content.map((item) => (
         <div key={item.id} className={styles.participantsContent}>
           <p className={styles.name}>{item.name}</p>
           <p className={styles.mail}>{item.email}</p>
@@ -40,7 +39,7 @@ const Participants = ({ closePopup, data = participants }) => (
 
 Participants.propTypes = {
   closePopup: PropTypes.func,
-  data: PropTypes.arrayOf(PropTypes.shape({
+  content: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     email: PropTypes.string,

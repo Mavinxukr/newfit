@@ -7,6 +7,7 @@ import MorePopup from '../MorePopup/MorePopup';
 import Participants from '../Participants/Participants';
 import IconCopy from '../../../static/svg/copy.svg';
 import IconEdit from '../../../static/svg/edit.svg';
+import IconPlay from '../../../static/svg/Polygon.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
 import IconGreenPlus from '../../../static/svg/greenPlus.svg';
 import styles from './Layout.scss';
@@ -96,6 +97,7 @@ const Layout = ({ openPopup }) => (
                     viewType="green"
                     classNameWrapper={styles.sizeBtn}
                   >
+                    <IconPlay className={styles.icon} />
                     Начать
                   </Button>
                 </div>

@@ -1,0 +1,30 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapperTraining {
+  display: flex;
+}
+
+.leftTraining {
+  width: 480px;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.bgColor {
+  background: $colorAvatarBackground;
+  padding: 40px 30px 40px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sizeGroup {
+  @include styleForText(35px, $fontMain);
+}
+
+.maxSize{
+  @include styleForText(35px, $fontMain, $colorGreyDark);
+}

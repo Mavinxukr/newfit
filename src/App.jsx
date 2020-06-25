@@ -8,6 +8,7 @@ import GroupLive from './Pages/GroupLive/GroupLive';
 import configureStore from './store';
 import history from './history';
 import './index.scss';
+import Training from './Pages/Training/Training';
 
 const store = configureStore({});
 
@@ -29,6 +30,11 @@ const App = () => (
           exact
           path="/group-live"
           component={GroupLive}
+        />
+        <Route
+          exact
+          path="/group-live/training"
+          component={Training}
         />
       </Switch>
     </ConnectedRouter>

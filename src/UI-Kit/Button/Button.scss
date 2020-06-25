@@ -65,3 +65,14 @@
   padding: 0;
   width: auto;
 }
+
+.button_link {
+  padding: 11px 15px 10px;
+  width: auto;
+  border: 1px solid $colorGreyDark;
+  color: $colorContent;
+
+  &:hover {
+    color: $colorGreyLink;
+  }
+}

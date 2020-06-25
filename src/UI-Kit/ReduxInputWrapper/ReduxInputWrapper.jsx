@@ -8,6 +8,7 @@ const ReduxInputWrapper = ({
   input,
   meta: { touched, error },
   label,
+  defaultValue,
   classNameWrapper,
   name,
   viewType,
@@ -32,6 +33,7 @@ const ReduxInputWrapper = ({
       viewType={viewType}
       placeholder={placeholder}
       classNameWrapper={classNameWrapperForInput}
+      defaultValue={defaultValue}
     />
     {touched
     && error && (
@@ -54,6 +56,7 @@ ReduxInputWrapper.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   classNameWrapperForInput: PropTypes.string,
+  defaultValue: PropTypes.string,
 };
 
 export default ReduxInputWrapper;

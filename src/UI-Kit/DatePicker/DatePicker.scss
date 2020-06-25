@@ -1,0 +1,101 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.button {
+  @include styleForText();
+
+  padding: 20px 50px 20px 25px;
+  border: 2px solid $colorGrey;
+  border-radius: 8px;
+  position: relative;
+
+  &::after {
+    content: url("../../static/svg/Path121.svg");
+    position: absolute;
+    right: 17px;
+    top: 19px;
+    transform: rotate(-90deg);
+  }
+}
+
+.pickerWrapper {
+  padding: 21px 25px 28px;
+  box-shadow: 0 10px 50px #00000014;
+  width: 311px;
+  background-color: $colorWhite;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 102;
+}
+
+.pickerInfo {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.pickerText {
+  font-family: $fontMain;
+  position: relative;
+  padding-right: 30px;
+
+  &::after {
+    content: url("../../static/svg/Group2966.svg");
+    position: absolute;
+    right: 0;
+  }
+}
+
+.pickerCounter {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 20px;
+  background-color: $colorBackground;
+  border-radius: 10px;
+
+  &:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  &:last-child {
+    margin-top: 10px;
+  }
+}
+
+.pickerCounterDate {
+  font-family: $fontMain;
+}
+
+.buttons {
+  display: flex;
+}
+
+.pickerCounterButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: $colorWhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:first-child {
+    transform: rotate(90deg);
+  }
+
+  &:last-child {
+    transform: rotate(-90deg);
+    margin-left: 5px;
+  }
+
+  &:first-child .buttonIcon path {
+    stroke: $colorGreyDark;
+  }
+}
+
+.buttonIcon {
+  width: 6px;
+  height: 6px;
+}

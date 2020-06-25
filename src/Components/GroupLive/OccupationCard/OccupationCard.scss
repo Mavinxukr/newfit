@@ -1,0 +1,184 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.card {
+  padding: 30px 0;
+  border-top: 1px solid $colorGrey;
+  position: relative;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.cardWithoutBorder {
+  border-top: none;
+}
+
+.cardWrapper {
+  display: flex;
+  position: relative;
+}
+
+.flexGroupLive {
+  display: flex;
+  align-items: baseline;
+}
+
+.showMore {
+  color: $colorContent;
+  opacity: .2;
+  margin-left: 10px;
+}
+
+.mainTitle {
+  @include styleForText(20px);
+
+  margin-right: 30px;
+}
+
+.price {
+  @include styleForText($fontSizeContent, $fontMain, $colorButtons)
+}
+
+.priceNull {
+  color: $colorRedDark;
+}
+
+.iconPlus {
+  transform: rotate(30deg);
+}
+
+.icon {
+  margin-right: 9px;
+}
+
+.iconGreen g {
+  fill: #95c19f;
+}
+
+.titleContentInfo {
+  text-align: left;
+  width: 136px;
+}
+
+.lastTitleContentInfo {
+  display: flex;
+  align-items: flex-end;
+  width: 231px;
+}
+
+.date {
+  @include styleForText(20px);
+}
+
+.dateGreen {
+  color: $colorButtons;
+}
+
+.firstTitleContentInfo {
+  width: 342px;
+  align-items: baseline;
+}
+
+.firstTitleContentInfoOpacity {
+  opacity: .3;
+  pointer-events: none;
+}
+
+.secondTitleContentInfo {
+  width: 175px;
+  margin-top: 3px;
+}
+
+.count {
+  @include styleForText()
+}
+
+.countNull {
+  opacity: .3;
+}
+
+.greyBtn {
+  color: $colorContent;
+  width: auto;
+  padding: 11px 15px 10px;
+  background: $colorBackground;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.sizeBtn {
+  padding: 11px 15px 10px;
+  margin-top: 12px;
+  width: auto;
+  border-radius: 5px;
+
+  & + .sizeBtn {
+    margin-left: 8px;
+  }
+
+  &:hover svg path {
+    fill: $colorWhite;
+  }
+}
+
+.dotsItems {
+  position: absolute;
+  top: 50%;
+  right: -34px;
+  z-index: 99;
+  transform: rotate(90deg) translateY(-50%);
+  width: 21px;
+  height: 5px;
+  justify-content: space-between;
+  display: flex;
+
+  .dotItem {
+    width: 5px;
+    height: 5px;
+    background: $colorGreyDark;
+    border-radius: 50%;
+  }
+}
+
+.column {
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+}
+
+.buttonsBlock {
+  padding: 21px 30px 20px 27px;
+  border: 1px solid #DDDDDD;
+  background-color: $colorWhite;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 9px;
+  right: -44px;
+  width: 172px;
+}
+
+.buttonEdit,
+.buttonDelete {
+  @include styleForText($fontSizeContent, $fontMain, $colorGreyDark);
+
+  width: 100%;
+  text-align: left;
+}
+
+.buttonEdit {
+  color: $colorContent;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $colorGreyDark;
+}
+
+.buttonDelete {
+  padding-top: 20px;
+}

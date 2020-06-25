@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FacebookLogin } from 'react-facebook-login-component';
 import GoogleLogin from 'react-google-login';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, Form } from 'redux-form';
 import { AUTH_STATUSES } from '../../../constans';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
@@ -21,7 +21,7 @@ const EntryForm = ({
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <Form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2>Добро пожаловать</h2>
       <p className={styles.text}>Войдите или Создайте аккаунт</p>
       <div className={styles.buttons}>
@@ -73,11 +73,10 @@ const EntryForm = ({
         viewType={(invalid || submitting || !dirty) && 'white' || 'green'}
         type="submit"
         classNameWrapper={styles.buttonWrapper}
-        onClick={() => dispatch(setAuthStatus(AUTH_STATUSES.signUp))}
       >
         Продолжить
       </Button>
-    </form>
+    </Form>
   );
 };
 

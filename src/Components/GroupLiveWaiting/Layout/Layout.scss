@@ -1,0 +1,75 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.container {
+  padding: 0 50px;
+  width: auto;
+}
+
+.iconLogo {
+  margin-top: 40px;
+}
+
+.wrapperContent {
+  padding-left: 90px;
+  padding-right: 50px;
+}
+
+.textContent {
+  margin-top: 175px;
+}
+
+.amountParticipants {
+  @include styleForText(72px);
+}
+
+.amountParticipantsGrey {
+  color: $colorGreyDark;
+}
+
+.question {
+  padding-top: 15px;
+  color: $colorGreyDark;
+}
+
+.infoList {
+  width: 550px;
+  margin-top: 30px;
+}
+
+.infoListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  border-top: 1px solid $colorGreyDark;
+}
+
+.titleInfoList {
+  @include styleForText(24px);
+}
+
+.copyButton {
+  width: 208px;
+}
+
+.iconCopy {
+  margin-right: 9px;
+}
+
+.footer {
+  width: 100%;
+  height: 85px;
+  position: relative;
+  border-top: 1px solid $colorGreyDark;
+}
+
+.buttonStart {
+  width: 265px;
+  display: block;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -132.5px;
+}

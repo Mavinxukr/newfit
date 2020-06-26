@@ -6,6 +6,7 @@ import Finance from './Pages/Finance/Finance';
 import Pricing from './Pages/Pricing/Pricing';
 import GroupLive from './Pages/GroupLive/GroupLive';
 import GroupLiveWaiting from './Pages/GroupLiveWaiting/GroupLiveWaiting';
+import GroupLiveFinish from './Pages/GroupLiveFinish/GroupLiveFinish';
 import configureStore from './store';
 import history from './history';
 import './index.scss';
@@ -41,6 +42,11 @@ const App = () => (
           exact
           path="/group-live-waiting"
           component={GroupLiveWaiting}
+        />
+        <Route
+          exact
+          path="/group-live-finish"
+          component={GroupLiveFinish}
         />
       </Switch>
     </ConnectedRouter>

@@ -1,0 +1,138 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.camera {
+  position: relative;
+  width: 100%;
+}
+
+.cameraVideoBlock {
+  width: 100%;
+  position: relative;
+  height: 552px;
+  border-radius: 10px;
+}
+
+.cameraVideoBlockImage {
+  background-image: url("../../../static/images/Home-work-.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cameraVideoBlockGrey {
+  background: $colorBackground;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cameraText {
+  color: $colorWhite;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  margin-left: -52px;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.errorInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 50px;
+  border-right: 1px solid $colorGreyDark;
+}
+
+.errorInfoText {
+  width: 254px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.errorInfoTextTooltip {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink);
+
+  margin-top: 41px;
+}
+
+.buttonAccess {
+  margin-top: 15px;
+  width: 226px;
+}
+
+.errorTooltip {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorTooltipText {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink);
+
+  width: 218px;
+  text-align: center;
+}
+
+.errorTooltipButton {
+  margin-top: 15px;
+  width: 125px;
+}
+
+.controlPanel {
+  position: absolute;
+  right: 20px;
+  bottom: -74px;
+  display: flex;
+  align-items: center;
+}
+
+.connectionQuality {
+  display: flex;
+  align-items: center;
+}
+
+.connectionQualityDots {
+  display: flex;
+}
+
+.connectionQualityDot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #ebb3b3;
+  border-radius: 50%;
+  margin-right: 2px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.connectionQualityDotActive {
+  background: $colorRedDark;
+}
+
+.connectionQualityText {
+  @include styleForText(14px);
+
+  margin-left: 8px;
+}
+
+.button {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $colorGreyDark;
+  border-radius: 10px;
+  margin-left: 40px;
+
+  &:last-child {
+    margin-left: 12px;
+  }
+}

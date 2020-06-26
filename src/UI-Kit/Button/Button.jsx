@@ -13,6 +13,7 @@ const classNamesButton = {
   red: styles.buttonRed,
   link: styles.buttonLink,
   small: styles.buttonSmall,
+  simple: styles.buttonSimple,
 };
 
 const Button = ({

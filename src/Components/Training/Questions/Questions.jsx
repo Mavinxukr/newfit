@@ -5,12 +5,14 @@ import styles from './Questions.scss';
 const Questions = ({ data }) => (
   <div className={styles.question}>
     {data && data.map((item) => (
-      <div key={item.id}>
+      <div className={styles.flex} key={item.id}>
         <button type="button" className={styles.btnPlus}>
           +
         </button>
-        <p>{item.question}</p>
-        <span>{item.name}</span>
+        <div>
+          <p className={styles.questionText}>{item.question}</p>
+          <span className={styles.name}>{item.name}</span>
+        </div>
       </div>
     ))}
   </div>

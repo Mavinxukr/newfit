@@ -1,3 +1,6 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
 .question {
   display: flex;
   flex-direction: column;
@@ -9,5 +12,26 @@
   align-items: center;
   justify-content: center;
   border: none;
+  border-radius: 5px;
+  @include styleForText(23px, $fontMain, $colorGreyDark);
+  background: $colorAvatarBackground;
+  width: 42px;
+  height: 38px;
+  margin-right: 15px;
+}
 
+.questionText {
+  max-width: 306px;
+  font-size: $fontSizeBigText;
+  font-style: italic;
+}
+
+.flex {
+  display: flex;
+  margin-bottom: 37px;
+}
+
+.name {
+  margin-top: 5px;
+  @include styleForText ($fontSizeContent, $fontAdditional, $colorGreyDark);
 }

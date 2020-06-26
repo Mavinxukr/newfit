@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import SimpleCopy from '../../../UI-Kit/SimpleCopy/SimpleCopy';
-import IconCopy from '../../../static/svg/copy.svg';
+import IconCopy from '../../../static/svg/copy1.svg';
 import IconExit from '../../../static/svg/close.svg';
 import styles from './Participants.scss';
 

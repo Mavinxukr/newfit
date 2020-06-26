@@ -9,7 +9,7 @@
   padding: 17px 0 16px;
 }
 
-.button_white {
+.buttonWhite {
   background: white;
   color: $colorButtons;
   border: 1px solid $colorButtons;
@@ -20,12 +20,12 @@
   }
 }
 
-.button_black {
+.buttonBlack {
   color: $colorWhite;
   background: $colorContent;
 }
 
-.button_grey {
+.buttonGrey {
   color: $colorGreyLink;
   background: $colorAvatarBackground;
 
@@ -34,8 +34,9 @@
   }
 }
 
-.button_green,
-.button_smallGreen {
+.buttonGreen,
+.buttonSmallGreen,
+.buttonSmall {
   color: $colorWhite;
   background: $colorButtons;
 
@@ -44,7 +45,7 @@
   }
 }
 
-.button_red {
+.buttonRed {
   border: 1px solid $colorRedDark;
   color: $colorRedDark;
   background: $colorWhite;
@@ -56,17 +57,21 @@
   }
 }
 
-.button_smallGreen {
+.buttonSmallGreen {
   padding: 15px 0 16px;
   font-size: 18px;
 }
 
-.button_simpleCopy {
+.buttonSmall {
+  padding: 10px 0 11px 0;
+}
+
+.buttonSimpleCopy {
   padding: 0;
   width: auto;
 }
 
-.button_link {
+.buttonLink {
   padding: 11px 15px 10px;
   width: auto;
   border: 1px solid $colorGreyDark;

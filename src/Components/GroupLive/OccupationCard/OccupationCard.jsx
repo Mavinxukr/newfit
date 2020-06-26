@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './OccupationCard.scss';
 import Button from '../../../UI-Kit/Button/Button';
@@ -11,7 +12,7 @@ import IconVideo from '../../../static/svg/Polygon1.svg';
 import Participants from '../Participants/Participants';
 import FormLive from '../FormLive/FormLive';
 import { participants } from '../data';
-import IconCopy from '../../../static/svg/copy.svg';
+import IconCopy from '../../../static/svg/copy1.svg';
 
 const OccupationCard = ({
   item, openPopup, indexForOpenEditForm, setIndexForOpenEditForm,
@@ -98,19 +99,21 @@ const OccupationCard = ({
               <Button
                 type="button"
                 viewType="white"
-                classNameWrapper={styles.sizeBtn}
+                classNameWrapper={cx(styles.sizeBtn, styles.sizeBtnMargin)}
               >
                 <IconCopy className={styles.icon} />
                 Ссылка
               </Button>
-              <Button
-                type="button"
-                viewType="green"
-                classNameWrapper={styles.sizeBtn}
-              >
-                <IconVideo className={styles.icon} />
-                Начать
-              </Button>
+              <Link to="/group-live-waiting">
+                <Button
+                  href
+                  viewType="green"
+                  classNameWrapper={styles.sizeBtn}
+                >
+                  <IconVideo className={styles.icon} />
+                  Начать
+                </Button>
+              </Link>
             </div>
           ) || (
             <Button

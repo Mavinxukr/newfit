@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import Finance from './Pages/Finance/Finance';
 import Pricing from './Pages/Pricing/Pricing';
 import GroupLive from './Pages/GroupLive/GroupLive';
+import GroupLiveWaiting from './Pages/GroupLiveWaiting/GroupLiveWaiting';
 import configureStore from './store';
 import history from './history';
 import './index.scss';
@@ -35,6 +36,11 @@ const App = () => (
           exact
           path="/group-live/training"
           component={Training}
+        />
+        <Route
+          exact
+          path="/group-live-waiting"
+          component={GroupLiveWaiting}
         />
       </Switch>
     </ConnectedRouter>

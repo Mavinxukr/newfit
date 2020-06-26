@@ -3,6 +3,18 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './Button.scss';
 
+const classNamesButton = {
+  green: styles.buttonGreen,
+  grey: styles.buttonGrey,
+  simpleCopy: styles.buttonSimpleCopy,
+  black: styles.buttonBlack,
+  white: styles.buttonWhite,
+  smallGreen: styles.buttonSmallGreen,
+  red: styles.buttonRed,
+  link: styles.buttonLink,
+  small: styles.buttonSmall,
+};
+
 const Button = ({
   children,
   classNameWrapper,
@@ -20,7 +32,7 @@ const Button = ({
       href={href}
       type={type}
       onClick={onClick}
-      className={cx(styles.button, classNameWrapper, `${styles.button}_${viewType}`)}
+      className={cx(styles.button, classNameWrapper, classNamesButton[viewType])}
     >
       {children}
     </TagName>
@@ -34,7 +46,7 @@ Button.propTypes = {
   href: PropTypes.string,
   type: PropTypes.string,
   viewType: PropTypes.oneOf(
-    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'link'],
+    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link'],
   ),
   disabled: PropTypes.bool,
 };

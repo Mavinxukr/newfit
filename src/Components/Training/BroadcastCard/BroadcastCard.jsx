@@ -16,7 +16,11 @@ const getClassNames = (elem, image) => {
 };
 
 const BroadcastCard = ({ image, name = 'name', question }) => (
-  <div className={cx(styles.broadcastCard, { [styles.background]: !image })}>
+  <div className={cx(styles.broadcastCard, {
+    [styles.background]: !image,
+    [styles.withoutBackground]: !question,
+  })}
+  >
     <button className={getClassNames('topBtn', image)} type="button">
       {name}
       {image && '+'}

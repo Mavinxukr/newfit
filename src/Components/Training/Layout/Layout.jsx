@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import withPopup from '../../../HOC/withPopup';
 import Button from '../../../UI-Kit/Button/Button';
+import FinishPopup from '../FinishPopup/FinishPopup';
 import Questions from '../Questions/Questions';
-import BroadcastCard from '../BroadcastCard/BroadcastCard';
+import BroadcastCards from '../BroadcastCards/BroadcastCards';
 import IconCopy from '../../../static/svg/copyGrey.svg';
 import styles from './Layout.scss';
 
@@ -23,7 +26,66 @@ const questions = [
   },
 ];
 
-const Layout = () => (
+const cards = [
+  {
+    title: '',
+    blocks: [
+      {
+        id: 1,
+        name: 'Den',
+        question: 'why?',
+        image: true,
+      },
+      {
+        id: 2,
+        name: 'Kirill',
+        question: 'GO?',
+        image: true,
+      },
+      {
+        id: 3,
+        name: 'Vadym',
+        question: 'True?',
+        image: false,
+      },
+    ],
+  },
+];
+
+const cardsActive = [
+  {
+    title: 'Включённые камеры',
+    blocks: [
+      {
+        id: 1,
+        name: 'Den',
+        image: true,
+      },
+      {
+        id: 2,
+        name: 'Kirill',
+        image: true,
+      },
+      {
+        id: 3,
+        name: 'Vadym',
+        image: true,
+      },
+      {
+        id: 4,
+        name: 'Vadym',
+        image: true,
+      },
+      {
+        id: 5,
+        name: 'Vadym',
+        image: true,
+      },
+    ],
+  },
+];
+
+const Layout = ({ openPopup }) => (
   <div className={styles.wrapperTraining}>
     <div className={styles.leftTraining}>
       <div className={styles.bgColor}>
@@ -38,10 +100,26 @@ const Layout = () => (
       </div>
       <Questions data={questions} />
     </div>
-    <BroadcastCard question="asdas" image />
-    <BroadcastCard question="aeddasdasda" image />
-    <BroadcastCard />
+    <div className={styles.rightTraining}>
+      <BroadcastCards data={cards} />
+      <BroadcastCards data={cardsActive} />
+    </div>
+    <button
+      type="button"
+      className={styles.finished}
+      onClick={() => {
+        openPopup({
+          PopupContentComponent: FinishPopup,
+        });
+      }}
+    >
+      Закончить
+    </button>
   </div>
 );
 
-export default Layout;
+Layout.propTypes = {
+  openPopup: PropTypes.func,
+};
+
+export default withPopup(Layout);

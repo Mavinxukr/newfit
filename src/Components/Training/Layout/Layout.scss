@@ -28,3 +28,18 @@
 .maxSize{
   @include styleForText(35px, $fontMain, $colorGreyDark);
 }
+
+.rightTraining {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 100%;
+  margin-top: 99px;
+}
+
+.finished {
+  position: absolute;
+  left: 50px;
+  bottom: 25px;
+  opacity: .5;
+}

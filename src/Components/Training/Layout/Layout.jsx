@@ -38,9 +38,9 @@ const Layout = () => (
       </div>
       <Questions data={questions} />
     </div>
-    <BroadcastCard image="https://i.ytimg.com/vi/EYZM94u-5GY/0.jpg" />
-    <BroadcastCard image="https://i.ytimg.com/vi/EYZM94u-5GY/0.jpg" />
-    <BroadcastCard />
+    <BroadcastCard question="asdas" image />
+    <BroadcastCard question="aeddasdasda" image />
+    <BroadcastCard question="aeddasda" />
   </div>
 );
 

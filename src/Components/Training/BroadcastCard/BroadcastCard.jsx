@@ -3,24 +3,34 @@ import cx from 'classnames';
 import propTypes from 'prop-types';
 import styles from './BroadcastCard.scss';
 
-const BroadcastCard = ({ image, name = 'dad', question = 'asdasds?' }) => {
-  const buttonTop = cx(styles.topBtn, { [styles.withImage]: image });
-  const questionText = cx(styles.question, { [styles.withImage]: image });
-  const quote = cx(styles.quoteBtn, { [styles.withImage]: image });
+const getClassNames = (elem, image) => {
+  const classNames = {
+    topBtn: styles.topBtn,
+    question: styles.question,
+    quote: styles.quoteBtn,
+  };
 
-  return (
-    <div className={styles.broadcastCard} style={{ backgroundImage: `url(${image})` }}>
-      <button className={buttonTop} type="button">
-        {name} +
-      </button>
-      <h4 className={questionText}>{question}</h4>
-      <button className={quote} type="button">+ Цитировать</button>
-    </div>
-  );
+  return cx(classNames[elem], {
+    [styles.withImage]: image,
+  });
 };
 
+const BroadcastCard = ({ image, name = 'name', question }) => (
+  <div className={cx(styles.broadcastCard, { [styles.background]: !image })}>
+    <button className={getClassNames('topBtn', image)} type="button">
+      {name} +
+    </button>
+    {question && (
+      <>
+        <h4 className={getClassNames('question', image)}>{question}</h4>
+        <button className={getClassNames('quoteBtn', image)} type="button">+ Цитировать</button>
+      </>
+    )}
+  </div>
+);
+
 BroadcastCard.propTypes = {
-  image: propTypes.string,
+  image: propTypes.bool,
   name: propTypes.string,
   question: propTypes.string,
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../../UI-Kit/Button/Button';
 import Questions from '../Questions/Questions';
+import BroadcastCard from '../BroadcastCard/BroadcastCard';
 import IconCopy from '../../../static/svg/copyGrey.svg';
 import styles from './Layout.scss';
 
@@ -37,6 +38,9 @@ const Layout = () => (
       </div>
       <Questions data={questions} />
     </div>
+    <BroadcastCard image="https://i.ytimg.com/vi/EYZM94u-5GY/0.jpg" />
+    <BroadcastCard image="https://i.ytimg.com/vi/EYZM94u-5GY/0.jpg" />
+    <BroadcastCard />
   </div>
 );
 

@@ -7,7 +7,7 @@ const getClassNames = (elem, image) => {
   const classNames = {
     topBtn: styles.topBtn,
     question: styles.question,
-    quote: styles.quoteBtn,
+    quoteBtn: styles.quoteBtn,
   };
 
   return cx(classNames[elem], {
@@ -18,7 +18,8 @@ const getClassNames = (elem, image) => {
 const BroadcastCard = ({ image, name = 'name', question }) => (
   <div className={cx(styles.broadcastCard, { [styles.background]: !image })}>
     <button className={getClassNames('topBtn', image)} type="button">
-      {name} +
+      {name}
+      {image && '+'}
     </button>
     {question && (
       <>

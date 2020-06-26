@@ -40,7 +40,7 @@ const Layout = () => (
     </div>
     <BroadcastCard question="asdas" image />
     <BroadcastCard question="aeddasdasda" image />
-    <BroadcastCard question="aeddasda" />
+    <BroadcastCard />
   </div>
 );
 

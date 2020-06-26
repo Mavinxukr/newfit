@@ -1,7 +1,8 @@
 import React from 'react';
-import IconLogo from '../../../static/svg/EF.svg';
 import Button from '../../../UI-Kit/Button/Button';
+import Translation from '../../shared/Translation/Translation';
 import IconCopy from '../../../static/svg/copy1.svg';
+import IconLogo from '../../../static/svg/EF.svg';
 import styles from './Layout.scss';
 
 const Layout = () => (
@@ -30,6 +31,12 @@ const Layout = () => (
               </Button>
             </li>
           </ul>
+        </div>
+        <div className={styles.translationWrapper}>
+          <Translation isError />
+          <p className={styles.translationWrapperText}>
+            Участники вас не видят и не слышат, так как вы не начали занятие
+          </p>
         </div>
       </div>
     </div>

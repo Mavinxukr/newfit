@@ -7,6 +7,7 @@
   border-radius: 8px;
   width: 100%;
   padding: 17px 0 16px;
+  text-align: center;
 }
 
 .buttonWhite {
@@ -45,6 +46,12 @@
   }
 }
 
+.buttonSimple {
+  color: $colorGreyLink;
+  border: 1px solid $colorGreyDark;
+  background-color: $colorWhite;
+}
+
 .buttonRed {
   border: 1px solid $colorRedDark;
   color: $colorRedDark;
@@ -72,7 +79,7 @@
 }
 
 .buttonLink {
-  padding: 11px 15px 10px;
+  padding: 11px 0 10px;
   width: auto;
   border: 1px solid $colorGreyDark;
   color: $colorContent;

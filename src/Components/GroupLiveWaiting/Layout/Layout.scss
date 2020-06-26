@@ -2,6 +2,7 @@
 @import "src/styles/core/mixins";
 
 .container {
+  height: 100%;
   padding: 0 50px;
   width: auto;
 }
@@ -11,6 +12,8 @@
 }
 
 .wrapperContent {
+  display: flex;
+  justify-content: space-between;
   padding-left: 90px;
   padding-right: 50px;
 }
@@ -57,10 +60,29 @@
   margin-right: 9px;
 }
 
-.footer {
-  width: 100%;
-  height: 85px;
+.translationWrapper {
   position: relative;
+  width: 50%;
+}
+
+.translationWrapperText {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink);
+
+  position: absolute;
+  width: 295px;
+  bottom: -68px;
+  left: 20px;
+}
+
+.footer {
+  margin-top: 161px;
+  height: 115px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
   border-top: 1px solid $colorGreyDark;
 }
 
@@ -68,8 +90,4 @@
   width: 265px;
   display: block;
   text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -132.5px;
 }

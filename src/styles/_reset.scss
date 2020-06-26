@@ -7,7 +7,7 @@ body {
   @include styleWithPrefix(box-sizing, border-box);
   box-sizing: border-box;
   font-size: $fontSizeContent;
-  font-family: $fontAdditional;
+  font-family: $fontMain;
   color: $colorContent;
   overflow-y: scroll;
   height: 100vh;

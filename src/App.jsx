@@ -35,7 +35,7 @@ const App = () => (
         />
         <Route
           exact
-          path="/group-live/training"
+          path="/group-live-training"
           component={Training}
         />
         <Route

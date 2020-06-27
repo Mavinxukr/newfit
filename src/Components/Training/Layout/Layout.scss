@@ -29,16 +29,23 @@
   @include styleForText(35px, $fontMain, $colorGreyDark);
 }
 
+.buttonLink {
+  width: 113px;
+}
+
 .rightTraining {
   display: flex;
   flex-direction: column;
   margin-left: 40px;
   width: 100%;
   margin-top: 99px;
+  height: 779px;
+  margin-bottom: 104px;
+  position: relative;
 }
 
 .finished {
-  position: absolute;
+  position: fixed;
   left: 50px;
   bottom: 25px;
   opacity: .5;

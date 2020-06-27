@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../../../UI-Kit/Button/Button';
 import Translation from '../../shared/Translation/Translation';
 import IconCopy from '../../../static/svg/copy1.svg';
@@ -33,7 +34,7 @@ const Layout = () => (
           </ul>
         </div>
         <div className={styles.translationWrapper}>
-          <Translation isError />
+          <Translation isError text="Ваша камера" />
           <p className={styles.translationWrapperText}>
             Участники вас не видят и не слышат, так как вы не начали занятие
           </p>
@@ -41,13 +42,15 @@ const Layout = () => (
       </div>
     </div>
     <footer className={styles.footer}>
-      <Button
-        href="/"
-        viewType="green"
-        classNameWrapper={styles.buttonStart}
-      >
-        начать занятие
-      </Button>
+      <Link to="/group-live-training">
+        <Button
+          href
+          viewType="green"
+          classNameWrapper={styles.buttonStart}
+        >
+          начать занятие
+        </Button>
+      </Link>
     </footer>
   </div>
 );

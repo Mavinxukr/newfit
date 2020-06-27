@@ -29,6 +29,20 @@
     display: block;
   }
 
+  .question {
+    font-family: $fontItalicMedium;
+
+    &:before {
+      content: '"';
+      position: absolute;
+      left: -18px;
+      top: -9px;
+      opacity: .3;
+
+      @include styleForText(36px, $fontGothamPro, $colorWhite);
+    }
+  }
+
   &.background {
     background-image: none;
 

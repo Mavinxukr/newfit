@@ -52,6 +52,15 @@
   background-color: $colorWhite;
 }
 
+.buttonIndicator {
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $colorGreyDark;
+  border-radius: 10px;
+}
+
 .buttonRed {
   border: 1px solid $colorRedDark;
   color: $colorRedDark;

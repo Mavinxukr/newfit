@@ -14,6 +14,7 @@ const classNamesButton = {
   link: styles.buttonLink,
   small: styles.buttonSmall,
   simple: styles.buttonSimple,
+  indicator: styles.buttonIndicator,
 };
 
 const Button = ({

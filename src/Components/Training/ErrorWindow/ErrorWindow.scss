@@ -1,0 +1,60 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  position: absolute;
+  padding: 31px 10px 10px;
+  background-color: $colorWhite;
+  width: 273px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+}
+
+.title {
+  text-align: center;
+}
+
+.tooltip {
+  @include styleForText(14px, $fontAdditional);
+
+  padding-top: 16px;
+}
+
+.buttonAccess {
+  margin-top: 10px;
+  width: 226px;
+}
+
+.line {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: $colorGreyDark;
+  margin-top: 20px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.buttonIndicator {
+  border: 1px solid #f3d1d1;
+  width: 54px;
+  padding: 0;
+
+  &:last-child {
+    margin-left: 10px;
+  }
+}
+
+.iconError {
+  & path {
+    stroke: $colorRedDark;
+  }
+}

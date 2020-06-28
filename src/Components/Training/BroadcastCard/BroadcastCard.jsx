@@ -27,7 +27,11 @@ const BroadcastCard = ({ image, name = 'name', question }) => (
     </button>
     {question && (
       <>
-        <h4 className={getClassNames('question', image)}>{question}</h4>
+        <h4 className={cx(getClassNames('question', image), {
+          [styles.questionBeforeGrey]: !image,
+        })}
+        >{question}
+        </h4>
         <button className={getClassNames('quoteBtn', image)} type="button">+ Цитировать</button>
       </>
     )}

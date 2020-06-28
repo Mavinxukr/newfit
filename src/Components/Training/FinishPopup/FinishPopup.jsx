@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import IconExit from '../../../static/svg/close.svg';
 import Button from '../../../UI-Kit/Button/Button';
 import styles from './FinishPopup.scss';
@@ -14,12 +15,16 @@ const FinishPopup = ({ closePopup }) => (
       <IconExit className={styles.colorPath} />
     </button>
     <h4 className={styles.title}>Завершить Live?</h4>
-    <Button
-      onClick={closePopup}
-      viewType="red"
-    >
-      Завершить
-    </Button>
+    <Link to="/group-live-finish">
+      <Button
+        href
+        onClick={closePopup}
+        classNameWrapper={styles.finishButton}
+        viewType="red"
+      >
+        Завершить
+      </Button>
+    </Link>
   </div>
 );
 

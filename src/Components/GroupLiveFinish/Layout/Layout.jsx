@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import Button from '../../../UI-Kit/Button/Button';
 import Stars from '../../../UI-Kit/Stars/Stars';
@@ -34,13 +35,15 @@ const Layout = () => (
         <p className={styles.text}>Только что проголосовали (38)</p>
       </div>
     </div>
-    <Button
-      href
-      classNameWrapper={styles.buttonClose}
-      viewType="simple"
-    >
-      Закрыть страницу
-    </Button>
+    <Link to="/group-live">
+      <Button
+        href
+        classNameWrapper={styles.buttonClose}
+        viewType="simple"
+      >
+        Закрыть страницу
+      </Button>
+    </Link>
   </>
 );
 

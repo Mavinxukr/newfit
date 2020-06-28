@@ -48,7 +48,7 @@ Button.propTypes = {
   href: PropTypes.string,
   type: PropTypes.string,
   viewType: PropTypes.oneOf(
-    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link'],
+    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link', 'simple', 'indicator'],
   ),
   disabled: PropTypes.bool,
 };

@@ -13,25 +13,49 @@
   justify-content: center;
   border: none;
   border-radius: 5px;
+
   @include styleForText(23px, $fontMain, $colorGreyDark);
+
   background: $colorAvatarBackground;
   width: 42px;
-  height: 38px;
+  height: 44px;
   margin-right: 15px;
+}
+
+.text {
+  height: 31px;
+}
+
+.plusRotate {
+  color: $colorWhite;
+  transform: rotate(45deg);
+}
+
+.btnPlusActive {
+  background-color: $colorButtons;
+}
+
+.contentWrapper {
+  border-bottom: 1px solid $colorBackground;
+  padding-bottom: 15px;
 }
 
 .questionText {
   max-width: 306px;
   font-size: $fontSizeBigText;
   font-family: $fontItalicMedium;
+  margin-bottom: 5px;
 }
 
 .flex {
   display: flex;
-  margin-bottom: 37px;
+  margin-bottom: 15px;
+
+  &:last-child .contentWrapper {
+    border-bottom: none;
+  }
 }
 
 .name {
-  margin-top: 5px;
   @include styleForText ($fontSizeContent, $fontAdditional, $colorGreyDark);
 }

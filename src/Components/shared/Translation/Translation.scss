@@ -7,11 +7,30 @@
   height: 100%;
 }
 
+.sliderWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.broadcastCardsWrapper {
+  height: 779px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
 .cameraVideoBlock {
   width: 100%;
   position: relative;
   height: 100%;
   border-radius: 10px;
+}
+
+.cameraVideoBlockTraining {
+  height: 779px;
 }
 
 .cameraVideoBlockImage {
@@ -35,6 +54,7 @@
 
 .expandsIcon path {
   fill: $colorWhite;
+  opacity: 1;
 }
 
 .cameraVideoBlockGrey {
@@ -50,6 +70,52 @@
   bottom: 25px;
   left: 50%;
   margin-left: -52px;
+}
+
+.wrapperText {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cameraTextTraining {
+  @include styleForText(30px, $fontItalicMedium, $colorWhite);
+  position: relative;
+
+  &:before {
+    content: '"';
+
+    @include styleForText(64px, $fontGothamPro, $colorWhite);
+
+    opacity: .2;
+    position: absolute;
+    left: -30px;
+    top: -25px;
+  }
+}
+
+.nameText {
+  @include styleForText($fontSizeBigText, $fontAdditional, $colorWhite);
+
+  margin-top: 10px;
+  margin-left: -306px;
+}
+
+.buttonFinish {
+  @include styleForText($fontSizeContent, $fontMain, $colorWhite);
+
+  margin-top: 2px;
+}
+
+.sliderList {
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
 }
 
 .errorWrapper {
@@ -112,6 +178,57 @@
   justify-content: space-between;
 }
 
+.countOfParticipant {
+  display: flex;
+  justify-content: space-between;
+  left: 53%;
+  top: 14px;
+  z-index: 101;
+  position: absolute;
+  padding: 6px 12px;
+  border-radius: 22px;
+  background-color: $colorButtons;
+}
+
+.countComments,
+.countCameras {
+  @include styleForText(12px, $fontMain, $colorWhite);
+
+  display: flex;
+  align-items: center;
+}
+
+.countCameras {
+  margin-left: 9px;
+}
+
+.iconCountComment,
+.iconCountCamera {
+  padding-top: 0.9px;
+  height: 10px;
+  margin-right: 3px;
+}
+
+.iconCountComment {
+  width: 11px;
+
+  & path {
+    stroke: $colorWhite;
+  }
+}
+
+.iconCountCamera {
+  width: 17px;
+
+  & path {
+    fill: $colorWhite;
+  }
+}
+
+.controlPanelWaiting {
+  justify-content: flex-end;
+}
+
 .timeIndicator {
   @include styleForText(20px, $fontAdditional, $colorGreyDark);
 
@@ -125,9 +242,17 @@
 }
 
 .buttonSlider {
-  width: 184px;
   height: 54px;
-  padding: 0;
+  width: auto;
+  padding: 0 14px;
+  position: absolute;
+  bottom: -71px;
+  left: 50%;
+  margin-left: -92px;
+}
+
+.buttonSliderActive {
+  z-index: 100;
 }
 
 .buttonSliderContent {
@@ -136,6 +261,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.buttonSliderContentActive {
+  flex-direction: row-reverse;
 }
 
 .controlPanelIndicators {
@@ -147,6 +276,12 @@
   width: 24px;
   padding-top: 5px;
   padding-left: 13px;
+}
+
+.iconArrowActive {
+  transform: rotate(-180deg);
+  margin-top: 3px;
+  padding-top: 0;
 }
 
 .connectionQuality {

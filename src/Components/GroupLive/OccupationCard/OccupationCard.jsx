@@ -31,16 +31,30 @@ const OccupationCard = ({
       >
         <div className={cx(styles.firstTitleContentInfo, styles.flexGroupLive, styles.column)}>
           <div className={styles.flexGroupLive}>
-            <p className={cx(styles.mainTitle, {
-              [styles.countNull]: !item.title,
-            })}
-            >{item.title || 'Название'}
-            </p>
-            <p className={cx(styles.price, {
-              [styles.priceNull]: !item.price,
-            })}
-            >{item.price} грн.
-            </p>
+            {item.title ? (
+              <>
+                <p className={cx(styles.mainTitle, {
+                  [styles.countNull]: !item.title,
+                })}
+                >
+                  {item.title || 'Название'}
+                </p>
+                <p className={cx(styles.price, {
+                  [styles.priceNull]: !item.price,
+                })}
+                >
+                  {item.price} грн.
+                </p>
+              </>
+            ) : (
+              <>
+                <input className={styles.input} type="text" placeholder="Название" />
+                <div>
+                  <input className={styles.inputPrice} type="text" placeholder="0" />
+                  <span>грн</span>
+                </div>
+              </>
+            )}
           </div>
           <Button
             classNameWrapper={styles.greyBtn}

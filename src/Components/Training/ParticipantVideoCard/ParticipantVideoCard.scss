@@ -1,0 +1,106 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  width: 50%;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-image: url("../../../static/images/zaryadka9.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.controlPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 68px 10px 10px;
+}
+
+.buttonControl {
+  padding: 11px 12px 9px 17px;
+  background-color: rgba(14, 14, 14, 0.5);
+  border-radius: 10px;
+  display: flex;
+}
+
+.button {
+  position: relative;
+
+  &:last-child {
+    margin-left: 13px;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+
+  & path {
+    stroke: $colorWhite;
+    stroke-width: 1px;
+    opacity: 1;
+    fill: none;
+  }
+}
+
+.iconNoActive {
+  opacity: .3;
+}
+
+.buttonUnactive::before {
+  content: "";
+  position: absolute;
+  height: 27px;
+  width: 1px;
+  left: 8px;
+  top: -3px;
+  background-color: $colorWhite;
+  transform: rotate(-45deg);
+}
+
+.name {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorWhite);
+
+  padding: 8px 17px 11px;
+  background-color: rgba(14, 14, 14, 0.2);
+  border-radius: 39px;
+}
+
+.buttonExit {
+  margin-left: 10px;
+  font-size: 20px;
+  color: $colorWhite;
+}
+
+.wrapperText {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cameraTextTraining {
+  @include styleForText(30px, $fontItalicMedium, $colorWhite);
+  position: relative;
+
+  &:before {
+    content: '"';
+
+    @include styleForText(64px, $fontGothamPro, $colorWhite);
+
+    opacity: .2;
+    position: absolute;
+    left: -30px;
+    top: -25px;
+  }
+}
+
+.buttonFinish {
+  @include styleForText($fontSizeContent, $fontMain, $colorWhite);
+
+  margin-top: 33px;
+}

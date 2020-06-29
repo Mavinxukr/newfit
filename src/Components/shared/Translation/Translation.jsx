@@ -4,9 +4,9 @@ import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 import Button from '../../../UI-Kit/Button/Button';
 import WaitingTooltip from '../../GroupLiveWaiting/WaitingTooltip/WaitingTooltip';
-import FinishPopup from '../../Training/FinishPopup/FinishPopup';
 import BroadcastCards from '../../Training/BroadcastCards/BroadcastCards';
 import ErrorWindow from '../../Training/ErrorWindow/ErrorWindow';
+import ParticipantVideoCard from '../../Training/ParticipantVideoCard/ParticipantVideoCard';
 import IconArrow from '../../../static/svg/Group2072.svg';
 import IconCamera from '../../../static/svg/video-camera.svg';
 import IconComment from '../../../static/svg/comment.svg';
@@ -14,7 +14,7 @@ import IconMic from '../../../static/svg/mic.svg';
 import IconExpandArrows from '../../../static/svg/expad-arrows.svg';
 import withPopup from '../../../HOC/withPopup';
 import styles from './Translation.scss';
-import { cards, cardsActive } from './data';
+import { cards, cardsActive, cameras } from './data';
 
 const SliderButton = ({ onClick, className, currentSlide }) => {
   const isSecondSlide = currentSlide === 1;
@@ -52,7 +52,7 @@ const sliderSetting = {
 };
 
 const VideoBlock = ({
-  isError, isTrainingPage, openPopup, text,
+  isError, isTrainingPage, openPopup, text, setText,
 }) => (
   <div className={cx(styles.cameraVideoBlock, {
     [styles.cameraVideoBlockGrey]: isError,
@@ -60,11 +60,6 @@ const VideoBlock = ({
     [styles.cameraVideoBlockTraining]: isTrainingPage,
   })}
   >
-    {isTrainingPage && (
-      <button type="button" className={styles.buttonExpand}>
-        <IconExpandArrows className={styles.expandsIcon} />
-      </button>
-    )}
     {isError && !isTrainingPage && (
       <div className={styles.errorWrapper}>
         <div className={styles.errorInfo}>
@@ -95,8 +90,7 @@ const VideoBlock = ({
         </div>
       </div>
     )}
-    {isError && isTrainingPage && <ErrorWindow />}
-    {text && !isTrainingPage && (
+    {text && !isTrainingPage && !isError && (
       <p className={styles.cameraText}>{text}</p>
     ) || text && isTrainingPage && (
       <div className={styles.wrapperText}>
@@ -104,11 +98,7 @@ const VideoBlock = ({
         <p className={styles.nameText}>Инна</p>
         <button
           type="button"
-          onClick={() => {
-            openPopup({
-              PopupContentComponent: FinishPopup,
-            });
-          }}
+          onClick={() => setText(null)}
           className={styles.buttonFinish}
         >
           Закончить
@@ -119,7 +109,7 @@ const VideoBlock = ({
 );
 
 const Translation = ({
-  classNameWrapper, isError, openPopup, isTrainingPage, text, count,
+  classNameWrapper, isError, openPopup, isTrainingPage, text, count, setText,
 }) => {
   useEffect(() => {
     if (isTrainingPage) {
@@ -132,22 +122,51 @@ const Translation = ({
 
   return (
     <div className={cx(styles.camera, classNameWrapper)}>
+      {isTrainingPage && (
+        <button type="button" className={styles.buttonExpand}>
+          <IconExpandArrows className={styles.expandsIcon} />
+        </button>
+      )}
       {!isTrainingPage && (
         <VideoBlock
           openPopup={openPopup}
           isTrainingPage={isTrainingPage}
           text={text}
           isError={isError}
+          setText={setText}
         />
       ) || (
         <div className={styles.sliderWrapper}>
           <Slider {...sliderSetting}> {/*eslint-disable-line*/}
+            {cameras.length && (
+              <div className={styles.camerasWrapper}>
+                <div className={styles.cameras}>
+                  <VideoBlock
+                    openPopup={openPopup}
+                    isTrainingPage={isTrainingPage}
+                    text={text}
+                    isError={isError}
+                    setText={setText}
+                  />
+                  {cameras.map((item) => (
+                    <ParticipantVideoCard
+                      text="позанимаемся"
+                      key={item.id}
+                      item={item}
+                      openPopup={openPopup}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) || (
             <VideoBlock
               openPopup={openPopup}
               isTrainingPage={isTrainingPage}
               text={text}
               isError={isError}
+              setText={setText}
             />
+            )}
             <div className={styles.broadcastCardsWrapper}>
               <BroadcastCards data={cards} />
               <BroadcastCards data={cardsActive} />
@@ -155,6 +174,7 @@ const Translation = ({
           </Slider>
         </div>
       )}
+      {isError && isTrainingPage && <ErrorWindow />}
       <div className={cx(styles.controlPanel, {
         [styles.controlPanelWaiting]: !isTrainingPage,
       })}
@@ -201,15 +221,12 @@ const Translation = ({
   );
 };
 
-// SliderButton.propTypes = {
-//   props: PropTypes.object,
-// };
-
 Translation.propTypes = {
   classNameWrapper: PropTypes.string,
   isError: PropTypes.bool,
   isTrainingPage: PropTypes.bool,
   openPopup: PropTypes.func,
+  setText: PropTypes.func,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   count: PropTypes.number,
 };

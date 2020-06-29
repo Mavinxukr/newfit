@@ -49,7 +49,7 @@ const Layout = ({ openPopup }) => {
         />
       </div>
       <div className={styles.translationWrapper}>
-        <Translation isTrainingPage count={2} text={selectedQuestion} isError />
+        <Translation isError isTrainingPage text={selectedQuestion} setText={setSelectedQuestion} />
       </div>
       <button
         type="button"

@@ -1,6 +1,6 @@
 export const cards = [
   {
-    title: '',
+    title: 'Сообщения',
     blocks: [
       {
         id: 1,
@@ -55,4 +55,12 @@ export const cardsActive = [
       },
     ],
   },
+];
+
+export const cameras = [
+  // {
+  //   id: 1,
+  //   name: 'Инна',
+  //   isActiveSignal: false,
+  // },
 ];

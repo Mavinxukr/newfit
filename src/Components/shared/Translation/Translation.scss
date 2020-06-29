@@ -13,8 +13,20 @@
   position: relative;
 }
 
+.camerasWrapper {
+  outline: none;
+}
+
+.cameras {
+  width: 100%;
+  display: flex;
+}
+
 .broadcastCardsWrapper {
-  height: 779px;
+  height: 87vh;
+  outline: none;
+  padding-left: 20px;
+  margin-top: 20px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -30,7 +42,8 @@
 }
 
 .cameraVideoBlockTraining {
-  height: 779px;
+  height: 87vh;
+  width: 100%;
 }
 
 .cameraVideoBlockImage {
@@ -45,11 +58,12 @@
   right: 10px;
   width: 42px;
   height: 42px;
+  z-index: 10;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(14, 14, 14, 0.5);
+  background-color: rgba(14, 14, 14, 0.2);
 }
 
 .expandsIcon path {
@@ -146,6 +160,7 @@
 .buttonAccess {
   margin-top: 15px;
   width: 226px;
+  border-radius: 5px;
 }
 
 .errorTooltip {
@@ -165,12 +180,13 @@
 .errorTooltipButton {
   margin-top: 15px;
   width: 125px;
+  border-radius: 5px;
 }
 
 .controlPanel {
   position: absolute;
   right: 20px;
-  bottom: -74px;
+  bottom: -58px;
   width: 97.4%;
   padding-left: 20px;
   display: flex;
@@ -246,7 +262,7 @@
   width: auto;
   padding: 0 14px;
   position: absolute;
-  bottom: -71px;
+  bottom: -55px;
   left: 50%;
   margin-left: -92px;
 }

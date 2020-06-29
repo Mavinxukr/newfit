@@ -34,7 +34,7 @@ const Layout = () => (
           </ul>
         </div>
         <div className={styles.translationWrapper}>
-          <Translation isError text="Ваша камера" />
+          <Translation text="Ваша камера" isError />
           <p className={styles.translationWrapperText}>
             Участники вас не видят и не слышат, так как вы не начали занятие
           </p>
@@ -48,7 +48,7 @@ const Layout = () => (
           viewType="green"
           classNameWrapper={styles.buttonStart}
         >
-          начать занятие
+          Начать занятие
         </Button>
       </Link>
     </footer>

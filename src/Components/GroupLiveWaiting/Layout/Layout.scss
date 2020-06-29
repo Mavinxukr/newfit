@@ -54,10 +54,18 @@
 
 .copyButton {
   width: 208px;
+  border-radius: 5px;
 }
 
 .iconCopy {
   margin-right: 9px;
+  position: relative;
+  top: 1px;
+
+  & path {
+    opacity: 1;
+    fill: #78bf87;
+  }
 }
 
 .translationWrapper {

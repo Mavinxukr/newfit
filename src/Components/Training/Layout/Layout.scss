@@ -11,11 +11,14 @@
 
 .icon {
   margin-right: 8px;
+  position: relative;
+  top: 2px;
 }
 
 .bgColor {
   background: $colorAvatarBackground;
   padding: 40px 30px 40px 70px;
+  border-radius: 0 0 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,14 +34,14 @@
 
 .buttonLink {
   width: 113px;
+  border-radius: 5px;
 }
 
 .translationWrapper {
-  width: 70%;
+  width: 71.7%;
   margin-left: 40px;
-  height: 779px;
-  margin-top: 99px;
-  margin-bottom: 104px;
+  margin-top: 20px;
+  margin-bottom: 79px;
 }
 
 .rightTraining {
@@ -54,6 +57,7 @@
 
 .finished {
   position: fixed;
+  font-size: $fontSizeContent;
   left: 50px;
   bottom: 25px;
   opacity: .5;

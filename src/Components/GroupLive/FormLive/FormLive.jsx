@@ -56,6 +56,11 @@ const FormLive = ({
               <option value="#00ff00">Usd</option>
               <option value="#0000ff">Eur</option>
             </Field>
+            {formLive?.values?.discount && (
+              <div className={styles.discount}>
+                <input placeholder="-10" className={styles.discoutInput} type="text" />
+              </div>
+            )}
           </div>
         </div>
       </div>

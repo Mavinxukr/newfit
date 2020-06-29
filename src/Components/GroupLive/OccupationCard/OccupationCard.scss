@@ -186,3 +186,25 @@
 .buttonDelete {
   padding-top: 20px;
 }
+
+.input,
+.inputPrice {
+  border: none;
+  font-size: 20px;
+}
+
+.input {
+  width: 90px;
+  margin-right: 10px;
+}
+
+.inputPrice {
+  width: 35px;
+  text-align: right;
+}
+
+.inputPrice::placeholder,
+.inputPrice,
+.inputPrice + span{
+  color: $colorRedDark;
+}

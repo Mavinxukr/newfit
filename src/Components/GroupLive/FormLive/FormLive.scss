@@ -68,6 +68,32 @@
   }
 }
 
+.discoutInput {
+  width: 38px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(14, 14, 14, .1);
+  font-size: 16px;
+  position: absolute;
+  right: -125px;
+  z-index: 102;
+  color: $colorRedDark;
+
+  &::placeholder {
+    color: $colorRedDark;
+  }
+}
+
+.discount:after {
+  content: '%';
+  font-size: 16px;
+  position: absolute;
+  right: -127px;
+  z-index: 102;
+  width: 14px;
+  color: $colorRedDark;
+}
+
 .addOption {
   margin-top: 36px;
   display: flex;

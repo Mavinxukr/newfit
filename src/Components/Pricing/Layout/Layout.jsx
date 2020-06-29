@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import Button from '../../../UI-Kit/Button/Button';
 import PricingNav from '../../shared/PricingNav/PricingNav';
 import Select from '../../../UI-Kit/Select/Select';
@@ -24,6 +25,8 @@ import imageCardThree from '../../../static/images/03.png';
 import IconLink from '../../../static/svg/Group2072.svg';
 import { curses, cursesTwo } from '../data';
 import styles from './Layout.scss';
+
+configureAnchors({ offset: -100, scrollDuration: 400 });
 
 const arrOptionsTimes = [
   { value: '2ч 30м', label: '2ч 30м' },
@@ -69,8 +72,8 @@ const Layout = () => {
             <span className={styles.logoText}>Тренер</span>
           </Link>
           <div className={styles.nav}>
-            <a className={styles.headerLink} href="/">Подписки</a>
-            <a className={cx(styles.headerLink, styles.opacityText)} href="/">Возможности</a>
+            <a className={styles.headerLink} href="#subscriptions">Подписки</a>
+            <a className={cx(styles.headerLink, styles.opacityText)} href="#opportunities">Возможности</a>
           </div>
           <div className={styles.headerSocial}>
             <p className={styles.socialText}>Онлайн-чат с нами</p>
@@ -105,19 +108,21 @@ const Layout = () => {
           classNameWrapper={styles.selectWrapper}
         />
         <hr className={styles.line} />
-        <div className={styles.selectPlanWrapper}>
-          {arrButtons.map((item, index) => (
-            <button
-              type="button"
-              key={index}
-              className={cx(styles.buttonSelectPlan, {
-                [styles.buttonSelectPlanActive]: indexButton === index,
-              })}
-              onClick={() => setIndexButton(index)}
-            >{item}
-            </button>
-          ))}
-        </div>
+        <ScrollableAnchor id="subscriptions">
+          <div className={styles.selectPlanWrapper}>
+            {arrButtons.map((item, index) => (
+              <button
+                type="button"
+                key={index}
+                className={cx(styles.buttonSelectPlan, {
+                  [styles.buttonSelectPlanActive]: indexButton === index,
+                })}
+                onClick={() => setIndexButton(index)}
+              >{item}
+              </button>
+            ))}
+          </div>
+        </ScrollableAnchor>
         <div className={styles.cardsWrapper}>
           <Card
             classNameWrapper={styles.smallCard}
@@ -144,14 +149,16 @@ const Layout = () => {
           />
         </div>
         <hr className={styles.lineTwo} />
-        <div className={styles.titleWrapper}>
-          <h1 className={styles.title}>Основные возможности групповых тренировок на EasyFit</h1>
-          <a href="/" className={styles.linkToOpportunities}>
-            <span className={styles.count}>34</span>
-            Все возможности
-            <IconLink className={styles.linkIcon} />
-          </a>
-        </div>
+        <ScrollableAnchor id="opportunities">
+          <div className={styles.titleWrapper}>
+            <h1 className={styles.title}>Основные возможности групповых тренировок на EasyFit</h1>
+            <a href="/" className={styles.linkToOpportunities}>
+              <span className={styles.count}>34</span>
+              Все возможности
+              <IconLink className={styles.linkIcon} />
+            </a>
+          </div>
+        </ScrollableAnchor>
         <Tabs
           classNameWrapper={styles.tabsWrapper}
           onChange={(i) => dispatch(setTabIndex(i))}

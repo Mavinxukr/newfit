@@ -68,19 +68,20 @@
   }
 }
 
-.discoutInput {
-  width: 38px;
+.discountInput {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorRed);
+
+  width: 45px;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(14, 14, 14, .1);
-  font-size: 16px;
   position: absolute;
-  right: -125px;
+  right: -135px;
+  top: 21px;
   z-index: 102;
-  color: $colorRedDark;
 
   &::placeholder {
-    color: $colorRedDark;
+    color: $colorRed;
   }
 }
 
@@ -88,20 +89,32 @@
   content: '%';
   font-size: 16px;
   position: absolute;
-  right: -127px;
+  right: -135px;
   z-index: 102;
   width: 14px;
+  top: 21px;
   color: $colorRedDark;
 }
 
+.inputMinus {
+  position: absolute;
+  right: -88px;
+  color: $colorRed;
+  top: 20px;
+}
+
 .addOption {
-  margin-top: 36px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
 }
 
 .checkboxWrapper {
   width: 455px;
+
+  & label {
+    padding-left: 0;
+  }
 }
 
 .timeContent,

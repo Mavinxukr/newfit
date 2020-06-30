@@ -25,10 +25,6 @@
   border-bottom: 1px solid $colorBorder;
 }
 
-.opacityText {
-  opacity: .5;
-}
-
 .logoText {
   font-style: italic;
 
@@ -53,6 +49,11 @@
 
 .headerLink {
   margin: 0 12.5px;
+  opacity: .5;
+
+  &:focus {
+    opacity: 1;
+  }
 }
 
 .socialLink {

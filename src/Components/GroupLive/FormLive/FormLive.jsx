@@ -58,7 +58,22 @@ const FormLive = ({
             </Field>
             {formLive?.values?.discount && (
               <div className={styles.discount}>
-                <input placeholder="-10" className={styles.discoutInput} type="text" />
+                <Field
+                  name="price"
+                  viewType="newLive"
+                  classNameWrapper={styles.inputWrapper}
+                  defaultValue="00,00"
+                  component={({ input }) => (
+                    <input
+                      placeholder="10"
+                      value={input.value}
+                      onChange={input.onChange}
+                      className={styles.discountInput}
+                      type="text"
+                    />
+                  )}
+                />
+                <span className={styles.inputMinus}>-</span>
               </div>
             )}
           </div>

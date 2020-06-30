@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { Field, reduxForm } from 'redux-form';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
@@ -61,12 +62,12 @@ const SingUp = ({
     {(status !== AUTH_STATUSES.signUpViaGoogle && status !== AUTH_STATUSES.signUpViaFacebook) && (
       <Field
         name="password"
-        type="password"
+        type="text"
         viewType="entry"
         label="Создайте пароль"
         placeholder="*****"
         classNameWrapper={styles.formikWrapper}
-        classNameWrapperForInput={styles.inputWrapper}
+        classNameWrapperForInput={cx(styles.inputWrapper, styles.inputPassword)}
         component={ReduxInputWrapper}
       />
     )}

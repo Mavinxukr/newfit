@@ -59,13 +59,13 @@ const Layout = ({ openPopup }) => {
               Общий
             </p>
           </div>
-          <div className={cx(styles.flexGroupLive, styles.column, styles.marginBottom)}>
+          <div className={cx(styles.flexGroupLive, styles.columnPrice, styles.marginBottom)}>
             <div className={styles.incomeInfo}>
-              <p>1 512</p>
+              <p className={styles.amountPrice}>1 512</p>
               <p>Аудитория</p>
             </div>
             <div className={styles.incomeInfo}>
-              <p className={styles.colorGreen}>+12</p>
+              <p className={cx(styles.colorGreen, styles.amountPrice)}>+12</p>
               <p>Новая с последнего занятия</p>
             </div>
           </div>

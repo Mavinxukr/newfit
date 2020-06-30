@@ -73,7 +73,7 @@ const Layout = () => {
           </Link>
           <div className={styles.nav}>
             <a className={styles.headerLink} href="#subscriptions">Подписки</a>
-            <a className={cx(styles.headerLink, styles.opacityText)} href="#opportunities">Возможности</a>
+            <a className={styles.headerLink} href="#opportunities">Возможности</a>
           </div>
           <div className={styles.headerSocial}>
             <p className={styles.socialText}>Онлайн-чат с нами</p>

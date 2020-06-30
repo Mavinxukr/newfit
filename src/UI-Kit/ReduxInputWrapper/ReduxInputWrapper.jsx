@@ -27,7 +27,6 @@ const ReduxInputWrapper = ({
     )}
     <Input
       formProps={input}
-      name={name}
       isError={touched && error}
       type={type}
       viewType={viewType}

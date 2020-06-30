@@ -8,9 +8,9 @@ const Input = ({
   formProps: {
     value,
     onChange,
+    name,
   },
   placeholder,
-  name,
   viewType,
   type,
   isError,
@@ -44,7 +44,7 @@ const Input = ({
       )}
       <input
         type={type}
-        value={value || defaultValue}
+        value={name === 'password' && value.replace(/[\s\S]/g, '*') || value || defaultValue}
         onFocus={() => setStatus('active')}
         onChange={(e) => onChange(e)}
         className={classNameForInput}
@@ -59,9 +59,9 @@ Input.propTypes = {
   formProps: PropTypes.shape({
     onChange: PropTypes.func,
     value: PropTypes.string,
+    name: PropTypes.string,
   }),
   isError: PropTypes.bool,
-  name: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   viewType: PropTypes.string,

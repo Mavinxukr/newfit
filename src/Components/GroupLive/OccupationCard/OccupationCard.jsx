@@ -18,6 +18,7 @@ const OccupationCard = ({
   item, openPopup, indexForOpenEditForm, setIndexForOpenEditForm,
 }) => {
   const [isOpenButtonsControl, setIsOpenButtonsControl] = useState(false);
+  const [valueTitle, setValueTitle] = useState(item.title);
 
   return (
     <div className={cx(styles.card, {
@@ -31,30 +32,26 @@ const OccupationCard = ({
       >
         <div className={cx(styles.firstTitleContentInfo, styles.flexGroupLive, styles.column)}>
           <div className={styles.flexGroupLive}>
-            {item.title ? (
-              <>
-                <p className={cx(styles.mainTitle, {
-                  [styles.countNull]: !item.title,
-                })}
-                >
-                  {item.title || 'Название'}
-                </p>
-                <p className={cx(styles.price, {
-                  [styles.priceNull]: !item.price,
-                })}
-                >
-                  {item.price} грн.
-                </p>
-              </>
-            ) : (
-              <>
-                <input className={styles.input} type="text" placeholder="Название" />
-                <div>
-                  <input className={styles.inputPrice} type="text" placeholder="0" />
-                  <span>грн</span>
-                </div>
-              </>
-            )}
+            <textarea
+              className={styles.input}
+              value={valueTitle}
+              onChange={(e) => {
+                setValueTitle(e.target.value);
+              }}
+              onFocus={(e) => e.target.classList.add(styles.underline)}
+              onBlur={(e) => e.target.classList.remove(styles.underline)}
+              placeholder="Название"
+            />
+            <button
+              className={cx(styles.buttonPrice, {
+                [styles.buttonPriceNull]: !item.price,
+              })}
+              type="button"
+              aria-label="edit"
+              onClick={() => setIndexForOpenEditForm(item.id)}
+            >
+              {item.price} грн
+            </button>
           </div>
           <Button
             classNameWrapper={styles.greyBtn}

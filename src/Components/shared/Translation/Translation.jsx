@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
@@ -16,8 +16,10 @@ import withPopup from '../../../HOC/withPopup';
 import styles from './Translation.scss';
 import { cards, cardsActive, cameras } from './data';
 
-const SliderButton = ({ onClick, className, currentSlide }) => {
-  const isSecondSlide = currentSlide === 1;
+const SliderButton = ({
+  onClick, className, activeSlide,
+}) => {
+  const isSecondSlide = activeSlide === 1;
 
   return (
     <Button
@@ -42,15 +44,6 @@ const SliderButton = ({ onClick, className, currentSlide }) => {
   );
 };
 
-const sliderSetting = {
-  infinite: false,
-  speed: 1000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  nextArrow: <SliderButton />,
-  prevArrow: <SliderButton />,
-};
-
 const VideoBlock = ({
   isError, isTrainingPage, openPopup, text, setText,
 }) => (
@@ -60,6 +53,7 @@ const VideoBlock = ({
     [styles.cameraVideoBlockTraining]: isTrainingPage,
   })}
   >
+    {!isError && !isTrainingPage && <div className={styles.gradient} />}
     {isError && !isTrainingPage && (
       <div className={styles.errorWrapper}>
         <div className={styles.errorInfo}>
@@ -111,6 +105,8 @@ const VideoBlock = ({
 const Translation = ({
   classNameWrapper, isError, openPopup, isTrainingPage, text, count, setText,
 }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   useEffect(() => {
     if (isTrainingPage) {
       const buttonSlider = document.querySelector('.slick-list');
@@ -119,6 +115,16 @@ const Translation = ({
       sliderTrack.classList.add(styles.sliderTrack);
     }
   }, []);
+
+  const sliderSetting = {
+    infinite: false,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SliderButton activeSlide={activeSlide} />,
+    prevArrow: <SliderButton activeSlide={activeSlide} />,
+    afterChange: (current) => setActiveSlide(current),
+  };
 
   return (
     <div className={cx(styles.camera, classNameWrapper)}>
@@ -179,7 +185,7 @@ const Translation = ({
         [styles.controlPanelWaiting]: !isTrainingPage,
       })}
       >
-        {isTrainingPage && count && (
+        {isTrainingPage && count && activeSlide === 0 && (
           <div className={styles.countOfParticipant}>
             <p className={styles.countComments}>
               <IconComment className={styles.iconCountComment} /> 3

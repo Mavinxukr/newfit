@@ -11,7 +11,7 @@ const Layout = () => (
     <div className={styles.container}>
       <IconLogo className={styles.iconLogo} />
       <div className={styles.wrapperContent}>
-        <div className={styles.textContent}>
+        <div>
           <p className={styles.amountParticipants}>
             44 <span className={styles.amountParticipantsGrey}>/55</span>
           </p>
@@ -34,7 +34,7 @@ const Layout = () => (
           </ul>
         </div>
         <div className={styles.translationWrapper}>
-          <Translation text="Ваша камера" isError />
+          <Translation text="Ваша камера" />
           <p className={styles.translationWrapperText}>
             Участники вас не видят и не слышат, так как вы не начали занятие
           </p>

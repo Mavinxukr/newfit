@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
+import cx from 'classnames';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
 import IconArrowBack from '../../../static/svg/BackArrow.svg';
@@ -36,7 +37,7 @@ const Login = ({
       label="Пароль"
       placeholder="*****"
       classNameWrapper={styles.formikWrapper}
-      classNameWrapperForInput={styles.inputWrapper}
+      classNameWrapperForInput={cx(styles.inputWrapper, styles.inputPassword)}
       component={ReduxInputWrapper}
     />
     <p className={styles.forgotPassword}>

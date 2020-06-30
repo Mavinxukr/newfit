@@ -18,6 +18,7 @@ const EntryForm = ({
 }) => {
   const onSubmit = (values) => {
     console.log(values);
+    dispatch(setAuthStatus(AUTH_STATUSES.signUp));
   };
 
   return (

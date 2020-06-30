@@ -2,24 +2,25 @@
 @import "src/styles/core/mixins";
 
 .container {
-  height: 100%;
+  height: 87vh;
   padding: 0 50px;
+  position: relative;
   width: auto;
 }
 
 .iconLogo {
-  margin-top: 40px;
+  top: 40px;
+  left: 50px;
+  position: absolute;
 }
 
 .wrapperContent {
   display: flex;
+  height: 100%;
   justify-content: space-between;
+  align-items: center;
   padding-left: 90px;
   padding-right: 50px;
-}
-
-.textContent {
-  margin-top: 175px;
 }
 
 .amountParticipants {
@@ -60,11 +61,15 @@
 .iconCopy {
   margin-right: 9px;
   position: relative;
-  top: 1px;
+  top: 2px;
 
   & path {
     opacity: 1;
     fill: #78bf87;
+  }
+
+  & g {
+    opacity: 1;
   }
 }
 
@@ -79,12 +84,11 @@
 
   position: absolute;
   width: 295px;
-  bottom: -68px;
+  bottom: -51px;
   left: 20px;
 }
 
 .footer {
-  margin-top: 161px;
   height: 115px;
   width: 100%;
   position: fixed;

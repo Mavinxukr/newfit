@@ -7,9 +7,8 @@ body {
   @include styleWithPrefix(box-sizing, border-box);
   box-sizing: border-box;
   font-size: $fontSizeContent;
-  font-family: "InterMedium", sans-serif;
+  font-family: $fontMain;
   color: $colorContent;
-  overflow-y: scroll;
   height: 100vh;
 }
 
@@ -20,6 +19,7 @@ body {
 a {
   text-decoration: none;
   color: $colorContent;
+  font-family: $fontMain;
 }
 
 a:hover,
@@ -34,10 +34,12 @@ li {
 button {
   border: none;
   background: none;
+  font-family: $fontMain;
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 

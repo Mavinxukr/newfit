@@ -2,20 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FacebookLogin } from 'react-facebook-login-component';
 import GoogleLogin from 'react-google-login';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, Form } from 'redux-form';
+import { AUTH_STATUSES } from '../../../constans';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
 import styles from './EntryForm.scss';
 
 const EntryForm = ({
-  setStatus, handleSubmit, submitting, invalid, dirty,
+  handleSubmit,
+  submitting,
+  invalid,
+  dirty,
+  setAuthStatus,
+  dispatch,
 }) => {
   const onSubmit = (values) => {
     console.log(values);
+    dispatch(setAuthStatus(AUTH_STATUSES.signUp));
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <Form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2>Добро пожаловать</h2>
       <p className={styles.text}>Войдите или Создайте аккаунт</p>
       <div className={styles.buttons}>
@@ -23,7 +30,11 @@ const EntryForm = ({
           socialId="1083453692003561"
           language="en_US"
           scope="public_profile,email"
-          responseHandler={() => setStatus('registerViaFacebook')}
+          responseHandler={() => {
+            dispatch(
+              setAuthStatus(AUTH_STATUSES.signUpViaFacebook),
+            );
+          }}
           fields="id,email,name"
           version="v2.5"
           className={styles.facebookButton}
@@ -43,7 +54,9 @@ const EntryForm = ({
           )}
           buttonText="Login"
           onSuccess={() => {
-            setStatus('registerViaGoogle');
+            dispatch(
+              setAuthStatus(AUTH_STATUSES.signUpViaGoogle),
+            );
           }}
           onFailure={(response) => console.log(response)}
           cookiePolicy="single_host_origin"
@@ -64,16 +77,17 @@ const EntryForm = ({
       >
         Продолжить
       </Button>
-    </form>
+    </Form>
   );
 };
 
 EntryForm.propTypes = {
-  setStatus: PropTypes.func,
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
   dirty: PropTypes.bool,
+  setAuthStatus: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default reduxForm({

@@ -1,0 +1,43 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectButton {
+  @include styleForText(20px);
+
+  padding: 12px 55px 13px 20px;
+  background-color: $colorAvatarBackground;
+  position: relative;
+  border-radius: 5px;
+
+  &:after {
+    content: url("../../static/svg/Path121.svg");
+    position: absolute;
+    right: 17px;
+    top: 9px;
+  }
+}
+
+.options {
+  position: absolute;
+  z-index: 100;
+  top: 57px;
+  width: 81.5%;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 12px 20px;
+}
+
+.item {
+  margin-bottom: 5px;
+}
+
+.button {
+  @include styleForText(20px);
+
+  width: 100%;
+  text-align: left;
+}

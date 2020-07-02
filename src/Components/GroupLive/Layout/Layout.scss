@@ -1,0 +1,223 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.flexGroupLive {
+  display: flex;
+  align-items: baseline;
+}
+
+.fullWidthBlock {
+  width: 100%;
+}
+
+.titlePage {
+  margin-bottom: 30px;
+}
+
+.contentBetween {
+  justify-content: space-between;
+}
+
+.fullWidthBlock .contentBetween + .contentBetween {
+  padding-top: 30px;
+}
+
+.marginRight {
+  margin-right: 30px;
+}
+
+.showMore {
+  color: $colorContent;
+  opacity: .2;
+  margin-left: 10px;
+}
+
+.amountPrice {
+  font-family: $fontSemiBold;
+  font-size: 20px;
+}
+
+.colorGreen {
+  color: $colorButtons;
+}
+
+.medium {
+  font-family: $fontMain;
+}
+
+.mainTitle {
+  margin-right: 30px;
+}
+
+.mainContent {
+  margin: 50px 60px 0 50px;
+  width: 100%;
+}
+
+.firstBlock {
+  padding: 30px 40px;
+  border-radius: 10px;
+  background: $colorBackground;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.iconPlus {
+  transform: rotate(30deg);
+}
+
+.textLive {
+  font-size: 18px;
+  font-family: $fontMain;
+}
+
+.opacityText {
+  opacity: .5;
+}
+
+.contentInfo {
+  border: 1px solid $colorGreyDark;
+  border-radius: 5px;
+  padding: 21px 30px 30px;
+  margin-bottom: 20px;
+}
+
+.price {
+  opacity: .3;
+}
+
+.icon {
+  margin-right: 9px;
+}
+
+.rightBlock {
+  width: 100%;
+  max-width: 425px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 1px solid $colorBorder;
+}
+
+.alignCenter {
+  align-items: center;
+  padding-bottom: 21px;
+  border-bottom: 1px solid $colorBorder;
+  margin-bottom: 20px;
+}
+
+.textRight {
+  text-align: right;
+  min-width: 251px;
+}
+
+.contentAfter:after {
+  content: '';
+  width: 36px;
+  display: inline-block;
+}
+
+.bottomLine {
+  border-bottom: 1px solid $colorBorder;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.marginBottom {
+  margin-bottom: 15px;
+}
+
+.titleContentInfo {
+  text-align: left;
+  width: auto;
+}
+
+.lastTitleContentInfo {
+  margin-right: 27px;
+  width: 312px;
+  text-align: right;
+}
+
+.firstTitleContentInfo {
+  width: 335px;
+  align-items: baseline;
+}
+
+.secondTitleContentInfo {
+  width: 168px;
+}
+
+.greyBtn {
+  color: $colorContent;
+  width: auto;
+  padding: 11px 15px 10px;
+  background: $colorBackground;
+  margin-top: 12px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.sizeBtn {
+  padding: 11px 15px 10px;
+  margin-top: 12px;
+  width: auto;
+
+  & + .sizeBtn {
+    margin-left: 8px;
+  }
+
+  &:hover svg path {
+    fill: $colorWhite;
+  }
+}
+
+.dotsItems {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: rotate(90deg) translateY(-50%);
+  width: 21px;
+  height: 5px;
+  justify-content: space-between;
+  display: flex;
+
+  .dotItem {
+    width: 5px;
+    height: 5px;
+    background: $colorGreyDark;
+    border-radius: 50%;
+  }
+}
+
+.column,
+.columnPrice {
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+}
+
+.column {
+  padding-bottom: 10px;
+}
+
+.columnOpacity {
+  opacity: .3;
+  pointer-events: none;
+}
+
+.lastItem {
+  border: none;
+  padding-bottom: 0;
+}
+
+.incomeInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  & + .incomeInfo {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,84 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  padding: 40px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 893px;
+  text-align: center;
+}
+
+.mainContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerParticipants {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  svg path {
+    opacity: 1;
+  }
+}
+
+.num {
+  opacity: .3;
+}
+
+.btnCopy{
+  color: $colorButtons;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.opacityText {
+  opacity: .5;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.participantsContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid $colorBorder;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.name {
+  max-width: 200px;
+  width: 100%;
+  text-align: left;
+}
+
+.mail {
+  max-width: 300px;
+  width: 100%;
+  text-align: left;
+}
+
+.sale {
+  max-width: 200px;
+  width: 100%;
+  text-align: left;
+}
+
+.date {
+  max-width: 130px;
+  width: 100%;
+  text-align: right;
+}

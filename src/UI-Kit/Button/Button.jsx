@@ -3,6 +3,20 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './Button.scss';
 
+const classNamesButton = {
+  green: styles.buttonGreen,
+  grey: styles.buttonGrey,
+  simpleCopy: styles.buttonSimpleCopy,
+  black: styles.buttonBlack,
+  white: styles.buttonWhite,
+  smallGreen: styles.buttonSmallGreen,
+  red: styles.buttonRed,
+  link: styles.buttonLink,
+  small: styles.buttonSmall,
+  simple: styles.buttonSimple,
+  indicator: styles.buttonIndicator,
+};
+
 const Button = ({
   children,
   classNameWrapper,
@@ -14,21 +28,13 @@ const Button = ({
 }) => {
   const TagName = href ? 'a' : 'button';
 
-  const classNameForButton = cx(cx(styles.button, classNameWrapper), {
-    [styles.buttonBlack]: viewType === 'black',
-    [styles.buttonGrey]: viewType === 'grey',
-    [styles.buttonGreen]: viewType === 'green',
-    [styles.buttonWhite]: viewType === 'white',
-    [styles.buttonSmallGreen]: viewType === 'smallGreen',
-  });
-
   return (
     <TagName
       disabled={disabled}
       href={href}
       type={type}
       onClick={onClick}
-      className={classNameForButton}
+      className={cx(styles.button, classNameWrapper, classNamesButton[viewType])}
     >
       {children}
     </TagName>
@@ -41,7 +47,9 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   type: PropTypes.string,
-  viewType: PropTypes.oneOf(['white', 'black', 'grey', 'green', 'smallGreen']),
+  viewType: PropTypes.oneOf(
+    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link', 'simple', 'indicator'],
+  ),
   disabled: PropTypes.bool,
 };
 

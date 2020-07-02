@@ -1,0 +1,59 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.accordionSection {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  transition: .3s;
+  margin-right: 20px;
+
+  & + .accordionSection {
+    border-top: 1px solid $colorAvatarBackground;
+  }
+}
+
+.accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $colorContent;
+  padding: 0;
+  height: 50px;
+}
+
+.text {
+  font-size: $fontSizeContent;
+}
+
+.accordionContent {
+  overflow: hidden;
+  transition: .3s;
+  opacity: 0;
+  font-size: 15px;
+}
+
+.activeContent {
+  opacity: .6;
+}
+
+.icon {
+  position: relative;
+  transform: rotate(-90deg);
+}
+
+.iconRotate {
+  transform: rotate(0);
+}
+
+.active {
+  padding: 0 20px 20px;
+  transition: .3s;
+  margin-right: 0;
+  background: $colorAvatarBackground;
+  border-radius: 10px;
+
+  & + .accordionSection {
+    border: none;
+  }
+}

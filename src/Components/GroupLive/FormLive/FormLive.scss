@@ -1,0 +1,163 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.form {
+  border-radius: 10px;
+  width: 854px;
+  padding: 30px;
+  background-color: $colorAvatarBackground;
+  position: relative;
+  top: 20px;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 24px;
+  right: 25px;
+}
+
+.inputsWrapper {
+  display: flex;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $colorGreyDark;
+}
+
+.dateWrapper {
+  padding-right: 40px;
+  border-right: 1px solid $colorGreyDark;
+}
+
+.pricingWrapper {
+  margin-left: 40px;
+}
+
+.titleDate {
+  margin-bottom: 15px;
+}
+
+.priceFields {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.inputWrapper {
+  margin-left: 30px;
+  width: 168px;
+}
+
+.selectCurrency {
+  font-size: 16px;
+  position: absolute;
+  right: -47px;
+  background: transparent;
+  z-index: 102;
+  border: none;
+
+  @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
+
+  &:focus {
+    outline: none;
+  }
+
+  & option {
+    background-color: $colorAvatarBackground;
+
+    @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
+  }
+}
+
+.discountInput {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorRed);
+
+  width: 45px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(14, 14, 14, .1);
+  position: absolute;
+  right: -135px;
+  top: 21px;
+  z-index: 102;
+
+  &::placeholder {
+    color: $colorRed;
+  }
+}
+
+.discount:after {
+  content: '%';
+  font-size: 16px;
+  position: absolute;
+  right: -135px;
+  z-index: 102;
+  width: 14px;
+  top: 21px;
+  color: $colorRedDark;
+}
+
+.inputMinus {
+  position: absolute;
+  right: -88px;
+  color: $colorRed;
+  top: 20px;
+}
+
+.addOption {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxWrapper {
+  width: 455px;
+
+  & label {
+    padding-left: 0;
+  }
+}
+
+.timeContent,
+.checkboxContent {
+  @include styleForText();
+
+  position: relative;
+  padding-left: 30px;
+
+  &::before {
+    content: url("../../../static/svg/Group2966.svg");
+    position: absolute;
+    left: 0;
+    top: 7px;
+  }
+}
+
+.checkboxContent {
+  width: 338px;
+  padding-right: 86px;
+  border-right: 1px solid $colorGreyDark;
+}
+
+.timeContent {
+  margin-left: 19px;
+  width: 210px;
+}
+
+.buttonEdit {
+  @include styleForText($fontSizeContent, $fontMain, $colorButtons);
+}
+
+.checkboxContentGreen {
+  color: $colorButtons;
+}
+
+.checkboxContentGray {
+  color: $colorGreyDark;
+}
+
+.submitWrapper {
+  margin-left: -5px;
+  width: 145px;
+  font-size: $fontSizeContent;
+}

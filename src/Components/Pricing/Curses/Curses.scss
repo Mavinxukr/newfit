@@ -1,0 +1,37 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.flex {
+  display: flex;
+  margin-bottom: 320px;
+}
+
+.imageBlock {
+  width: 1022px;
+  height: 601px;
+  box-shadow: 0 20px 50px $colorBox-shadow;
+  border: 1px solid $colorAvatarBackground;
+  border-radius: 10px;
+  margin-right: 70px;
+}
+
+.rightBlock {
+  width: 540px;
+}
+
+.title {
+  margin: 20px 25px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: -25px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: $colorButtons;
+    opacity: .3;
+  }
+}

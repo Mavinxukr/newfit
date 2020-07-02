@@ -1,0 +1,17 @@
+.flex {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 40px 0 30px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  span {
+    opacity: .3;
+  }
+}

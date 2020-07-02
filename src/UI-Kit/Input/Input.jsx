@@ -8,13 +8,14 @@ const Input = ({
   formProps: {
     value,
     onChange,
+    name,
   },
   placeholder,
-  name,
   viewType,
   type,
   isError,
   classNameWrapper,
+  defaultValue,
 }) => {
   const [status, setStatus] = useState('noActive');
 
@@ -22,6 +23,7 @@ const Input = ({
     [styles.entryInput]: viewType === 'entry',
     [styles.entryInputNoActive]: viewType === 'entry' && status === 'noActive',
     [styles.entryInputActive]: viewType === 'entry' && status === 'active',
+    [styles.inputNewLive]: viewType === 'newLive',
   });
 
   return (
@@ -37,9 +39,12 @@ const Input = ({
       {viewType === 'entry' && isError && (
         <span className={styles.errorLine} />
       )}
+      {viewType === 'newLive' && (
+        <span className={styles.currency}>$</span>
+      )}
       <input
         type={type}
-        value={value}
+        value={name === 'password' && value.replace(/[\s\S]/g, '*') || value || defaultValue}
         onFocus={() => setStatus('active')}
         onChange={(e) => onChange(e)}
         className={classNameForInput}
@@ -54,13 +59,14 @@ Input.propTypes = {
   formProps: PropTypes.shape({
     onChange: PropTypes.func,
     value: PropTypes.string,
+    name: PropTypes.string,
   }),
   isError: PropTypes.bool,
-  name: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   viewType: PropTypes.string,
   classNameWrapper: PropTypes.string,
+  defaultValue: PropTypes.string,
 };
 
 export default Input;

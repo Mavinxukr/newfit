@@ -1,0 +1,118 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  padding: 10px 10px 50px;
+  border-radius: 10px;
+}
+
+.content {
+  padding: 20px 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 250px;
+}
+
+.title {
+  position: relative;
+
+  &::before {
+    content: "до";
+
+    @include styleForText($fontSizeContent, $fontItalic, $colorGreyLink);
+
+    font-weight: 100;
+    position: absolute;
+    left: -26px;
+  }
+}
+
+.titleActive::before {
+  content: "";
+}
+
+.sliderWrapper {
+  margin-top: 33px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: $colorGreyDark;
+  border: none;
+  margin-top: 50px;
+}
+
+.pricingWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricingWrapperBigCard {
+  flex-direction: row;
+  align-items: center;
+}
+
+.price {
+  margin-top: 25px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.priceBigCard {
+  padding-right: 36px;
+  border-right: 1px solid $colorAvatarBackground;
+  margin-right: 25px;
+}
+
+.priceDiscount {
+  @include styleForText(20px, $fontItalic, $colorGreyLink);
+
+  position: absolute;
+  top: -3px;
+}
+
+.priceCount {
+  @include styleForText(54px);
+
+  padding-left: 41px;
+}
+
+.pricePeriod {
+  @include styleForText($fontSizeBigText, $fontAdditional, $colorGreyLink);
+
+  padding-left: 10px;
+  padding-bottom: 8px;
+}
+
+.offer {
+  margin-top: 16px;
+
+  @include styleForText($fontSizeBigText, $fontAdditional, $colorGreyLink);
+}
+
+.bigCountPartsContent {
+  margin-top: 40px;
+}
+
+.bigCountPartsTitle {
+  width: 482px;
+  text-align: center;
+}
+
+.bigCountPartsDesc {
+  margin-top: 21px;
+  color: $colorGreyLink;
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+  margin-top: 50px;
+}

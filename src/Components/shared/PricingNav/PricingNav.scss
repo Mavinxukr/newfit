@@ -1,0 +1,47 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.navWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 43px;
+}
+
+.line {
+  @include styleForText(30px, $fontMain, $colorGrey)
+}
+
+.navLink {
+  @include styleForText(30px, $fontMain, $colorGreyLink);
+
+  padding-bottom: 3px;
+}
+
+.navLinkSoon {
+  position: relative;
+  padding-left: 53px;
+}
+
+.soon {
+  padding: 4px 5px 5px;
+  background-color: $colorAvatarBackground;
+  border-radius: 4px;
+  display: inline-block;
+  position: absolute;
+  left: -10px;
+  top: 6px;
+
+  @include styleForText(14px, $fontMain, $colorGreyDark)
+}
+
+.navLinkActive {
+  color: $colorButtons;
+  border-bottom: 1px solid $colorButtons;
+}
+
+.line {
+  padding-left: 20px;
+  padding-right: 26px;
+}

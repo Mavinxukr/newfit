@@ -1,6 +1,15 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
+.wrapperPricing {
+  position: relative;
+}
+
+.headerWrapper {
+  height: 80px;
+  width: 100%;
+}
+
 .header {
   position: fixed;
   background: $colorWhite;
@@ -8,6 +17,7 @@
   left: 0;
   right: 0;
   height: 80px;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,14 +25,16 @@
   border-bottom: 1px solid $colorBorder;
 }
 
-.opacityText {
-  opacity: .5;
-}
-
 .logoText {
   font-style: italic;
-  font-size: 18px;
-  font-family: 'InterSemiBold';
+
+  @include styleForText($fontSizeBigText, $fontSemiBold);
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  margin-left: -117px;
 }
 
 .headerSocial {
@@ -37,21 +49,186 @@
 
 .headerLink {
   margin: 0 12.5px;
+  opacity: .5;
+
+  &:focus {
+    opacity: 1;
+  }
 }
 
 .socialLink {
   margin-left: 5px;
-  border: 1px solid $colorSocialLink;
   border-radius: 10px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:nth-child(2) {
+    border: 1px solid $colorFacebook;
+
+    &:hover {
+      background-color: $colorFacebook;
+    }
+  }
+
+  &:nth-child(3) {
+    border: 1px solid $colorTelegram;
+
+    &:hover {
+      background-color: $colorTelegram;
+    }
+  }
+
+  &:last-child {
+    border: 1px solid $colorEmail;
+
+    &:hover {
+      background-color: $colorEmail;
+    }
+  }
 }
 
 .content {
-  margin-top: 160px;
+  @include container(1630px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.buttonExit {
+  position: absolute;
+  right: 30px;
+  top: 102px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorAvatarBackground;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+}
+
+.iconExit {
+  stroke: $colorContent;
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+.descLive {
+  font-size: 20px;
+  line-height: 28px;
+  width: 750px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.selectWrapper {
+  margin-bottom: 50px;
+}
+
+.lineTwo,
+.line {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: $colorContent;
+  opacity: 0.1;
+}
+
+.lineTwo {
+  margin-top: 180px;
+}
+
+.selectPlanWrapper {
+  margin-top: 40px;
+  border: 1px solid $colorBackground;
+  border-radius: 47px;
+}
+
+.buttonSelectPlan {
+  @include styleForText(20px, $fontMain, $colorGreyLink);
+
+  margin: 0 35px;
+  padding: 20px 0;
+
+  &:nth-child(2) {
+    margin: 0;
+  }
+}
+
+.buttonSelectPlanActive {
+  color: $colorContent;
+  border-bottom: 2px solid $colorContent;
+}
+
+.cardsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.smallCard {
+  border: 2px solid #0E0E0E0D;
+  background-color: $colorAvatarBackground;
+  width: 456px;
+}
+
+.smallCardActive {
+  background: #E9F2EB 0 0 no-repeat padding-box;
+  box-shadow: 0 20px 50px #56AF691A;
+  border: 2px solid $colorButtons;
+  margin-top: -25px;
+}
+
+.bigCard {
+  border: 3px solid $colorAvatarBackground;
+  width: 604px;
+}
+
+.titleWrapper {
+  position: relative;
+  margin-top: 180px;
+}
+
+.title {
+  width: 944px;
+  font-size: 56px;
+  text-align: center;
+}
+
+.linkToOpportunities {
+  @include styleForText(24px, $fontMain, $colorGreyLink);
+
+  position: absolute;
+  right: -247px;
+  top: 33px;
+  height: 69px;
+}
+
+.count {
+  @include styleForText(24px, $fontMain, $colorAvatarBackground);
+
+  position: absolute;
+  color: #e2e2e2;
+  top: 40px;
+}
+
+.linkIcon {
+  position: absolute;
+  top: 43px;
+  right: 2px;
+}
+
+.tabsWrapper {
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .footer {

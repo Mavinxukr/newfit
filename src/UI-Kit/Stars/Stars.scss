@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+}
+
+.iconWrapper {
+  margin-right: 13px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.iconFull path {
+  fill: #d2ca62;
+}

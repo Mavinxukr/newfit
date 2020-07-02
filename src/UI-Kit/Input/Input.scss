@@ -33,6 +33,14 @@
   background-color: $colorRedDark;
 }
 
+.currency {
+  @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
+
+  position: absolute;
+  top: 22px;
+  left: 24px;
+}
+
 .entryInput {
   @include styleForText($fontSizeContent, $fontAdditional);
 
@@ -52,4 +60,16 @@
 
 .entryInputActive {
   border: 1px solid $colorGrey;
+}
+
+.inputNewLive {
+  @include styleForText();
+
+  padding: 20px 20px 20px 40px;
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-color: $colorGreyLink;
+  width: 100%;
+  border: 2px solid $colorBackground;
+  border-radius: 5px;
 }

@@ -1,22 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { Field, reduxForm } from 'redux-form';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
+import { AUTH_STATUSES } from '../../../constans';
 import IconArrowBack from '../../../static/svg/BackArrow.svg';
 import styles from './SingUp.scss';
 
 const SingUp = ({
-  setStatus, status, handleSubmit, submitting, invalid, dirty,
+  handleSubmit,
+  submitting,
+  invalid,
+  dirty,
+  setAuthStatus,
+  dispatch,
+  status,
 }) => (
   <form className={styles.singUpForm} onSubmit={handleSubmit}>
     <h2 className={styles.singUpTitle}>Заполните поля</h2>
-    {status === 'registerViaFacebook' && (
+    {status === AUTH_STATUSES.signUpViaFacebook && (
     <div className={styles.facebookBLock}>
       <p className={styles.facebookTitle}>Facebook</p>
       <p className={styles.username}>@ethpierce</p>
     </div>
-    ) || status === 'registerViaGoogle' && (
+    ) || status === AUTH_STATUSES.signUpViaGoogle && (
     <div className={styles.googleBLock}>
       <p className={styles.googleTitle}>Google</p>
       <p className={styles.username}>@ethpierce</p>
@@ -25,7 +33,9 @@ const SingUp = ({
     <button
       className={styles.bntBack}
       type="button"
-      onClick={() => setStatus('entry')}
+      onClick={() => {
+        dispatch(setAuthStatus(AUTH_STATUSES.entry));
+      }}
     >
       <IconArrowBack />
     </button>
@@ -49,15 +59,15 @@ const SingUp = ({
       classNameWrapperForInput={styles.inputWrapper}
       component={ReduxInputWrapper}
     />
-    {(status !== 'registerViaFacebook' && status !== 'registerViaGoogle') && (
+    {(status !== AUTH_STATUSES.signUpViaGoogle && status !== AUTH_STATUSES.signUpViaFacebook) && (
       <Field
         name="password"
-        type="password"
+        type="text"
         viewType="entry"
         label="Создайте пароль"
         placeholder="*****"
         classNameWrapper={styles.formikWrapper}
-        classNameWrapperForInput={styles.inputWrapper}
+        classNameWrapperForInput={cx(styles.inputWrapper, styles.inputPassword)}
         component={ReduxInputWrapper}
       />
     )}
@@ -72,12 +82,13 @@ const SingUp = ({
 );
 
 SingUp.propTypes = {
-  setStatus: PropTypes.func,
+  setAuthStatus: PropTypes.func,
   status: PropTypes.string,
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
   dirty: PropTypes.bool,
+  dispatch: PropTypes.func,
 };
 
 export default reduxForm({

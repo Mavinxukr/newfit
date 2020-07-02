@@ -1,0 +1,72 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.question {
+  display: flex;
+  flex-direction: column;
+  padding: 43px 50px;
+}
+
+.btnPlus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+
+  @include styleForText(23px, $fontMain, $colorGreyDark);
+
+  background: $colorAvatarBackground;
+  width: 42px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.text {
+  height: 31px;
+}
+
+.iconPlus {
+  & path {
+    stroke: $colorGreyDark;
+    stroke-width: 2px;
+    opacity: 1;
+  }
+}
+
+.iconPlusActive {
+  & path {
+    stroke: $colorWhite;
+  }
+
+  transform: rotate(45deg);
+}
+
+.btnPlusActive {
+  background-color: $colorButtons;
+}
+
+.contentWrapper {
+  border-bottom: 1px solid $colorBackground;
+  padding-bottom: 15px;
+}
+
+.questionText {
+  max-width: 306px;
+  font-size: $fontSizeBigText;
+  font-family: $fontItalicMedium;
+  margin-bottom: 5px;
+}
+
+.flex {
+  display: flex;
+  margin-bottom: 15px;
+
+  &:last-child .contentWrapper {
+    border-bottom: none;
+  }
+}
+
+.name {
+  @include styleForText ($fontSizeContent, $fontAdditional, $colorGreyDark);
+}

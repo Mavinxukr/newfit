@@ -1,0 +1,70 @@
+export const participants = [
+  {
+    id: 0,
+    name: 'Ethan',
+    email: 'designjafa@gmail.com',
+    sale: '',
+    date: 'Сегодня, 11:31',
+  },
+  {
+    id: 1,
+    name: 'Ethan',
+    email: 'designjafa@gmail.com',
+    sale: '',
+    date: 'Сегодня, 11:31',
+  },
+  {
+    id: 2,
+    name: 'Ethan Pierce',
+    email: 'designjafa@gmail.com',
+    sale: '',
+    date: 'Сегодня, 11:31',
+  },
+  {
+    id: 3,
+    name: 'Ethan Pierce',
+    email: 'designjafa@gmail.com',
+    sale: '',
+    date: 'Сегодня, 11:31',
+  },
+  {
+    id: 4,
+    name: 'Ethan Pierce',
+    email: 'designjafa@gmail.com',
+    sale: '-30% Скидка',
+    date: 'Сегодня, 11:31',
+  },
+];
+
+export const occupations = [
+  {
+    id: 1,
+    title: 'Йога',
+    price: 200,
+    isEditPromoSite: false,
+    countParticipant: 24,
+    totalSum: 2000,
+    date: 'Сегодня, 14:00',
+    statusDate: 'planned',
+  },
+  {
+    id: 2,
+    title: 'Йога домовая',
+    price: 12,
+    isEditPromoSite: true,
+    countParticipant: 0,
+    totalSum: 2000,
+    date: 'Вы пропустили',
+    statusDate: 'missed',
+  },
+  {
+    id: 3,
+    title: '',
+    price: 0,
+    isEditPromoSite: false,
+    countParticipant: 24,
+    totalSum: 0,
+    date: 'Вчера, 12:30',
+    statusDate: 'finished',
+  },
+];

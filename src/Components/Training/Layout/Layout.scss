@@ -1,0 +1,64 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapperTraining {
+  display: flex;
+}
+
+.leftTraining {
+  width: 480px;
+}
+
+.icon {
+  margin-right: 8px;
+  position: relative;
+  top: 2px;
+}
+
+.bgColor {
+  background: $colorAvatarBackground;
+  padding: 40px 30px 40px 70px;
+  border-radius: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sizeGroup {
+  @include styleForText(35px, $fontMain);
+}
+
+.maxSize{
+  @include styleForText(35px, $fontMain, $colorGreyDark);
+}
+
+.buttonLink {
+  width: 113px;
+  border-radius: 5px;
+}
+
+.translationWrapper {
+  width: 71.7%;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 79px;
+}
+
+.rightTraining {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 100%;
+  margin-top: 99px;
+  height: 779px;
+  margin-bottom: 104px;
+  position: relative;
+}
+
+.finished {
+  position: fixed;
+  font-size: $fontSizeContent;
+  left: 50px;
+  bottom: 25px;
+  opacity: .5;
+}

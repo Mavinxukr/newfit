@@ -92,6 +92,7 @@
 
 .noActiveLink {
   @include styleForText(18px, $fontMain, $colorGreyLink);
+  pointer-events: none;
 }
 
 .activeLink {

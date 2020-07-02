@@ -1,0 +1,26 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  width: 100%;
+  height: 20px
+}
+
+.thumb {
+  top: -13px;
+  background-color: $colorWhite;
+  border-radius: 50px;
+}
+
+.thumbIcon {
+  border-radius: 50%;
+
+  & g {
+    opacity: 1;
+  }
+}
+
+.track {
+  height: 5px;
+  border-radius: 47px;
+}

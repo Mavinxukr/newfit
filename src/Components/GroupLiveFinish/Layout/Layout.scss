@@ -1,0 +1,87 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.container {
+  height: 100%;
+  padding: 0 50px;
+  width: auto;
+}
+
+.iconLogo {
+  margin-top: 40px;
+}
+
+.imageConfettiRight,
+.imageConfettiLeft {
+  position: fixed;
+  transform: rotate(30deg);
+  bottom: -365px;
+  z-index: -1;
+}
+
+.imageConfettiRight {
+  left: -350px;
+}
+
+.imageConfettiLeft {
+  right: -350px;
+}
+
+.content {
+  margin-top: 172px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marksWrapper {
+  margin-top: 51px;
+  padding-bottom: 30px;
+  display: flex;
+  border-bottom: 1px solid $colorGreyDark;
+}
+
+.stars {
+  margin-top: 50px;
+}
+
+.text {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink);
+
+  margin-top: 21px;
+}
+
+.wrapperMark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+  color: $colorGreyLink;
+  border-right: 1px solid $colorGreyDark;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.wrapperMarkColorGreen {
+  color: $colorButtons;
+}
+
+.markAmount {
+  font-size: 72px;
+}
+
+.markTitle {
+  font-size: 20px;
+}
+
+.buttonClose {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  width: 266px;
+  margin-left: -133px;
+  display: block;
+}

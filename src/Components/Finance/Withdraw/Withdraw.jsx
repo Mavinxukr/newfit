@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconExit from '../../../static/svg/Group150.svg';
+import IconExit from '../../../static/svg/close.svg';
 import Button from '../../../UI-Kit/Button/Button';
 import styles from './Withdraw.scss';
 

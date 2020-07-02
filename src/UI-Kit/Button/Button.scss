@@ -7,6 +7,7 @@
   border-radius: 8px;
   width: 100%;
   padding: 17px 0 16px;
+  text-align: center;
 }
 
 .buttonWhite {
@@ -35,7 +36,8 @@
 }
 
 .buttonGreen,
-.buttonSmallGreen {
+.buttonSmallGreen,
+.buttonSmall {
   color: $colorWhite;
   background: $colorButtons;
 
@@ -44,7 +46,54 @@
   }
 }
 
+.buttonSimple {
+  color: $colorGreyLink;
+  border: 1px solid $colorGreyDark;
+  background-color: $colorWhite;
+}
+
+.buttonIndicator {
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $colorGreyDark;
+  border-radius: 10px;
+}
+
+.buttonRed {
+  border: 1px solid $colorRedDark;
+  color: $colorRedDark;
+  background: $colorWhite;
+  width: 344px;
+
+  &:hover {
+    color: $colorWhite;
+    background: $colorRedDark;
+  }
+}
+
 .buttonSmallGreen {
   padding: 15px 0 16px;
   font-size: 18px;
+}
+
+.buttonSmall {
+  padding: 10px 0 11px 0;
+}
+
+.buttonSimpleCopy {
+  padding: 0;
+  width: auto;
+}
+
+.buttonLink {
+  padding: 11px 0 10px;
+  width: auto;
+  border: 1px solid $colorGreyDark;
+  color: $colorContent;
+
+  &:hover {
+    color: $colorGreyLink;
+  }
 }

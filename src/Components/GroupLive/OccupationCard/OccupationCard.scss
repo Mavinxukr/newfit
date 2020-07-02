@@ -21,12 +21,18 @@
 
 .cardWrapper {
   display: flex;
+  justify-content: space-between;
   position: relative;
 }
 
 .flexGroupLive {
   display: flex;
   align-items: baseline;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: flex-start;
 }
 
 .showMore {
@@ -64,6 +70,7 @@
 .lastTitleContentInfo {
   display: flex;
   align-items: flex-end;
+  margin-right: 32px;
   width: 233px;
 }
 
@@ -99,10 +106,10 @@
 }
 
 .greyBtn {
-  color: $colorContent;
+  color: $colorGreyLink;
   width: auto;
   padding: 11px 15px 10px;
-  background: $colorBackground;
+  background: $colorAvatarBackground;
   margin-top: 12px;
   display: flex;
   align-items: center;
@@ -126,6 +133,11 @@
 
 .sizeBtnMargin {
   margin-right: 10px;
+}
+
+.buttonCopy {
+  border: 1px solid #cce7d1;
+  margin-right: 0;
 }
 
 .dotsItems {
@@ -183,15 +195,13 @@
   padding-top: 20px;
 }
 
-.textFieldWrapper {
-  margin-right: 20px;
-}
-
 .input {
   @include styleForText(20px, $fontMain, $colorContent);
 
   background-color: transparent;
   border: none;
+  height: 26px;
+  margin-right: 20px;
 
   &:focus {
     border-bottom: 1px solid $colorGreyLink;
@@ -206,4 +216,5 @@
   @include styleForText($fontSizeContent, $fontMain, $colorButtons);
 
   text-align: right;
+  margin-top: 3px;
 }

@@ -41,9 +41,13 @@ const Login = ({
       component={ReduxInputWrapper}
     />
     <p className={styles.forgotPassword}>
-      <a className={styles.forgotLink} href="/">
+      <button
+        className={styles.forgotButton}
+        type="button"
+        onClick={() => dispatch(setAuthStatus(AUTH_STATUSES.reset))}
+      >
         Забыли пароль?
-      </a>
+      </button>
     </p>
     <Button
       classNameWrapper={styles.loginSubmit}

@@ -1,0 +1,32 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.form {
+  padding: 50px 70px 40px;
+  width: 398px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.desc {
+  margin-top: 40px;
+  width: 100%;
+  text-align: left;
+  font-family: $fontAdditional;
+}
+
+.inputWrapper {
+  margin-top: 10px;
+}
+
+.buttonSubmit {
+  margin-top: 50px;
+}

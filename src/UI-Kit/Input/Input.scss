@@ -8,7 +8,7 @@
 
 .icon {
   position: absolute;
-  right: 16px;
+  right: 12px;
   top: 20px;
   fill: none;
   stroke: $colorGreyDark;
@@ -44,10 +44,9 @@
 .entryInput {
   @include styleForText($fontSizeContent, $fontAdditional);
 
-  padding: 16px 20px 15px;
+  padding: 16px 33px 15px 20px;
   border-radius: 5px;
-  width: 89.3%;
-  border: none;
+  width: 86.3%;
 
   &::placeholder {
     color: grey;

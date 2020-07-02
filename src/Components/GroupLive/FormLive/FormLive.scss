@@ -108,6 +108,7 @@
   margin-top: 30px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .checkboxWrapper {
@@ -118,7 +119,7 @@
   }
 }
 
-.timeContent,
+.buttonEdit,
 .checkboxContent {
   @include styleForText();
 
@@ -128,8 +129,8 @@
   &::before {
     content: url("../../../static/svg/Group2966.svg");
     position: absolute;
-    left: 0;
-    top: 7px;
+    left: 4px;
+    top: -1px;
   }
 }
 
@@ -139,13 +140,10 @@
   border-right: 1px solid $colorGreyDark;
 }
 
-.timeContent {
-  margin-left: 19px;
-  width: 210px;
-}
-
 .buttonEdit {
   @include styleForText($fontSizeContent, $fontMain, $colorButtons);
+
+  margin-left: 19px;
 }
 
 .checkboxContentGreen {

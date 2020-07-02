@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import Popup from '../UI-Kit/Popup/Popup';
-import FormLayout from '../Components/Main/FormLayout/FormLayout';
+import FormLayout from '../Components/GroupLive/FormLayout/FormLayout';
 
 const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
   const [isOpenPopup, setIsOpenPopup] = useState(isOpenByDefault);
-  const [popupContent, setPopupContent] = useState(isOpenByDefault);
+  const [popupContent, setPopupContent] = useState(null);
 
   const closePopup = () => setIsOpenPopup(false);
-  const openPopup = ({ PopupContentComponent, content }) => {
-    if (PopupContentComponent) {
+  const openPopup = (propsPopup) => {
+    if (propsPopup) {
+      const { PopupContentComponent, content } = propsPopup;
       setPopupContent(<PopupContentComponent content={content} closePopup={closePopup} />);
     }
     setIsOpenPopup(true);
@@ -18,7 +19,7 @@ const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
     <>
       <Component {...props} openPopup={openPopup} />  {/*eslint-disable-line*/}
       {isOpenPopup && (
-        <Popup closePopup={closePopup}>
+        <Popup closePopup={closePopup} persistToOpenPopup={popupContent}>
           {popupContent && popupContent || <FormLayout />}
         </Popup>
       )}

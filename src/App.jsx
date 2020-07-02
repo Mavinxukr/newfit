@@ -7,7 +7,6 @@ import Pricing from './Pages/Pricing/Pricing';
 import GroupLive from './Pages/GroupLive/GroupLive';
 import GroupLiveWaiting from './Pages/GroupLiveWaiting/GroupLiveWaiting';
 import GroupLiveFinish from './Pages/GroupLiveFinish/GroupLiveFinish';
-import Main from './Pages/Main/Main';
 import configureStore from './store';
 import history from './history';
 import './index.scss';
@@ -48,11 +47,6 @@ const App = () => (
           exact
           path="/group-live-finish"
           component={GroupLiveFinish}
-        />
-        <Route
-          exact
-          path="/main"
-          component={Main}
         />
       </Switch>
     </ConnectedRouter>

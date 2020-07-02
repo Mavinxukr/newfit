@@ -17,7 +17,7 @@ const Input = ({
   classNameWrapper,
   defaultValue,
 }) => {
-  const [status, setStatus] = useState('noActive');
+  const [status, setStatus] = useState(defaultValue && 'active' || 'noActive');
 
   const classNameForInput = cx(classNameWrapper, {
     [styles.entryInput]: viewType === 'entry',

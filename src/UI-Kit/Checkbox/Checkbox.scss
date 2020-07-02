@@ -27,9 +27,9 @@
     content: "";
     width: 16px;
     height: 16px;
-    background-image: url("../../static/svg/Path121.svg");
+    background-image: url("../../static/svg/Path126.svg");
     background-repeat: no-repeat;
-    background-position: 2.4px 6px;
+    background-position: 4.4px 6px;
     border-radius: 4px;
     position: absolute;
     top: 1px;
@@ -45,6 +45,7 @@
 .input:checked + .label {
   &::before {
     background-color: $colorButtons;
+    background-image: url("../../static/svg/Path127.svg");
   }
 }
 

@@ -56,3 +56,14 @@
     margin-left: 10px;
   }
 }
+
+.iconCamera path {
+  fill: $colorRed;
+  stroke: $colorRed;
+  stroke-width: 0.3px;
+  opacity: 1;
+
+  &:last-child {
+    stroke-width: 1px;
+  }
+}

@@ -4,6 +4,7 @@ import { AUTH_STATUSES } from '../../../constans';
 import { setAuthStatus } from '../../../actions/auth';
 import EntryForm from '../EntryForm/EntryForm';
 import Login from '../Login/Login';
+import Reset from '../Reset/Reset';
 import SingUp from '../SingUp/SingUp';
 
 const FORM_COMPONENTS = {
@@ -12,6 +13,7 @@ const FORM_COMPONENTS = {
   [AUTH_STATUSES.signUp]: SingUp,
   [AUTH_STATUSES.signUpViaFacebook]: SingUp,
   [AUTH_STATUSES.signUpViaGoogle]: SingUp,
+  [AUTH_STATUSES.reset]: Reset,
 };
 
 const FormLayout = () => {

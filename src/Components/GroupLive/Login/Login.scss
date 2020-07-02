@@ -37,8 +37,8 @@
   width: 100%;
 }
 
-.forgotLink {
-  color: $colorGreyLink;
+.forgotButton {
+  @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
 }
 
 .bntBack {

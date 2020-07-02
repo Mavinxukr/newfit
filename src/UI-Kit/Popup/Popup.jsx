@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Popup.scss';
 
-const Popup = ({ children, classNameWrapper, closePopup }) => (
+const Popup = ({
+  children, classNameWrapper, closePopup, persistToOpenPopup,
+}) => (
   <>
     <div
       className={styles.backgroundPopup}
-      onClick={closePopup}
+      onClick={() => {
+        if (persistToOpenPopup) {
+          closePopup();
+        }
+      }}
       onKeyPress={closePopup}
       role="button"
       tabIndex="0"
@@ -23,6 +29,7 @@ Popup.propTypes = {
   children: PropTypes.node,
   classNameWrapper: PropTypes.string,
   closePopup: PropTypes.func,
+  persistToOpenPopup: PropTypes.bool,
 };
 
 export default Popup;

@@ -1,17 +1,19 @@
 import React from 'react';
 import { reduxForm, Form, Field } from 'redux-form';
 import { useSelector } from 'react-redux';
-import cx from 'classnames';
+// import cx from 'classnames';
 import PropTypes from 'prop-types';
 import DatePicker from '../../../UI-Kit/DatePicker/DatePicker';
 import Checkbox from '../../../UI-Kit/Checkbox/Checkbox';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
+import withPopup from '../../../HOC/withPopup';
+import LinkPopup from '../LinkPopup/LinkPopup';
 import IconClose from '../../../static/svg/close.svg';
 import styles from './FormLive.scss';
 
 const FormLive = ({
-  handleSubmit, setIndexForOpenEditForm,
+  handleSubmit, setIndexForOpenEditForm, openPopup,
 }) => {
   const onSubmit = (valuesForm) => {
     console.log(valuesForm);
@@ -80,28 +82,34 @@ const FormLive = ({
         </div>
       </div>
       <div className={styles.addOption}>
-        <Field
-          name="pricing"
-          id="pricing"
-          type="checkbox"
-          classNameWrapper={styles.checkboxWrapper}
-          component={(input) => (
-            <Checkbox {...input} viewType="slider" label> {/*eslint-disable-line*/}
-              <p className={styles.checkboxContent}>
-                Продолжить продавать участие списывая по
-                <span className={cx(styles.checkboxContentGreen, {
-                  [styles.checkboxContentGray]: formLive?.values?.pricing,
-                })}
-                > 0,10$/Участник{' '}
-                </span>
-                с доходов?
-              </p>
-            </Checkbox>
-          )}
-        />
-        <p className={styles.timeContent}>
-          Время занятия: до 2ч <button type="button" className={styles.buttonEdit}>Изменить</button>
-        </p>
+        {/* <Field */}
+        {/*  name="pricing" */}
+        {/*  id="pricing" */}
+        {/*  type="checkbox" */}
+        {/*  classNameWrapper={styles.checkboxWrapper} */}
+        {/*  component={(input) => ( */}
+        {/*    <Checkbox {...input} viewType="slider" label> /!*eslint-disable-line*!/ */}
+        {/*      <p className={styles.checkboxContent}> */}
+        {/*        Продолжить продавать участие списывая по */}
+        {/*        <span className={cx(styles.checkboxContentGreen, { */}
+        {/*          [styles.checkboxContentGray]: formLive?.values?.pricing, */}
+        {/*        })} */}
+        {/*        > 0,10$/Участник{' '} */}
+        {/*        </span> */}
+        {/*        с доходов? */}
+        {/*      </p> */}
+        {/*    </Checkbox> */}
+        {/*  )} */}
+        {/* /> */}
+        <button
+          type="button"
+          className={styles.buttonEdit}
+          onClick={() => openPopup({
+            PopupContentComponent: LinkPopup,
+          })}
+        >
+          Добавить ссылку на эфир (Zoom, Skype … )
+        </button>
         <Button
           type="submit"
           viewType="smallGreen"
@@ -117,9 +125,9 @@ const FormLive = ({
 FormLive.propTypes = {
   handleSubmit: PropTypes.func,
   setIndexForOpenEditForm: PropTypes.func,
-  values: PropTypes.object,
+  openPopup: PropTypes.func,
 };
 
-export default reduxForm({
+export default withPopup(reduxForm({
   form: 'formLive',
-})(FormLive);
+})(FormLive));

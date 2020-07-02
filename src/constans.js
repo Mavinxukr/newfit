@@ -4,4 +4,5 @@ export const AUTH_STATUSES = {
   signUpViaFacebook: 'signUpViaFacebook',
   signUpViaGoogle: 'signUpViaGoogle',
   entry: 'entry',
+  reset: 'reset',
 };

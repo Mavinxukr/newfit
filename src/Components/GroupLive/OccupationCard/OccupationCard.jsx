@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './OccupationCard.scss';
 import Button from '../../../UI-Kit/Button/Button';
@@ -8,7 +8,7 @@ import MorePopup from '../MorePopup/MorePopup';
 import IconGreenPlus from '../../../static/svg/greenPlus.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
 import IconEdit from '../../../static/svg/edit.svg';
-import IconVideo from '../../../static/svg/Polygon1.svg';
+// import IconVideo from '../../../static/svg/Polygon1.svg';
 import Participants from '../Participants/Participants';
 import FormLive from '../FormLive/FormLive';
 import { participants } from '../data';
@@ -31,24 +31,15 @@ const OccupationCard = ({
       })}
       >
         <div className={cx(styles.firstTitleContentInfo, styles.flexGroupLive, styles.column)}>
-          <div className={styles.flexGroupLive}>
-            <div className={styles.textFieldWrapper}>
-              <textarea
-                className={styles.input}
-                value={valueTitle}
-                onChange={(e) => {
-                  setValueTitle(e.target.value);
-                }}
-                onKeyUp={(e) => {
-                  if (e.target.scrollTop > 0) {
-                    e.target.style.height = `${e.target.scrollHeight}px`;
-                  } else {
-                    e.target.style.height = `${e.target.style.height - e.target.scrollHeight}px`;
-                  }
-                }}
-                placeholder="Название"
-              />
-            </div>
+          <div className={styles.mainInfo}>
+            <textarea
+              className={styles.input}
+              value={valueTitle}
+              onChange={(e) => {
+                setValueTitle(e.target.value);
+              }}
+              placeholder="Название"
+            />
             <button
               className={cx(styles.buttonPrice, {
                 [styles.buttonPriceNull]: !item.price,
@@ -117,21 +108,21 @@ const OccupationCard = ({
               <Button
                 type="button"
                 viewType="white"
-                classNameWrapper={cx(styles.sizeBtn, styles.sizeBtnMargin)}
+                classNameWrapper={cx(styles.sizeBtn, styles.sizeBtnMargin, styles.buttonCopy)}
               >
                 <IconCopy className={styles.icon} />
                 Ссылка
               </Button>
-              <Link to="/group-live-waiting">
-                <Button
-                  href
-                  viewType="green"
-                  classNameWrapper={styles.sizeBtn}
-                >
-                  <IconVideo className={styles.icon} />
-                  Начать
-                </Button>
-              </Link>
+              {/* <Link to="/group-live-waiting"> */}
+              {/*  <Button */}
+              {/*    href */}
+              {/*    viewType="green" */}
+              {/*    classNameWrapper={styles.sizeBtn} */}
+              {/*  > */}
+              {/*    <IconVideo className={styles.icon} /> */}
+              {/*    Начать */}
+              {/*  </Button> */}
+              {/* </Link> */}
             </div>
           ) || (
             <Button

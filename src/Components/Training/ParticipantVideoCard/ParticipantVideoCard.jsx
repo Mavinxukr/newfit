@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import FinishPopup from '../FinishPopup/FinishPopup';
+import IconPlus from '../../../static/svg/Group3221.svg';
 import IconCamera from '../../../static/svg/video-camera.svg';
 import IconMic from '../../../static/svg/mic.svg';
 import styles from './ParticipantVideoCard.scss';
@@ -46,7 +47,9 @@ const ParticipantVideoCard = ({
         </div>
         <div className={styles.name}>
           Инна
-          <button type="button" className={styles.buttonExit}>x</button>
+          <button type="button" className={styles.buttonExit}>
+            <IconPlus />
+          </button>
         </div>
       </div>
     </div>

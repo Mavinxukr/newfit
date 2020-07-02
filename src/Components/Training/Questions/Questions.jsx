@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import IconPlus from '../../../static/svg/Group3221.svg';
 import styles from './Questions.scss';
 
 const Questions = ({ data, selectedQuestion, setSelectedQuestion }) => (
@@ -23,7 +24,12 @@ const Questions = ({ data, selectedQuestion, setSelectedQuestion }) => (
               }
             }}
           >
-            <p className={cx(styles.text, { [styles.plusRotate]: isActiveButton })}>+</p>
+            <p className={styles.text}>
+              <IconPlus className={cx(styles.iconPlus, {
+                [styles.iconPlusActive]: isActiveButton,
+              })}
+              />
+            </p>
           </button>
           <div className={styles.contentWrapper}>
             <p className={styles.questionText}>{item.question}</p>

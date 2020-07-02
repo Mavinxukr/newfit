@@ -18,7 +18,7 @@
 
   background: $colorAvatarBackground;
   width: 42px;
-  height: 44px;
+  height: 40px;
   margin-right: 15px;
 }
 
@@ -26,8 +26,19 @@
   height: 31px;
 }
 
-.plusRotate {
-  color: $colorWhite;
+.iconPlus {
+  & path {
+    stroke: $colorGreyDark;
+    stroke-width: 2px;
+    opacity: 1;
+  }
+}
+
+.iconPlusActive {
+  & path {
+    stroke: $colorWhite;
+  }
+
   transform: rotate(45deg);
 }
 

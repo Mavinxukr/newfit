@@ -18,7 +18,7 @@ const OccupationCard = ({
   item, openPopup, indexForOpenEditForm, setIndexForOpenEditForm,
 }) => {
   const [isOpenButtonsControl, setIsOpenButtonsControl] = useState(false);
-  const [valueTitle, setValueTitle] = useState(item.title);
+  const [valueTitle, setValueTitle] = useState(item.title || '');
 
   return (
     <div className={cx(styles.card, {
@@ -32,16 +32,23 @@ const OccupationCard = ({
       >
         <div className={cx(styles.firstTitleContentInfo, styles.flexGroupLive, styles.column)}>
           <div className={styles.flexGroupLive}>
-            <textarea
-              className={styles.input}
-              value={valueTitle}
-              onChange={(e) => {
-                setValueTitle(e.target.value);
-              }}
-              onFocus={(e) => e.target.classList.add(styles.underline)}
-              onBlur={(e) => e.target.classList.remove(styles.underline)}
-              placeholder="Название"
-            />
+            <div className={styles.textFieldWrapper}>
+              <textarea
+                className={styles.input}
+                value={valueTitle}
+                onChange={(e) => {
+                  setValueTitle(e.target.value);
+                }}
+                onKeyUp={(e) => {
+                  if (e.target.scrollTop > 0) {
+                    e.target.style.height = `${e.target.scrollHeight}px`;
+                  } else {
+                    e.target.style.height = `${e.target.style.height - e.target.scrollHeight}px`;
+                  }
+                }}
+                placeholder="Название"
+              />
+            </div>
             <button
               className={cx(styles.buttonPrice, {
                 [styles.buttonPriceNull]: !item.price,

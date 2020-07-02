@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../../UI-Kit/Button/Button';
-import IconCamera from '../../../static/svg/video-camera.svg';
-import IconMic from '../../../static/svg/mic.svg';
+import IconCameraError from '../../../static/svg/Group3255.svg';
+import IconMicError from '../../../static/svg/Group3257.svg';
 import styles from './ErrorWindow.scss';
 
 const ErrorWindow = () => (
@@ -21,14 +21,14 @@ const ErrorWindow = () => (
         classNameWrapper={styles.buttonIndicator}
         viewType="indicator"
       >
-        <IconCamera className={styles.iconError} />
+        <IconCameraError />
       </Button>
       <Button
         type="button"
         classNameWrapper={styles.buttonIndicator}
         viewType="indicator"
       >
-        <IconMic className={styles.iconError} />
+        <IconMicError />
       </Button>
     </div>
   </div>

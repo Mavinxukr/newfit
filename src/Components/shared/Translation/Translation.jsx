@@ -9,8 +9,10 @@ import ErrorWindow from '../../Training/ErrorWindow/ErrorWindow';
 import ParticipantVideoCard from '../../Training/ParticipantVideoCard/ParticipantVideoCard';
 import IconArrow from '../../../static/svg/Group2072.svg';
 import IconCamera from '../../../static/svg/video-camera.svg';
+import IconCameraError from '../../../static/svg/Group3255.svg';
 import IconComment from '../../../static/svg/comment.svg';
 import IconMic from '../../../static/svg/mic.svg';
+import IconMicError from '../../../static/svg/Group3257.svg';
 import IconExpandArrows from '../../../static/svg/expad-arrows.svg';
 import withPopup from '../../../HOC/withPopup';
 import styles from './Translation.scss';
@@ -212,14 +214,18 @@ const Translation = ({
             classNameWrapper={styles.button}
             viewType="indicator"
           >
-            <IconCamera className={styles.iconCamera} />
+            {isError
+            && <IconCameraError className={styles.iconCamera} />
+            || <IconCamera className={styles.iconCamera} />}
           </Button>
           <Button
             type="button"
             classNameWrapper={styles.button}
             viewType="indicator"
           >
-            <IconMic className={styles.iconCamera} />
+            {isError
+            && <IconMicError className={styles.iconCamera} />
+            || <IconMic className={styles.iconCamera} />}
           </Button>
         </div>
       </div>

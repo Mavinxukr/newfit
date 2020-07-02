@@ -183,21 +183,23 @@
   padding-top: 20px;
 }
 
-.input {
-  @include styleForText(20px);
+.textFieldWrapper {
+  margin-right: 20px;
+}
 
-  margin-right: 10px;
+.input {
+  @include styleForText(20px, $fontMain, $colorContent);
+
+  background-color: transparent;
   border: none;
-  font-size: 20px;
-  max-width: 237px;
+
+  &:focus {
+    border-bottom: 1px solid $colorGreyLink;
+  }
 
   &::placeholder {
     color: $colorGreyLink;
   }
-}
-
-.underline {
-  border-bottom: 1px solid $colorGreyLink;
 }
 
 .buttonPrice {

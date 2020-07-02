@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import IconPlus from '../../../static/svg/Group3221.svg';
 import styles from './BroadcastCard.scss';
 
 const getClassNames = (elem, image) => {
@@ -8,6 +9,7 @@ const getClassNames = (elem, image) => {
     topBtn: styles.topBtn,
     question: styles.question,
     quoteBtn: styles.quoteBtn,
+    iconPlus: styles.iconPlus,
   };
 
   return cx(classNames[elem], {
@@ -23,7 +25,7 @@ const BroadcastCard = ({ image, name = 'name', question }) => (
   >
     <button className={getClassNames('topBtn', image)} type="button">
       {name}
-      {image && '+'}
+      {image && <IconPlus className={styles.iconPlusUser} />}
     </button>
     {question && (
       <>
@@ -32,16 +34,18 @@ const BroadcastCard = ({ image, name = 'name', question }) => (
         })}
         >{question}
         </h4>
-        <button className={getClassNames('quoteBtn', image)} type="button">+ Цитировать</button>
+        <button className={getClassNames('quoteBtn', image)} type="button">
+          <IconPlus className={getClassNames('iconPlus', image)} />  Цитировать
+        </button>
       </>
     )}
   </div>
 );
 
 BroadcastCard.propTypes = {
-  image: propTypes.bool,
-  name: propTypes.string,
-  question: propTypes.string,
+  image: PropTypes.bool,
+  name: PropTypes.string,
+  question: PropTypes.string,
 };
 
 export default BroadcastCard;

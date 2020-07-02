@@ -30,7 +30,7 @@
 
   .question,
   .quoteBtn{
-    display: block;
+    display: flex;
   }
 
   .question {
@@ -65,10 +65,37 @@
   }
 }
 
+.iconPlusUser {
+  & path {
+    stroke: $colorWhite;
+    opacity: 1;
+  }
+
+  margin-left: 10px;
+}
+
+.iconPlus {
+  & path {
+    stroke: $colorGreyDark;
+    opacity: 1;
+  }
+
+  margin-right: 6px;
+
+  & .withImage {
+    & path {
+      stroke: $colorWhite;
+    }
+  }
+}
+
 .topBtn {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @include styleForText($fontSizeContent, $fontAdditional);
   z-index: 5;
 
@@ -99,6 +126,7 @@
   position: absolute;
   bottom: 30px;
   display: none;
+  align-items: center;
   @include styleForText($fontSizeContent, $fontMain);
   left: 50%;
   transform: translate(-50%);

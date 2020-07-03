@@ -29,7 +29,7 @@ Popup.propTypes = {
   children: PropTypes.node,
   classNameWrapper: PropTypes.string,
   closePopup: PropTypes.func,
-  persistToOpenPopup: PropTypes.bool,
+  persistToOpenPopup: PropTypes.object,
 };
 
 export default Popup;

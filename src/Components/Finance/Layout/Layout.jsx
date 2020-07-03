@@ -62,42 +62,46 @@ const Layout = ({ openPopup }) => (
         <div className={cx(styles.flex, styles.contentBetween)}>
           <div className={styles.column}>
             <h4>Мои подписки</h4>
-            <span className={styles.opacityText}>Подключённые</span>
+            <span className={styles.opacityText}>Бесплатная версия</span>
           </div>
-          <Button classNameWrapper={styles.buttonWithdraw} type="button" viewType="white">
-            Продлить по Июнь 8,24$ (-2%)
-          </Button>
+          <Link to="/pricing" className={styles.btnEdit}>
+            <Button classNameWrapper={styles.buttonWithdraw} type="button" viewType="white">
+              Узнать больше о подписке
+            </Button>
+          </Link>
         </div>
         <div className={cx(styles.flex, styles.contentBottom, styles.contentFlexStart)}>
           <div className={styles.column}>
             <p className={styles.titleLive}>Групповой Live</p>
-            <p className={styles.subTitleLive}>До 10 июля</p>
           </div>
-          <div>
-            <div className={cx(styles.flex, styles.blockLive)}>
-              <p className={styles.subTitleLive}>25 клиентов</p>
-              <Link to="/pricing" className={styles.btnEdit}>
-                Изменить
-              </Link>
-            </div>
-            <div className={cx(styles.flex, styles.blockLive)}>
-              <p className={styles.subTitleLive}>2ч 30м занятие</p>
-              <Link to="/pricing" className={styles.btnEdit}>
-                Изменить
-              </Link>
-            </div>
-            <div className={styles.infoPrice}>
-              <p className={cx(styles.activePrice, styles.firstPrice)}>1 месяц</p>
-              <p className={styles.firstPrice}>8,40$</p>
-            </div>
-            <div className={styles.infoPrice}>
-              <p className={styles.secondPrice}>2 месяца</p>
-              <p className={styles.secondPrice}>16,30$ (8,15$/м сохраните 3%)</p>
-            </div>
-            <div className={styles.infoPrice}>
-              <p className={styles.thirdPrice}>3 месяца</p>
-              <p className={styles.thirdPrice}>23,94$ (7,98$/м сохраните 5%)</p>
-            </div>
+          <div className={styles.itemContent}>
+            <p className={styles.itemContentDesc}>
+              Вы можете планировать занятие, выставлять стоимость,
+              принемать и выводить оплату от клиентов
+            </p>
+            <ul className={styles.itemContentPriceWrapper}>
+              <li className={styles.itemContentPrice}>
+                <p className={styles.itemContentPriceTitle}>Оплата</p>
+                <p className={styles.itemContentPriceDesc}>+5% комиссия — комиссия платежной системы (для оплаты участия в занятии вашим клиентам)</p>
+              </li>
+              <li className={styles.itemContentPrice}>
+                <p className={styles.itemContentPriceTitle}>Вывод</p>
+                <p className={styles.itemContentPriceDesc}>+5% комиссия (чтобы вывести доход)</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={cx(styles.flex, styles.contentBottom, styles.contentFlexStart)}>
+          <div className={styles.column}>
+            <p className={styles.titleLive}>Групповой Live</p>
+          </div>
+          <div className={styles.itemContent}>
+            <p className={styles.itemContentDesc}>
+              Когда вы запланировали занятие, создается странница,
+              на которую попадают все Ваши клиенты, чтобы оплатить участие
+              (на которой: Название, Количество Участников (те кто оплатили),
+              Стоимость и Дата)
+            </p>
           </div>
         </div>
       </div>

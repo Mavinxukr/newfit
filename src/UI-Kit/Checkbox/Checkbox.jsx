@@ -9,11 +9,11 @@ const classNamesButton = {
 };
 
 const Checkbox = ({
-  input, classNameWrapper, label, viewType, id, name, children,
+  input, classNameWrapper, viewType, id, name, children,
 }) => (
   <div className={cx(styles.wrapper, classNameWrapper)}>
     <input {...input} id={id} className={styles.input} name={name} type="checkbox" /> {/*eslint-disable-line*/}
-    {label && (
+    {children && (
     <label className={cx(styles.label, classNamesButton[viewType])} htmlFor={id}>
       {children}
     </label>
@@ -29,7 +29,6 @@ const Checkbox = ({
 Checkbox.propTypes = {
   input: PropTypes.object,
   classNameWrapper: PropTypes.string,
-  label: PropTypes.string,
   viewType: PropTypes.oneOf(
     ['simple', 'slider'],
   ),

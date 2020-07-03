@@ -1,13 +1,20 @@
 import React from 'react';
 import { reduxForm, Form, Field } from 'redux-form';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
+import { notify } from '../../../actions/notification';
 import IconExit from '../../../static/svg/close.svg';
 import styles from './LinkPopup.scss';
 
 const LinkPopup = ({ handleSubmit, closePopup }) => {
-  const onSubmit = () => closePopup();
+  const dispatch = useDispatch();
+
+  const onSubmit = () => {
+    dispatch(notify(<p className={styles.notifyContent}>Готово! Сумма с комиссией -5% будет отправлено в течении 1-2 рабочих дней</p>));
+    closePopup();
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

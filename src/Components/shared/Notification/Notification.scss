@@ -12,22 +12,3 @@
   justify-content: center;
   z-index: 9999;
 }
-
-.text {
-  @include styleForText(15px, $fontAdditional, $colorWhite);
-}
-
-.buttonRepeat {
-  text-decoration: underline;
-}
-
-.buttonMail {
-  opacity: 0.3;
-}
-
-.buttonMail,
-.buttonRepeat {
-  @include styleForText(15px, $fontMain, $colorWhite);
-
-  margin-left: 15px;
-}

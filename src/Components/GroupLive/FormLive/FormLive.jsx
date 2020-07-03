@@ -44,7 +44,7 @@ const FormLive = ({
               name="discount"
               id="discount"
               type="checkbox"
-              component={(input) => <Checkbox {...input} viewType="simple" label>Скидка</Checkbox>} /*eslint-disable-line*/
+              component={(input) => <Checkbox {...input} viewType="simple">Скидка</Checkbox>} /*eslint-disable-line*/
             />
             <Field
               name="price"

@@ -178,6 +178,38 @@
   }
 }
 
+.itemContent {
+  width: 452px;
+}
+
+.itemContentDesc {
+  font-family: $fontAdditional;
+}
+
+.itemContentPriceWrapper {
+  margin-top: 20px;
+  border-top: 1px solid $colorBackground;
+  padding-top: 20px;
+}
+
+.itemContentPrice {
+  display: flex;
+  justify-content: space-between;
+
+  &:last-child {
+    margin-top: 10px;
+  }
+}
+
+.itemContentPriceTitle {
+  @include styleForText($fontSizeContent, $fontAdditional, $colorGreyLink);
+}
+
+.itemContentPriceDesc {
+  font-family: $fontAdditional;
+  width: 386px;
+}
+
 .opacityTextFindings {
   opacity: .3;
   min-width: 175px;

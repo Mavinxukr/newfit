@@ -1,0 +1,30 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  padding: 50px 70px;
+  width: 398px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  font-family: $fontAdditional;
+  margin-top: 6px;
+}
+
+.line {
+  margin-top: 30px;
+  width: 100%;
+  background-color: $colorGreyDark;
+  height: 1px;
+  border: none;
+}
+
+.buttons {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

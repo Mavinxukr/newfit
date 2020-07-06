@@ -1,0 +1,100 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  padding-right: 79px;
+  border-right: 1px solid $colorGreyDark;
+  margin-bottom: 50px;
+  width: 45%;
+
+  &:nth-child(even) {
+    padding-right: 0;
+    border-right: none;
+    padding-left: 79px;
+  }
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $colorGreyDark;
+}
+
+.infoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.infoParticipants {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.infoParticipantsCount {
+  @include styleForText(36px, $fontMain);
+}
+
+.infoParticipantsText {
+  margin-top: 5px;
+  color: $colorGreyDark;
+}
+
+.infoDate {
+  padding: 2px 0 2px 30px;
+  border-left: 1px solid $colorGreyDark;
+}
+
+.infoDateCount {
+  @include styleForText(30px, $fontMain, $colorButtons);
+}
+
+.infoDateText {
+  color: $colorGreyDark;
+  margin-top: 8px;
+}
+
+.price {
+  position: relative;
+  font-size: 36px;
+  padding-right: 35px;
+}
+
+.currency {
+  position: absolute;
+  color: $colorGreyDark;
+  font-size: 16px;
+  top: 3px;
+  right: -2px;
+}
+
+.occupationLink {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.occupationLinkActiveText {
+  margin-right: 20px;
+}
+
+.occupationLinkText {
+  color: $colorGreyDark;
+}
+
+.iconLink {
+  margin-left: 25px;
+
+  & path {
+    stroke: #b6dabe;
+  }
+}
+
+

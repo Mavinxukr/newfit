@@ -15,7 +15,7 @@ const Curses = ({ data }) => {
           <>
             <h3 className={styles.title}>{item.title}</h3>
             {item.accordion.map((itemChild) => (
-              <Accordion title={itemChild.title} onClick={() => setSelectedImage(itemChild.image)}>
+              <Accordion title={itemChild.title} onClick={() => setSelectedImage(itemChild.image)} viewType="tabs">
                 {itemChild.content}
               </Accordion>
             ))}

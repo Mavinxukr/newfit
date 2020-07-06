@@ -1,0 +1,34 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  @include styleForText(98%);
+
+  padding-top: 120px;
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $colorGreyLink;
+}
+
+.title {
+  font-size: 42px;
+  width: 194px;
+}
+
+.accordionDesc {
+  @include styleForText($fontSizeBigText, $fontAdditional, $colorOpacityText);
+
+  padding-top: 20px;
+  width: 94%;
+
+  & a {
+    color: $colorButtons;
+    text-decoration: underline;
+    text-decoration-color: $colorButtons;
+  }
+}
+
+.accordions {
+  width: 60%;
+}

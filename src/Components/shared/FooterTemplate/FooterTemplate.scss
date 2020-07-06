@@ -1,0 +1,56 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.footer {
+  @include container(89%);
+
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 70px;
+  border-top: 1px solid $colorGreyDark;
+  margin-bottom: 50px;
+}
+
+.linkMain {
+  @include styleForText();
+
+  margin-bottom: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.infoText {
+  color: $colorGreyLink;
+  margin-right: 20px;
+}
+
+.socialLink {
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:nth-child(2) {
+    border: 1px solid $colorFacebook;
+
+    &:hover {
+      background-color: $colorFacebook;
+    }
+  }
+
+  &:last-child {
+    border: 1px solid $colorTelegram;
+    margin-left: 5px;
+
+    &:hover {
+      background-color: $colorTelegram;
+    }
+  }
+}

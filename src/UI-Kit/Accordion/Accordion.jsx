@@ -1,42 +1,59 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import IconArrow from '../../static/svg/arrow.svg';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+import IconArrowFAQ from '../../static/svg/Path125.svg';
 import styles from './Accordion.scss';
 
 const Accordion = ({
-  title, children, classNameWrapper, onClick,
+  title, children, classNameWrapper, onClick, viewType, isDefaultActive,
 }) => {
   const [active, setActive] = useState(false);
-  const [height, setHeight] = useState('0px');
+
+  useEffect(() => {
+    setActive(isDefaultActive);
+  }, []);
 
   const content = useRef();
   const sensitive = useRef();
 
-  const toggleAccordion = () => {
+  const toggleAccordion = async () => {
     setActive(!active);
-    setHeight(
-      active ? '0px' : `${content.current.scrollHeight}px`,
-    );
-    onClick();
+    if (onClick) {
+      onClick();
+    }
   };
 
-  useOnClickOutside(sensitive, () => {
-    setActive(false);
-    setHeight('0px');
-  });
+  const AppropriateIcon = viewType === 'tabs' && IconArrow || IconArrowFAQ;
 
   return (
-    <div className={cx(styles.accordionSection, classNameWrapper, { [styles.active]: active })} ref={sensitive}>
+    <div
+      className={cx(cx(styles.accordionWrapper, {
+        [styles.accordionTabs]: viewType === 'tabs',
+        [styles.accordionFAQ]: viewType === 'faq',
+      }), classNameWrapper, {
+        [styles.activeTab]: active && viewType === 'tabs',
+        [styles.activeFAQ]: active && viewType === 'faq',
+      })}
+      ref={sensitive}
+    >
       <button type="button" className={styles.accordion} onClick={toggleAccordion}>
-        <p className={styles.text}>{title}</p>
-        <IconArrow className={cx(styles.icon, { [styles.iconRotate]: active })} />
+        <p className={cx({
+          [styles.text]: viewType === 'tabs',
+          [styles.textFAQ]: viewType === 'faq',
+        })}
+        >{title}
+        </p>
+        <AppropriateIcon className={cx(cx({
+          [styles.iconTab]: viewType === 'tabs',
+          [styles.iconFAQ]: viewType === 'faq',
+        }), { [styles.iconRotate]: active })}
+        />
       </button>
       <div
         ref={content}
-        style={{ maxHeight: `${height}` }}
-        className={cx(styles.accordionContent, { [styles.activeContent]: active })}
+        style={{ maxHeight: `${!active ? 0 : content?.current?.scrollHeight || 0}px` }}
+        className={styles.accordionContent}
       >
         {children}
       </div>
@@ -49,6 +66,8 @@ Accordion.propTypes = {
   classNameWrapper: PropTypes.string,
   title: PropTypes.string,
   onClick: PropTypes.func,
+  viewType: PropTypes.string,
+  isDefaultActive: PropTypes.bool,
 };
 
 export default Accordion;

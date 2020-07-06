@@ -1,15 +1,29 @@
 @import "src/styles/core/vars";
 @import "src/styles/core/mixins";
 
-.accordionSection {
+.accordionWrapper {
   display: flex;
   flex-direction: column;
   width: auto;
   transition: .3s;
+}
+
+.accordionTabs {
   margin-right: 20px;
 
-  & + .accordionSection {
+  & + .accordionTabs {
     border-top: 1px solid $colorAvatarBackground;
+  }
+}
+
+.accordionFAQ {
+  border-bottom: 1px solid $colorGreyDark;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
   }
 }
 
@@ -26,27 +40,34 @@
   font-size: $fontSizeContent;
 }
 
+.textFAQ {
+  font-size: 24px;
+}
+
 .accordionContent {
   overflow: hidden;
   transition: .3s;
-  opacity: 0;
   font-size: 15px;
 }
 
-.activeContent {
-  opacity: .6;
+.iconTab {
+  position: relative;
+  transition: .3s;
+  transform: rotate(-90deg);
 }
 
-.icon {
+.iconFAQ {
   position: relative;
-  transform: rotate(-90deg);
+  transition: .3s;
+  right: 8px;
+  transform: rotate(90deg);
 }
 
 .iconRotate {
   transform: rotate(0);
 }
 
-.active {
+.activeTab {
   padding: 0 20px 20px;
   transition: .3s;
   margin-right: 0;
@@ -57,3 +78,9 @@
     border: none;
   }
 }
+
+.activeFAQ {
+  transition: .3s;
+}
+
+

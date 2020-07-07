@@ -26,7 +26,7 @@ const App = () => {
           <Route
             exact
             path="/"
-            component={Finance}
+            component={GroupLive}
           />
           <Route
             exact
@@ -35,8 +35,8 @@ const App = () => {
           />
           <Route
             exact
-            path="/group-live"
-            component={GroupLive}
+            path="/finance"
+            component={Finance}
           />
           <Route
             exact

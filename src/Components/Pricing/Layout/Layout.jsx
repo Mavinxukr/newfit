@@ -9,11 +9,9 @@ import Select from '../../../UI-Kit/Select/Select';
 import Card from '../Card/Card';
 import Curses from '../Curses/Curses';
 import Tabs from '../../../UI-Kit/Tabs/Tabs';
+import SocialLinks from '../../shared/SocialLinks/SocialLinks';
 import { setTabIndex } from '../../../actions/pricingTab';
 import IconLogo from '../../../static/svg/EF.svg';
-import IconFacebook from '../../../static/svg/facebook1.svg';
-import IconTelegram from '../../../static/svg/telegram1.svg';
-import IconEmail from '../../../static/svg/Group3192.svg';
 import IconFooterFacebook from '../../../static/svg/facebook.svg';
 import IconFooterTelegram from '../../../static/svg/telegram.svg';
 import IconFooterEmail from '../../../static/svg/email.svg';
@@ -77,15 +75,7 @@ const Layout = () => {
           </div>
           <div className={styles.headerSocial}>
             <p className={styles.socialText}>Онлайн-чат с нами</p>
-            <Link to="/" className={styles.socialLink}>
-              <IconFacebook />
-            </Link>
-            <Link to="/" className={styles.socialLink}>
-              <IconTelegram />
-            </Link>
-            <Link to="/" className={styles.socialLink}>
-              <IconEmail />
-            </Link>
+            <SocialLinks classNameWrapper={styles.links} />
           </div>
         </header>
       </div>

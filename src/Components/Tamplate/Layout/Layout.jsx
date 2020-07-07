@@ -1,9 +1,10 @@
 import React from 'react';
+import cx from 'classnames';
 import TemplateWrapper from '../../shared/TemplateWrapper/TemplateWrapper';
 import Button from '../../../UI-Kit/Button/Button';
 import styles from './Layout.scss';
 
-const Layout = () => (
+const Layout = ({ discount }) => (
   <TemplateWrapper>
     <div className={styles.content}>
       <div className={styles.infoWrapper}>
@@ -22,8 +23,17 @@ const Layout = () => (
         </div>
       </div>
       <div className={styles.priceWrapper}>
-        <p className={styles.priceCount}>
-          ₽ 1 700 <span className={styles.priceCurrency}>руб.</span>
+        <p className={cx(styles.priceCount, {
+          [styles.priceCountDiscount]: discount,
+        })}
+        >
+          ₽ 1 700
+          <span className={cx(styles.priceCurrency, {
+            [styles.priceCurrencyDiscount]: discount,
+          })}
+          >
+            {discount || ''} руб.
+          </span>
         </p>
         <Button
           type="button"

@@ -10,6 +10,7 @@ import IconCalendar from '../../../static/svg/calendar-2.svg';
 import IconEdit from '../../../static/svg/edit.svg';
 // import IconVideo from '../../../static/svg/Polygon1.svg';
 import Participants from '../Participants/Participants';
+import ResponsiveTextarea from '../../../UI-Kit/ResponsiveTextarea/ResponsiveTextarea';
 import FormLive from '../FormLive/FormLive';
 import { participants } from '../data';
 import IconCopy from '../../../static/svg/copy1.svg';
@@ -32,14 +33,7 @@ const OccupationCard = ({
       >
         <div className={cx(styles.firstTitleContentInfo, styles.flexGroupLive, styles.column)}>
           <div className={styles.mainInfo}>
-            <textarea
-              className={styles.input}
-              value={valueTitle}
-              onChange={(e) => {
-                setValueTitle(e.target.value);
-              }}
-              placeholder="Название"
-            />
+            <ResponsiveTextarea text={valueTitle} setText={setValueTitle} />
             <button
               className={cx(styles.buttonPrice, {
                 [styles.buttonPriceNull]: !item.price,

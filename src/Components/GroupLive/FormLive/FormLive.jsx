@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { reduxForm, Form, Field } from 'redux-form';
 import { useSelector } from 'react-redux';
 // import cx from 'classnames';
@@ -15,6 +15,8 @@ import styles from './FormLive.scss';
 const FormLive = ({
   handleSubmit, setIndexForOpenEditForm, openPopup,
 }) => {
+  const [isOpenDatePicker, setIsOpenDatePicker] = useState(false);
+
   const onSubmit = (valuesForm) => {
     console.log(valuesForm);
   };
@@ -35,7 +37,15 @@ const FormLive = ({
       <div className={styles.inputsWrapper}>
         <div className={styles.dateWrapper}>
           <h5 className={styles.titleDate}>Дата проведения</h5>
-          <DatePicker />
+          {isOpenDatePicker && <DatePicker setIsOpenDatePicker={setIsOpenDatePicker} /> || (
+            <button
+              type="button"
+              className={styles.buttonOpenPicker}
+              onClick={() => setIsOpenDatePicker(true)}
+            >
+              Дата: сегодня в 14:30
+            </button>
+          )}
         </div>
         <div className={styles.pricingWrapper}>
           <h5 className={styles.titleDate}>Стоимость</h5>

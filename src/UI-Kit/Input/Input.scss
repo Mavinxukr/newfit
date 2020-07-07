@@ -4,6 +4,7 @@
 .inputWrapper {
   width: 100%;
   position: relative;
+  border: none;
 }
 
 .icon {
@@ -71,4 +72,15 @@
   width: 100%;
   border: 2px solid $colorBackground;
   border-radius: 5px;
+}
+
+.inputFinance {
+  @include styleForText(24px, $fontAdditional);
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid $colorGreyDark;
+
+  &::placeholder {
+    color: $colorGreyDark;
+  }
 }

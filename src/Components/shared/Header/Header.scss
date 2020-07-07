@@ -11,7 +11,7 @@
   width: 95%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $colorBorder;
+  border-bottom: 1px solid $colorGreyDark;
   justify-content: space-between;
   position: fixed;
   z-index: 9997;
@@ -51,6 +51,16 @@
   margin-right: 5px;
 }
 
+.iconActive path {
+  stroke: #96e0a6;
+}
+
+.datePickerWrapper {
+  right: 0;
+  top: 40px;
+  border-radius: 10px 0 10px 10px;
+}
+
 .iconOpacity {
   opacity: .2;
 }
@@ -59,6 +69,7 @@
 .rightBlock {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .horizontalLine {
@@ -89,8 +100,14 @@
   }
 }
 
+.buttonLiveActive {
+  background-color: $colorButtons;
+  border-radius: 5px 5px 0 0;
+}
+
 .btn {
-  opacity: .3;
+  @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
+
   width: auto;
   margin-left: 20px;
   padding: 0;

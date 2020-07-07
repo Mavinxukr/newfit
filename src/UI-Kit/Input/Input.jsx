@@ -19,11 +19,12 @@ const Input = ({
 }) => {
   const [status, setStatus] = useState(defaultValue && 'active' || 'noActive');
 
-  const classNameForInput = cx(classNameWrapper, {
+  const classNameForInput = cx(styles.inputWrapper, classNameWrapper, {
     [styles.entryInput]: viewType === 'entry',
     [styles.entryInputNoActive]: viewType === 'entry' && status === 'noActive',
     [styles.entryInputActive]: viewType === 'entry' && status === 'active',
     [styles.inputNewLive]: viewType === 'newLive',
+    [styles.inputFinance]: viewType === 'finance',
   });
 
   return (

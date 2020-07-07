@@ -73,6 +73,16 @@
   width: 228px;
 }
 
+.priceCountDiscount,
+.priceCurrencyDiscount {
+  color: $colorRedDark;
+}
+
+.priceCurrencyDiscount {
+  right: -142px !important;
+  color: $colorRedDark !important;
+}
+
 .priceCurrency {
   @include styleForText($fontSizeContent, $fontMain, $colorGreyLink);
 

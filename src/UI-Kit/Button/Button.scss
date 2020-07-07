@@ -8,10 +8,10 @@
   width: 100%;
   padding: 17px 0 16px;
   text-align: center;
+  transition: .1s ease-out;
 }
 
 .buttonWhite {
-  background: white;
   color: $colorButtons;
   border: 1px solid $colorButtons;
 
@@ -74,7 +74,6 @@
 .buttonRed {
   border: 1px solid $colorRedDark;
   color: $colorRedDark;
-  background: $colorWhite;
   width: 344px;
 
   &:hover {

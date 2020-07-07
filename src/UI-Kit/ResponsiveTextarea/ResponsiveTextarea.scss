@@ -1,0 +1,18 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.input {
+  @include styleForText(20px, $fontMain, $colorContent);
+
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+
+  &:focus {
+    border-bottom: 1px solid $colorGreyLink;
+  }
+
+  &::placeholder {
+    color: $colorGreyLink;
+  }
+}

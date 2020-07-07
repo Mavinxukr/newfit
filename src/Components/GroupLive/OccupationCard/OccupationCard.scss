@@ -109,7 +109,7 @@
   color: $colorGreyLink;
   width: auto;
   padding: 11px 15px 10px;
-  background: $colorAvatarBackground;
+  background: $colorBackground;
   margin-top: 12px;
   display: flex;
   align-items: center;
@@ -192,23 +192,6 @@
 
 .buttonDelete {
   padding-top: 20px;
-}
-
-.input {
-  @include styleForText(20px, $fontMain, $colorContent);
-
-  background-color: transparent;
-  border: none;
-  height: 26px;
-  margin-right: 20px;
-
-  &:focus {
-    border-bottom: 1px solid $colorGreyLink;
-  }
-
-  &::placeholder {
-    color: $colorGreyLink;
-  }
 }
 
 .buttonPrice {

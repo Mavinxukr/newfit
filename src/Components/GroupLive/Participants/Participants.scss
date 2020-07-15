@@ -39,6 +39,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
 }
 
 .opacityText {
@@ -81,4 +83,10 @@
   max-width: 130px;
   width: 100%;
   text-align: right;
+}
+
+@media screen and (max-width: 1600px) {
+  .opacityText {
+    @include styleForText(14px);
+  }
 }

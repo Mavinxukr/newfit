@@ -141,3 +141,26 @@
   left: 50%;
   margin-left: -27.5px;
 }
+
+@media screen and (max-width: 1770px) {
+  .sidebar,
+  .wrapper {
+    max-width: 270px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+
+  .avatarBlock {
+    max-width: 150px;
+    height: 170px;
+  }
+
+  .mailLink {
+    @include styleForText(14px, $fontAdditional, $colorGreyLink)
+  }
+
+  .menuLink {
+    @include styleForText(15px)
+  }
+}

@@ -68,8 +68,7 @@
 }
 
 .textLive {
-  font-size: 18px;
-  font-family: $fontMain;
+  @include styleForText(18px, $fontMain);
 }
 
 .opacityText {
@@ -219,5 +218,32 @@
 
   & + .incomeInfo {
     margin-top: 10px;
+  }
+}
+
+
+@media screen and (max-width: 1770px) {
+  .fullWidthBlock {
+    max-width: 819px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .textLive {
+    @include styleForText(16px, $fontMain);
+  }
+
+  .incomeInfo {
+    p {
+      font-size: 18px;
+
+      & + p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .mainContent {
+    margin: 40px 50px 0 40px;
   }
 }

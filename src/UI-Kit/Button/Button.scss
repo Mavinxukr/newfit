@@ -9,6 +9,10 @@
   padding: 17px 0 16px;
   text-align: center;
   transition: .1s ease-out;
+
+  @media screen and (max-width: 1600px) {
+    @include styleForText(14px, $fontMain, #9a9a9a);
+  }
 }
 
 .buttonWhite {

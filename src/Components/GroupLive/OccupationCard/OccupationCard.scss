@@ -200,3 +200,29 @@
   text-align: right;
   margin-top: 3px;
 }
+
+@media screen and (max-width: 1770px) {
+  .buttonPrice {
+      position: absolute;
+      top: 0;
+      right: 38px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .buttonPrice {
+      @include styleForText(15px, $fontMain, $colorButtons);
+  }
+
+  .count {
+    @include styleForText(15px)
+  }
+
+  .date {
+    @include styleForText(18px);
+  }
+
+  .dateGreen {
+    color: $colorButtons;
+  }
+}

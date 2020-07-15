@@ -223,3 +223,9 @@
   opacity: .3;
   min-width: 175px;
 }
+
+@media screen and (max-width: 1500px) {
+  .mainContent {
+    margin: 40px 50px 0 40px;
+  }
+}

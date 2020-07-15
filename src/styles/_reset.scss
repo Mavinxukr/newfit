@@ -71,3 +71,21 @@ h6 {
 textarea {
   resize: none;
 }
+
+@media screen and (max-width: 1600px) {
+  h1 {
+    @include styleForText(30px, $fontAdditional);
+  }
+  
+  h3 {
+    @include styleForText(24px, $fontAdditional);
+  }
+
+  h4 {
+    @include styleForText(20px, $fontAdditional);
+  }
+
+  h5 {
+    @include styleForText(16px, $fontAdditional);
+  }
+}

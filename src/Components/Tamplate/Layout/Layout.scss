@@ -95,3 +95,34 @@
   width: 203px;
   margin-top: 30px;
 }
+
+@media screen and (max-width: 1600px) {
+  .infoParticipantCount,
+  .priceCount,
+  .title {
+    font-size: 56px;
+  }
+
+  .content {
+    margin-right: 16%;
+  }
+
+  .infoParticipantText,
+  .infoDateText {
+    font-size: 14px;
+  }
+
+  .infoDateCount {
+    font-size: 24px;
+  }
+
+  .priceParticipant {
+    width: 166px;
+    margin-top: 20px;
+    padding: 15px 0;
+  }
+
+  .priceWrapper {
+    padding-left: 150px;
+  }
+}

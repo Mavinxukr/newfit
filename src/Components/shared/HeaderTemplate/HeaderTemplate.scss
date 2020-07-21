@@ -44,3 +44,18 @@
 
   padding-left: 15px;
 }
+
+@media screen and (max-width: 1600px) {
+  .linksGroup {
+    padding: 10px 15px;
+  }
+
+  .linkEntry {
+    font-size: 15px;
+    padding-right: 12px;
+  }
+
+  .linkHistory {
+    padding-left: 12px;
+  }
+}

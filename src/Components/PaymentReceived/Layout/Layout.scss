@@ -16,8 +16,9 @@
   flex-direction: column;
   align-items: center;
   padding: 80px 141px;
-  background-color: $colorAvatarBackground;
+  background-color: $colorWhite;
   width: 47%;
+  border-radius: 10px;
 }
 
 .infoPaymentTitle,
@@ -29,10 +30,12 @@
 .infoPaymentText {
   font-family: $fontAdditional;
   margin-top: 15px;
+  opacity: .5;
 }
 
 .infoPaymentButton {
   margin-top: 50px;
+  font-size: 16px;
 }
 
 .iconLink {
@@ -58,4 +61,19 @@
 
 .googleButtonWrapper {
   margin-left: 8px;
+}
+
+@media screen and (max-width: 1600px) {
+  .infoPayment {
+    padding: 60px 80px;
+  }
+
+  .infoPaymentTitle,
+  .authBlockTitle {
+    font-size: 36px;
+  }
+
+  .infoPaymentText {
+    font-size: 14px;
+  }
 }

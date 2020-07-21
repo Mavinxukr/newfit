@@ -9,10 +9,6 @@ import { occupations } from '../data';
 const Layout = ({ openPopup }) => {
   const [indexForOpenEditForm, setIndexForOpenEditForm] = useState(0);
 
-  // useEffect(() => {
-  //   openPopup();
-  // }, []);
-
   return (
     <div className={styles.mainContent}>
       <h3 className={styles.titlePage}>Созданные</h3>

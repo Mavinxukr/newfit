@@ -31,7 +31,7 @@ const Sidebar = ({ image }) => {
                 className={styles.menuLink}
                 exact
                 activeClassName={styles.activeLink}
-                to="/group-live"
+                to="/"
               >
                 Групповой Live
               </NavLink>
@@ -51,7 +51,7 @@ const Sidebar = ({ image }) => {
                 className={styles.menuLink}
                 exact
                 activeClassName={styles.activeLink}
-                to="/"
+                to="/finance"
               >
                 Финансы
               </NavLink>

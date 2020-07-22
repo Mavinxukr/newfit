@@ -30,3 +30,14 @@
   margin-top: 40px;
   width: 158px;
 }
+
+@media screen and (max-width: 1600px){
+  .cardNumber {
+    font-size: $fontSizeLaptop;
+    margin-top: 15px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+}

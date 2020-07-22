@@ -76,3 +76,9 @@
   background-color: $colorGreyDark;
   left: 2px;
 }
+
+@media screen and (max-width: 1600px) {
+  .label {
+    font-size: $fontSizeLaptop;
+  }
+}

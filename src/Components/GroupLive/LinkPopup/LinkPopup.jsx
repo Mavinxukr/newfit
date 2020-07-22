@@ -25,7 +25,7 @@ const LinkPopup = ({ handleSubmit, closePopup }) => {
       >
         <IconExit />
       </button>
-      <h2>Добавить ссылку</h2>
+      <h2 className={styles.title}>Добавить ссылку</h2>
       <p className={styles.desc}>Ссылка на эфир в Zoom / Skype …</p>
       <Field
         name="link"

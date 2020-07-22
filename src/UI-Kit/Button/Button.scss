@@ -9,6 +9,9 @@
   padding: 17px 0 16px;
   text-align: center;
   transition: .1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 1600px) {
     @include styleForText(14px, $fontMain, #9a9a9a);
@@ -67,10 +70,11 @@
 
 .linkOccupation {
   display: flex;
+  font-size: $fontSizeContent;
   align-items: center;
   width: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
   color: $colorButtons;
   border: 1px solid #cce7d1;
 }
@@ -108,5 +112,11 @@
 
   &:hover {
     color: $colorGreyLink;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .button {
+    padding: 15px 0;
   }
 }

@@ -101,6 +101,10 @@
   @include styleForText()
 }
 
+.countTotal {
+  margin-top: 3px;
+}
+
 .countNull {
   color: $colorGreyLink;
 }
@@ -224,5 +228,22 @@
 
   .dateGreen {
     color: $colorButtons;
+  }
+
+  .showMore {
+    font-size: 15px;
+  }
+
+  .greyBtn {
+    margin-top: 15px;
+  }
+
+  .sizeBtn {
+    margin-top: 20px;
+  }
+
+  .buttonDelete,
+  .buttonEdit {
+    font-size: 15px;
   }
 }

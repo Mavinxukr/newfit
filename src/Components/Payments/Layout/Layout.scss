@@ -22,3 +22,9 @@
     border-bottom: none;
   }
 }
+
+@media screen and (max-width: 1600px) {
+  .cards {
+    margin-bottom: 180px;
+  }
+}

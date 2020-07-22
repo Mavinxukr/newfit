@@ -87,6 +87,13 @@
 
 @media screen and (max-width: 1600px) {
   .opacityText {
-    @include styleForText(14px);
+    @include styleForText(14px, $fontAdditional);
+  }
+
+  .name,
+  .mail,
+  .sale,
+  .date {
+    font-size: $fontSizeContent;
   }
 }

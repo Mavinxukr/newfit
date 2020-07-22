@@ -28,3 +28,17 @@
 .buttonSubmit {
   @include styleForText($fontSizeBigText);
 }
+
+@media screen and (max-width: 1600px) {
+  .wrapper {
+    width: 344px;
+  }
+
+  .inputsWrapper {
+    width: 230px;
+  }
+
+  .buttonSubmit {
+    font-size: $fontSizeLaptop;
+  }
+}

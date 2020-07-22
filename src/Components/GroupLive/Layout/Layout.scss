@@ -71,6 +71,14 @@
   @include styleForText(18px, $fontMain);
 }
 
+.iconPlusPlan {
+  padding-right: 10px;
+
+  & path {
+    opacity: 1;
+  }
+}
+
 .opacityText {
   opacity: .5;
 }
@@ -151,7 +159,7 @@
   width: auto;
   padding: 11px 15px 10px;
   background: $colorBackground;
-  margin-top: 12px;
+  margin-top: 7px;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -239,11 +247,27 @@
 
       & + p {
         font-size: 14px;
+        font-family: $fontAdditional;
       }
     }
   }
 
+  .incomeInfo + .incomeInfo {
+    margin-top: 7px;
+  }
+
   .mainContent {
     margin: 40px 50px 0 40px;
+  }
+
+  .firstTitleContentInfo,
+  .secondTitleContentInfo,
+  .titleContentInfo,
+  .lastTitleContentInfo {
+    font-size: 14px;
+  }
+
+  .totalText {
+    font-size: 15px;
   }
 }

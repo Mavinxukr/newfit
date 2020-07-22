@@ -18,7 +18,7 @@ const Layout = ({ openPopup }) => {
         <div className={cx(styles.flex, styles.contentBetween)}>
           <div className={styles.column}>
             <p className={styles.balance}>18 990,89₴</p>
-            <span className={styles.opacityText}>На вашем аккаунте</span>
+            <span className={cx(styles.opacityText, styles.balanceText)}>На вашем аккаунте</span>
           </div>
           <Button
             classNameWrapper={styles.buttonWithdraw}
@@ -38,24 +38,24 @@ const Layout = ({ openPopup }) => {
             <h5>Выводы</h5>
             {/* <p className={styles.contentCenter}>Пока не было</p> */}
             <div className={styles.findings}>
-              <p>11 Апр, 2020</p>
-              <p>Ethan Pierce … 9301</p>
-              <p className={styles.opacityTextFindings}>Ждет подтверждения</p>
-              <p>6 314,00₴</p>
+              <p className={styles.withdrawText}>11 Апр, 2020</p>
+              <p className={styles.withdrawText}>Ethan Pierce … 9301</p>
+              <p className={cx(styles.opacityTextFindings, styles.withdrawText)}>Ждет подтверждения</p>
+              <p className={styles.withdrawText}>6 314,00₴</p>
             </div>
             <div className={styles.findings}>
-              <p>2 Апр, 2020</p>
-              <p>Ethan Pierce … 9301</p>
-              <p className={styles.opacityTextFindings} />
-              <p>2 522,10₴</p>
+              <p className={styles.withdrawText}>2 Апр, 2020</p>
+              <p className={styles.withdrawText}>Ethan Pierce … 9301</p>
+              <p className={cx(styles.opacityTextFindings, styles.withdrawText)} />
+              <p className={styles.withdrawText}>2 522,10₴</p>
             </div>
           </div>
           <div className={styles.contentMoreInfo}>
             <h5 className={styles.titleFinance}>Доходы</h5>
             <div className={styles.finance}>
-              <p>с 25 Июнь, 2019</p>
-              <p>Hardcore Crossfit</p>
-              <p>+ 54 009,24₴</p>
+              <p className={styles.withdrawText}>с 25 Июнь, 2019</p>
+              <p className={styles.withdrawText}>Hardcore Crossfit</p>
+              <p className={styles.withdrawText}>+ 54 009,24₴</p>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Layout = ({ openPopup }) => {
           <div className={cx(styles.flex, styles.contentBetween)}>
             <div className={styles.column}>
               <h4>Мои подписки</h4>
-              <span className={styles.opacityText}>Бесплатная версия</span>
+              <span className={cx(styles.opacityText, styles.balanceText)}>Бесплатная версия</span>
             </div>
             <Link to="/pricing" className={styles.btnEdit}>
               <Button classNameWrapper={styles.buttonWithdraw} type="button" viewType="white">
@@ -109,10 +109,10 @@ const Layout = ({ openPopup }) => {
           </div>
         </div>
         <div className={cx(styles.contentInfoFinance, styles.fullWidth)}>
-          <div className={cx(styles.flex, styles.contentBetween)}>
+          <div className={cx(styles.flex, styles.contentBetween, styles.titleMethodBlock)}>
             <div className={styles.column}>
               <h4>Методы оплаты</h4>
-              <span className={styles.opacityText}>Вывод и оплата</span>
+              <span className={cx(styles.opacityText, styles.balanceText)}>Вывод и оплата</span>
             </div>
           </div>
           <div className={cx(styles.flex, styles.contentBottom, styles.cards)}>

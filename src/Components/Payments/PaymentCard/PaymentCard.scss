@@ -97,4 +97,44 @@
   }
 }
 
+@media screen and (max-width: 1600px) {
+  .info {
+    padding-bottom: 20px;
+  }
+
+  .infoParticipantsCount,
+  .price {
+    font-size: 24px;
+  }
+
+  .infoParticipantsText {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+
+  .infoDateCount {
+    font-size: 20px;
+  }
+
+  .infoDateText {
+    font-size: 14px;
+  }
+
+  .price {
+    padding-right: 27px;
+  }
+
+  .currency {
+    font-size: 12px;
+  }
+
+  .occupationLink {
+    margin-top: 20px;
+  }
+
+  .occupationLinkActiveText {
+    font-size: $fontSizeLaptop;
+  }
+}
+
 

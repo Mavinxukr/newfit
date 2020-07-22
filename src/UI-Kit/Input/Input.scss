@@ -9,9 +9,10 @@
 
 .icon {
   position: absolute;
-  right: 12px;
+  right: 15px;
   top: 20px;
   fill: none;
+  z-index: 12;
   stroke: $colorGreyDark;
   stroke-width: 2px;
 }
@@ -82,5 +83,20 @@
 
   &::placeholder {
     color: $colorGreyDark;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .inputNewLive {
+    font-size: $fontSizeLaptop;
+  }
+
+  .inputFinance {
+    font-size: $fontSizeBigText;
+    padding-bottom: 5px;
+  }
+
+  .entryInput {
+    font-size: $fontSizeLaptop;
   }
 }

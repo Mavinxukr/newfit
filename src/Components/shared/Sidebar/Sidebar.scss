@@ -163,4 +163,9 @@
   .menuLink {
     @include styleForText(15px)
   }
+
+  .buttonSticky {
+    font-size: 15px;
+    width: 78%;
+  }
 }

@@ -5,11 +5,11 @@
   border-radius: 10px;
   width: 854px;
   padding: 30px;
-  background-color: $colorAvatarBackground;
+  background-color: $colorWhite;
   position: relative;
   top: 20px;
   margin-top: -30px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .buttonClose {
@@ -175,4 +175,40 @@
   margin-left: -5px;
   width: 145px;
   font-size: $fontSizeContent;
+}
+
+@media screen and (max-width: 1770px) {
+  .form {
+    width: 695px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .buttonOpenPicker {
+    font-size: $fontSizeLaptop;
+  }
+
+  .addOption {
+    margin-top: 20px;
+  }
+
+  .submitWrapper {
+    font-size: 14px;
+  }
+
+  .selectCurrency {
+    font-size: $fontSizeLaptop;
+
+    & option {
+      font-size: $fontSizeLaptop;
+    }
+  }
+
+  .buttonEdit {
+    font-size: 14px;
+
+    &::before {
+      top: -2px;
+    }
+  }
 }

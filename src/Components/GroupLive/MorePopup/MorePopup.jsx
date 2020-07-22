@@ -13,7 +13,7 @@ const MorePopup = ({ closePopup }) => (
     >
       <IconExit />
     </button>
-    <h4>
+    <h4 className={styles.title}>
       У вас создано 15 занятий, чтобы создать это удалить самое последнее старое
     </h4>
     <Button

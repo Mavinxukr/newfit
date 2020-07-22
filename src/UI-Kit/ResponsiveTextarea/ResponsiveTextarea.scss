@@ -18,5 +18,7 @@
 }
 
 @media screen and (max-width: 1600px) {
-  @include styleForText(18px, $fontMain, $colorContent);
+  .input {
+    font-size: 18px;
+  }
 }

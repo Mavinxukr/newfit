@@ -27,7 +27,7 @@ const Header = () => {
           </Link>
           <div className={styles.headerBlockInfo}>
             <IconDumbbell className={styles.iconOpacity} />
-            <p>У тебя есть 1 бесплатный: Групповой Live</p>
+            <p className={styles.headerText}>У тебя есть 1 бесплатный: Групповой Live</p>
             <a href="/" className={styles.headerBtn}>
               Провести
             </a>

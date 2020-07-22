@@ -42,7 +42,7 @@
 }
 
 .contentBetween {
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 20px;
   border-bottom: 1px solid $colorGreyDark;
@@ -197,7 +197,7 @@
 
 .itemContentPriceWrapper {
   margin-top: 20px;
-  border-top: 1px solid $colorBackground;
+  border-top: 1px solid $colorGreyDark;
   padding-top: 20px;
 }
 
@@ -222,6 +222,64 @@
 .opacityTextFindings {
   opacity: .3;
   min-width: 175px;
+}
+
+@media screen and (max-width: 1600px) {
+  .contentInfoFinance {
+    margin-top: 20px;
+  }
+
+  .balance {
+    font-size: 36px;
+  }
+
+  .balanceText {
+    @include styleForText(12px, $fontAdditional);
+  }
+
+  .buttonWithdraw {
+    padding: 15px 43px;
+  }
+
+  .contentMoreInfo {
+    padding-top: 20px;
+  }
+
+  .withdrawText {
+    font-size: 14px;
+  }
+
+  .findings + .findings {
+    margin-bottom: 30px;
+  }
+
+  .contentBottom {
+    margin: 20px 0;
+  }
+
+  .titleLive {
+    font-size: $fontSizeContent;
+    width: 146px;
+  }
+
+  .itemContentDesc,
+  .itemContentPriceTitle,
+  .itemContentPriceDesc {
+    font-size: $fontSizeLaptop;
+  }
+
+  .fullWidth + .fullWidth {
+    margin-top: 20px;
+  }
+
+  .titleMethodBlock {
+    padding-bottom: 21px;
+  }
+
+  .text,
+  .btn {
+    font-size: $fontSizeLaptop;
+  }
 }
 
 @media screen and (max-width: 1500px) {

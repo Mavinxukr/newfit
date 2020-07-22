@@ -13,7 +13,7 @@
 
 .title {
   font-size: 42px;
-  width: 194px;
+  width: 180px;
 }
 
 .accordionDesc {
@@ -38,11 +38,8 @@
     font-size: 36px;
   }
 
-  .textFAQ {
-    font-size: 20px;
-  }
-
   .accordionDesc {
-    font-size: 16px;
+    font-size: $fontSizeContent;
+    padding-top: 7px;
   }
 }

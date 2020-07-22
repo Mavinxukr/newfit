@@ -85,7 +85,7 @@ const OccupationCard = ({
           )}
         </div>
         <div className={styles.titleContentInfo}>
-          <p className={cx(styles.count, {
+          <p className={cx(styles.count, styles.countTotal, {
             [styles.countNull]: !item.totalSum,
           })}
           >{item.totalSum} грн

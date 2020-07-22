@@ -10,6 +10,7 @@ body {
   font-family: $fontMain;
   color: $colorContent;
   background-color: $colorAvatarBackground;
+  font-weight: 100;
   height: 100vh;
 }
 
@@ -45,27 +46,39 @@ textarea:focus {
 }
 
 h1 {
-  @include styleForText(36px, $fontAdditional);
+  @include styleForText(36px, $fontMain);
+
+  font-weight: 100;
 }
 
 h2 {
-  @include styleForText(34px, $fontAdditional);
+  @include styleForText(34px, $fontMain);
+
+  font-weight: 100;
 }
 
 h3 {
-  @include styleForText(30px, $fontAdditional);
+  @include styleForText(30px, $fontMain);
+
+  font-weight: 100;
 }
 
 h4 {
-  @include styleForText(24px, $fontAdditional);
+  @include styleForText(24px, $fontMain);
+
+  font-weight: 100;
 }
 
 h5 {
-  @include styleForText(18px, $fontAdditional);
+  @include styleForText(18px, $fontMain);
+
+  font-weight: 100;
 }
 
 h6 {
-  @include styleForText($fontSizeContent, $fontAdditional);
+  @include styleForText($fontSizeContent, $fontMain);
+
+  font-weight: 100;
 }
 
 textarea {
@@ -74,18 +87,18 @@ textarea {
 
 @media screen and (max-width: 1600px) {
   h1 {
-    @include styleForText(30px, $fontAdditional);
+    font-size: 30px;
   }
-  
+
   h3 {
-    @include styleForText(24px, $fontAdditional);
+    font-size: 24px;
   }
 
   h4 {
-    @include styleForText(20px, $fontAdditional);
+    font-size: 20px;
   }
 
   h5 {
-    @include styleForText(16px, $fontAdditional);
+    font-size: $fontSizeContent;
   }
 }

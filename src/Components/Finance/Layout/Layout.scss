@@ -227,6 +227,12 @@
 @media screen and (max-width: 1600px) {
   .contentInfoFinance {
     margin-top: 20px;
+    padding: 20px 25px;
+  }
+
+  .finance,
+  .titleFinance {
+    margin-left: 20px;
   }
 
   .balance {
@@ -234,7 +240,7 @@
   }
 
   .balanceText {
-    @include styleForText(12px, $fontAdditional);
+    @include styleForText(14px, $fontAdditional);
   }
 
   .buttonWithdraw {
@@ -285,5 +291,58 @@
 @media screen and (max-width: 1500px) {
   .mainContent {
     margin: 40px 50px 0 40px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .balance {
+    font-size: 30px;
+  }
+
+  .itemContent {
+    width: 100%;
+  }
+
+  .buttonWithdraw {
+    padding: 15px 30px;
+  }
+
+  .itemContentPriceTitle {
+    margin-right: 20px;
+  }
+
+  .itemContentPriceWrapper {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .findings {
+    position: relative;
+    padding-bottom: 14px;
+    padding-right: 20px;
+  }
+
+  .mainContent {
+    margin: 30px;
+  }
+
+  .fullWidth {
+    margin-right: 10px;
+    padding: 20px 20px 25px 25px;
+
+    & + .fullWidth {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+  }
+
+  .contentFlexStart.contentBottom {
+    flex-direction: column;
+  }
+
+  .mediaPos {
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 }

@@ -12,7 +12,7 @@ const Layout = ({ openPopup }) => {
 
   return (
     <div className={styles.mainContent}>
-      <button onClick={() => openPopup()} type="button">open</button>
+      {/* <button onClick={() => openPopup()} type="button">open</button> */}
       <h3 className={styles.titlePage}>Созданные</h3>
       <div className={styles.flexGroupLive}>
         <div className={styles.fullWidthBlock}>

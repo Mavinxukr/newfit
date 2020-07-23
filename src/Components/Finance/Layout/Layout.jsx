@@ -39,13 +39,13 @@ const Layout = ({ openPopup }) => {
             {/* <p className={styles.contentCenter}>Пока не было</p> */}
             <div className={styles.findings}>
               <p className={styles.withdrawText}>11 Апр, 2020</p>
-              <p className={styles.withdrawText}>Ethan Pierce … 9301</p>
+              <p className={cx(styles.withdrawText, styles.mediaPos)}>Ethan Pierce … 9301</p>
               <p className={cx(styles.opacityTextFindings, styles.withdrawText)}>Ждет подтверждения</p>
               <p className={styles.withdrawText}>6 314,00₴</p>
             </div>
             <div className={styles.findings}>
               <p className={styles.withdrawText}>2 Апр, 2020</p>
-              <p className={styles.withdrawText}>Ethan Pierce … 9301</p>
+              <p className={cx(styles.withdrawText, styles.mediaPos)}>Ethan Pierce … 9301</p>
               <p className={cx(styles.opacityTextFindings, styles.withdrawText)} />
               <p className={styles.withdrawText}>2 522,10₴</p>
             </div>

@@ -37,6 +37,20 @@ const CardForm = ({
       >
         Добавить
       </button>
+      {/*
+        <button
+          type="submit"
+          className={styles.buttonSubmit}
+        >
+          Сохранить
+        </button>
+        <button
+          type="submit"
+          className={styles.buttonSubmit}
+        >
+          Удалить
+        </button>
+      */}
     </Form>
   );
 };

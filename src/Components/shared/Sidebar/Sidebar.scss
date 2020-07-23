@@ -126,8 +126,8 @@
 .buttonSticky {
   position: absolute;
   bottom: 40px;
-  left: 30px;
-  right: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   text-align: center;
   max-width: 240px;
@@ -167,5 +167,33 @@
   .buttonSticky {
     font-size: 15px;
     width: 78%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .sidebar,
+  .wrapper {
+    max-width: 230px;
+  }
+
+  .buttonSticky {
+    bottom: 20px;
+    font-size: 13px;
+    padding: 12px 25px;
+  }
+
+  .avatarBlock {
+    max-width: 130px;
+    height: 150px;
+    margin: 40px auto 15px;
+  }
+
+  .menuLink {
+    font-size: 14px;
+    height: 44px;
+
+    &:before {
+      height: 44px;
+    }
   }
 }

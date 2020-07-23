@@ -271,3 +271,13 @@
     font-size: 15px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .mainContent {
+    margin: 30px;
+  }
+
+  .fullWidthBlock {
+    max-width: 718px;
+  }
+}

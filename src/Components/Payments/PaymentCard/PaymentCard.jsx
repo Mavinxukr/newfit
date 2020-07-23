@@ -31,6 +31,7 @@ const PaymentCard = ({ item }) => (
           <Button
             viewType="linkOccupation"
             href
+            classNameWrapper={styles.buttonLink}
           >
             {item.link}
             <IconLink className={styles.iconLink} />

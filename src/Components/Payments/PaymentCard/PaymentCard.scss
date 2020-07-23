@@ -137,4 +137,31 @@
   }
 }
 
+@media screen and (max-width: 1600px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .occupationLink {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonLink {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .wrapper {
+    padding-right: 30px;
+    width: 47.6%;
+    margin-bottom: 30px;
+
+    &:nth-child(even) {
+      padding-right: 0;
+      padding-left: 30px;
+    }
+  }
+}
+
 

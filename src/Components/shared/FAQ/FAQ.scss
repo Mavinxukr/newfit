@@ -45,6 +45,10 @@
 }
 
 @media screen and (max-width: 1280px) {
+  .wrapper {
+    padding-top: 80px;
+  }
+
   .accordions {
     width: 78%;
   }

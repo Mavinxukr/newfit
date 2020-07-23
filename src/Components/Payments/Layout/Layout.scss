@@ -28,3 +28,13 @@
     margin-bottom: 180px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .cards {
+    margin-bottom: 120px;
+  }
+
+  .cardsWrapper {
+    margin-bottom: 30px;
+  }
+}

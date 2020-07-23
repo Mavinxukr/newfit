@@ -58,3 +58,15 @@
     font-size: $fontSizeLaptop;
   }
 }
+
+@media screen and (max-width: 1600px) {
+  .wrapperHeader,
+  .wrapper {
+    height: 56px;
+  }
+
+  .linkEntry,
+  .linkHistory {
+    font-size: $fontSizeLaptopSmall;
+  }
+}

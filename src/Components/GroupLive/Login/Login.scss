@@ -20,10 +20,6 @@
   border: 1px solid $colorGreyDark;
 }
 
-.inputPassword {
-  padding: 17px 20px 12px;
-}
-
 .loginSubmit {
   margin-top: 40px;
 }
@@ -47,3 +43,21 @@
   left: 30px;
 }
 
+@media screen and (max-width: 1600px) {
+  .inputWrapper {
+    width: 370px;
+  }
+
+  .loginForm {
+    padding: 50px 60px 40px;
+  }
+
+  .formikWrapper {
+    margin-bottom: 10px;
+  }
+
+  .forgotButton {
+    font-size: $fontSizeLaptop;
+    margin-top: 10px;
+  }
+}

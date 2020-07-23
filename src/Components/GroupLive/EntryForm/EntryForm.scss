@@ -38,3 +38,25 @@
   margin-top: 40px;
 }
 
+@media screen and (max-width: 1600px) {
+  .form {
+    padding: 50px 60px 40px;
+  }
+
+  .text {
+    font-size: $fontSizeLaptopSmall;
+  }
+
+  .buttons {
+    margin-top: 30px;
+  }
+
+  .inputWrapper {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .buttonWrapper {
+    margin-top: 45px;
+  }
+}

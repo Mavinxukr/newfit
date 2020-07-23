@@ -81,3 +81,38 @@
   top: 36px;
   left: 30px;
 }
+
+@media screen and (max-width: 1600px) {
+  .singUpForm {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .singUpTitle {
+    margin-bottom: 30px;
+  }
+
+  .inputWrapper {
+    width: 370px;
+  }
+
+  .username {
+    font-family: $fontAdditional;
+    margin-left: 12px;
+  }
+
+  .facebookBLock,
+  .googleBLock {
+    margin-top: -23px;
+    margin-left: 9px;
+    margin-bottom: 30px;
+  }
+
+  .formikWrapper {
+    margin-bottom: 23px;
+  }
+
+  .singUpSubmit {
+    margin-top: 17px;
+  }
+}

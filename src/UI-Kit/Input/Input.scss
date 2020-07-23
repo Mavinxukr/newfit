@@ -97,6 +97,8 @@
   }
 
   .entryInput {
-    font-size: $fontSizeLaptop;
+    @include styleForText($fontSizeLaptop, $fontAdditional);
+
+    padding-top: 15px;
   }
 }

@@ -227,7 +227,7 @@
 @media screen and (max-width: 1600px) {
   .contentInfoFinance {
     margin-top: 20px;
-    padding: 20px 25px;
+    padding: 20px 25px 0 25px;
   }
 
   .finance,
@@ -309,6 +309,10 @@
 
   .itemContentPriceTitle {
     margin-right: 20px;
+  }
+
+  .itemContentPriceDesc {
+    width: 376px;
   }
 
   .itemContentPriceWrapper {

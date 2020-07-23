@@ -204,11 +204,43 @@
     }
   }
 
+  .discountInput {
+    font-size: $fontSizeLaptop;
+  }
+
   .buttonEdit {
     font-size: 14px;
 
     &::before {
       top: -2px;
     }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .form {
+    width: 603px;
+    padding: 25px;
+  }
+
+  .dateWrapper {
+    padding-right: 20px;
+  }
+
+  .pricingWrapper {
+    margin-left: 20px;
+  }
+
+  .inputsWrapper {
+    padding-bottom: 20px;
+  }
+
+  .inputWrapper {
+    margin-left: 9px;
+    width: 130px;
+  }
+
+  .buttonOpenPicker {
+    padding: 20px 35px 20px 15px;
   }
 }

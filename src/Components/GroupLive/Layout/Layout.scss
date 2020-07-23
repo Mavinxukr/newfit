@@ -280,4 +280,38 @@
   .fullWidthBlock {
     max-width: 718px;
   }
+
+  .firstBlock {
+    padding: 20px 30px 20px 35px;
+    margin-bottom: 15px;
+  }
+
+  .rightBlock {
+    padding: 20px;
+  }
+
+  .bottomLine {
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .totalPriceInfo,
+  .incomeInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .totalPriceInfo {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .totalText,
+  .amountText {
+    margin-top: 5px;
+  }
+
+  .amountText {
+    @include styleForText($fontSizeLaptopSmall, $fontAdditional, $colorGreyLink);
+  }
 }

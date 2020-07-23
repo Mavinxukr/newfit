@@ -247,3 +247,30 @@
     font-size: 15px;
   }
 }
+
+@media screen and (max-width: 1600px) {
+  .card {
+    padding: 20px 0;
+  }
+
+  .firstTitleContentInfo {
+    width: 347px;
+  }
+
+  .count {
+    margin-left: -3px;
+  }
+
+  .buttonsBlock {
+    padding: 20px;
+    top: 20px;
+  }
+
+  .buttonEdit {
+    padding-bottom: 15px;
+  }
+
+  .buttonDelete {
+    padding-top: 15px;
+  }
+}

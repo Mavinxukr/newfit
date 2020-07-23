@@ -120,17 +120,34 @@
 
 @media screen and (max-width: 1600px) {
   .logoText {
-    font-size: 14px;
+    font-size: $fontSizeLaptopSmall;
   }
 
   .headerText,
   .headerBtn,
   .btn,
   .darkBtn {
-    font-size: 15px;
+    font-size: $fontSizeLaptop;
   }
 
   .headerBlockInfo {
     margin-left: 154px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .logoText {
+    font-size: 12px;
+  }
+
+  .headerText,
+  .headerBtn,
+  .btn,
+  .darkBtn {
+    font-size: $fontSizeLaptopSmall;
+  }
+
+  .headerBlockInfo {
+    margin-left: 46px;
   }
 }

@@ -55,7 +55,7 @@ const Layout = ({ openPopup }) => {
         </div>
         <div className={cx(styles.rightBlock, styles.contentInfo)}>
           <h4 className={styles.bottomLine}>Доход</h4>
-          <div className={cx(styles.flexGroupLive, styles.contentBetween, styles.alignCenter)}>
+          <div className={cx(styles.flexGroupLive, styles.contentBetween, styles.alignCenter, styles.totalPriceInfo)}>
             <h1>54 009,24₴</h1>
             <p className={cx(styles.opacityText, styles.totalText)}>
               Общий
@@ -64,11 +64,11 @@ const Layout = ({ openPopup }) => {
           <div className={cx(styles.flexGroupLive, styles.columnPrice, styles.marginBottom)}>
             <div className={styles.incomeInfo}>
               <p className={styles.amountPrice}>1 512</p>
-              <p>Аудитория</p>
+              <p className={styles.amountText}>Аудитория</p>
             </div>
             <div className={styles.incomeInfo}>
               <p className={cx(styles.colorGreen, styles.amountPrice)}>+12</p>
-              <p>Новая с последнего занятия</p>
+              <p className={styles.amountText}>Новая с последнего занятия</p>
             </div>
           </div>
         </div>

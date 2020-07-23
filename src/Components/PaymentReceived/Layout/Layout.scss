@@ -77,3 +77,31 @@
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .infoPayment {
+    padding: 50px;
+    width: 56%;
+  }
+
+  .content {
+    width: 92%;
+  }
+
+  .authBlock {
+    padding: 50px 40px 50px 70px;
+  }
+
+  .infoPaymentText {
+    margin-top: 10px;
+  }
+
+  .infoPaymentButton {
+    margin-top: 30px;
+  }
+
+  .infoPaymentTitle,
+  .authBlockTitle {
+    font-size: 30px;
+  }
+}

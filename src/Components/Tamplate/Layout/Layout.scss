@@ -130,3 +130,34 @@
     padding-left: 150px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .infoWrapper {
+    margin-right: 6%;
+  }
+
+  .infoParticipant {
+    margin-right: 90px;
+  }
+
+  .infoDate {
+    padding-left: 30px;
+  }
+
+  .content {
+    margin-right: 12%;
+    margin-left: 8%;
+  }
+
+  .priceCount {
+    width: 200px;
+  }
+
+  .title {
+    font-size: 54px;
+  }
+
+  .priceWrapper {
+    padding-left: 120px;
+  }
+}

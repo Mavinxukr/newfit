@@ -22,7 +22,10 @@ const Layout = ({ discount }) => (
           </div>
         </div>
       </div>
-      <div className={styles.priceWrapper}>
+      <div className={cx(styles.priceWrapper, {
+        [styles.priceWrapperWithPadding]: !discount,
+      })}
+      >
         <p className={cx(styles.priceCount, {
           [styles.priceCountDiscount]: discount,
         })}

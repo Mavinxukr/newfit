@@ -53,7 +53,7 @@
 }
 
 .infoDateCount {
-  @include styleForText(30px, $fontMain, $colorButtons);
+  @include styleForText(30px);
 }
 
 .infoDateText {

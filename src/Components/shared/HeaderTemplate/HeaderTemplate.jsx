@@ -8,7 +8,7 @@ const HeaderTemplate = ({ openPopup }) => (
   <div className={styles.wrapperHeader}>
     <header className={styles.wrapper}>
       <div className={styles.container}>
-        <IconLogo />
+        <IconLogo className={styles.logoIcon} />
         <div className={styles.linksGroup}>
           <button
             className={styles.linkEntry}

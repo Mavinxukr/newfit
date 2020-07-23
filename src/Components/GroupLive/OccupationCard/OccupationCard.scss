@@ -248,7 +248,11 @@
   }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1280px) {
+  .cardWrapper {
+    justify-content: flex-start;
+  }
+
   .card {
     padding: 20px 0;
   }
@@ -257,8 +261,12 @@
     width: 347px;
   }
 
+  .lastTitleContentInfo {
+    margin-right: 27px;
+  }
+
   .count {
-    margin-left: -3px;
+    margin-left: -7px;
   }
 
   .buttonsBlock {

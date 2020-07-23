@@ -116,7 +116,7 @@ const Layout = ({ openPopup }) => {
             </div>
           </div>
           <div className={cx(styles.flex, styles.contentBottom, styles.cards)}>
-            <h5>Вывод</h5>
+            <h5 className={styles.titleTotal}>Вывод</h5>
             {isOpenCardForm && (
             <CardForm
               setIsOpenCardForm={setIsOpenCardForm}

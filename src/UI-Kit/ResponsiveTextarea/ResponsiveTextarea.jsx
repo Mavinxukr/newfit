@@ -22,6 +22,7 @@ const ResponsiveTextarea = ({ setText, text }) => {
       style={{
         minHeight: parentHeight,
       }}
+      className={styles.wrapper}
     >
       <textarea
         ref={textAreaRef}

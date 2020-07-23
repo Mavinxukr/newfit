@@ -59,10 +59,14 @@
   }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1280px) {
   .wrapperHeader,
   .wrapper {
     height: 56px;
+  }
+
+  .logoIcon {
+    width: 46.54px;
   }
 
   .linkEntry,
@@ -70,3 +74,4 @@
     font-size: $fontSizeLaptopSmall;
   }
 }
+

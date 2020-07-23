@@ -133,7 +133,7 @@
 
 @media screen and (max-width: 1280px) {
   .infoWrapper {
-    margin-right: 2%;
+    margin-right: 5%;
   }
 
   .infoParticipant {
@@ -149,15 +149,19 @@
     margin-left: 8%;
   }
 
+  .priceWrapper {
+    padding-left: 66px;
+  }
+
+  .priceWrapperWithPadding {
+    padding-left: 120px;
+  }
+
   .priceCount {
     width: 200px;
   }
 
   .title {
     font-size: 54px;
-  }
-
-  .priceWrapper {
-    padding-left: 66px;
   }
 }

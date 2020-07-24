@@ -18,16 +18,16 @@ const ReduxInputWrapper = ({
 }) => (
   <div className={cx(styles.wrapper, classNameWrapper)}>
     {label && (
-      <label
-        htmlFor={name}
-        className={styles.label}
-      >
-        {label}
-      </label>
+    <label
+      htmlFor={name}
+      className={styles.label}
+    >
+      {label}
+    </label>
     )}
     <Input
       formProps={input}
-      isError={touched && error}
+      isError={!!touched && !!error}
       type={type}
       viewType={viewType}
       placeholder={placeholder}
@@ -35,8 +35,8 @@ const ReduxInputWrapper = ({
       defaultValue={defaultValue}
     />
     {touched
-    && error && (
-      <p className={styles.errorText}>{error}</p>
+      && error && (
+        <p className={styles.errorText}>{error}</p>
     )}
   </div>
 );
@@ -45,8 +45,7 @@ ReduxInputWrapper.propTypes = {
   input: PropTypes.object,
   meta: PropTypes.shape({
     touched: PropTypes.bool,
-    error: PropTypes.string,
-    warning: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   }),
   classNameWrapper: PropTypes.string,
   label: PropTypes.string,

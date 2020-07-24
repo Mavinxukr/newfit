@@ -8,6 +8,7 @@ const Input = ({
   formProps: {
     value,
     onChange,
+    onBlur,
     name,
   },
   placeholder,
@@ -45,12 +46,16 @@ const Input = ({
       )}
       <input
         type={type}
-        value={name === 'password' && value.replace(/[\s\S]/g, '*') || value || defaultValue}
+        value={value || defaultValue}
         onFocus={() => setStatus('active')}
-        onChange={(e) => onChange(e)}
+        onChange={(e) => {
+          onChange(e);
+        }}
         className={classNameForInput}
         name={name}
         placeholder={placeholder}
+        onBlur={onBlur}
+        maxLength={40}
       />
     </div>
   );
@@ -61,6 +66,7 @@ Input.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.string,
     name: PropTypes.string,
+    onBlur: PropTypes.func,
   }),
   isError: PropTypes.bool,
   placeholder: PropTypes.string,

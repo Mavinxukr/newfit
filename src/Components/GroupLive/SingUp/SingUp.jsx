@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import { Field, reduxForm } from 'redux-form';
+import { useSelector } from 'react-redux';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
 import Button from '../../../UI-Kit/Button/Button';
 import { AUTH_STATUSES } from '../../../constans';
-import { register } from '../../../actions/auth';
+import { getUser } from '../../../actions/auth';
+import { passwordValidation, nameValidation, emailValidation } from '../../../validates';
 import IconArrowBack from '../../../static/svg/BackArrow.svg';
 import styles from './SingUp.scss';
 
@@ -13,15 +14,18 @@ const SingUp = ({
   handleSubmit,
   submitting,
   invalid,
-  dirty,
   setAuthStatus,
   dispatch,
   status,
+  initialize,
 }) => {
-  const onSubmit = (values) => {
-    console.log(values);
-    return dispatch(register(values));
-  };
+  const defaultEmail = useSelector((state) => state.form?.entryForm?.values?.email);
+
+  useEffect(() => {
+    initialize({ email: defaultEmail });
+  }, []);
+
+  const onSubmit = (values) => dispatch(getUser(values));
 
   return (
     <form className={styles.singUpForm} onSubmit={handleSubmit(onSubmit)}>
@@ -53,6 +57,7 @@ const SingUp = ({
         label="Ваш e-mail"
         placeholder="name@company.com"
         classNameWrapper={styles.formikWrapper}
+        validate={emailValidation}
         classNameWrapperForInput={styles.inputWrapper}
         component={ReduxInputWrapper}
       />
@@ -62,6 +67,7 @@ const SingUp = ({
         viewType="entry"
         label="Имя и Фамилия"
         placeholder="Ethan Pierce"
+        validate={nameValidation}
         classNameWrapper={styles.formikWrapper}
         classNameWrapperForInput={styles.inputWrapper}
         component={ReduxInputWrapper}
@@ -73,14 +79,15 @@ const SingUp = ({
           viewType="entry"
           label="Создайте пароль"
           placeholder="*****"
+          validate={passwordValidation}
           classNameWrapper={styles.formikWrapper}
-          classNameWrapperForInput={cx(styles.inputWrapper, styles.inputPassword)}
+          classNameWrapperForInput={styles.inputWrapper}
           component={ReduxInputWrapper}
         />
       )}
       <Button
         classNameWrapper={styles.singUpSubmit}
-        viewType={(invalid || submitting || !dirty) && 'grey' || 'green'}
+        viewType={(invalid || submitting) && 'grey' || 'green'}
         type="submit"
       >
         Создать аккаунт
@@ -95,8 +102,8 @@ SingUp.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
-  dirty: PropTypes.bool,
   dispatch: PropTypes.func,
+  initialize: PropTypes.func,
 };
 
 export default reduxForm({

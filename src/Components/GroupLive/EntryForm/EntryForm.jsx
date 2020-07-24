@@ -6,19 +6,19 @@ import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapp
 import FacebookButton from '../../../UI-Kit/FacebookButton/FacebookButton';
 import GoogleButton from '../../../UI-Kit/GoogleButton/GoogleButton';
 import Button from '../../../UI-Kit/Button/Button';
+import { checkEmail } from '../../../actions/auth';
+import { emailValidation } from '../../../validates';
 import styles from './EntryForm.scss';
 
 const EntryForm = ({
   handleSubmit,
   submitting,
   invalid,
-  dirty,
   setAuthStatus,
   dispatch,
 }) => {
   const onSubmit = (values) => {
-    console.log(values);
-    dispatch(setAuthStatus(AUTH_STATUSES.signUp));
+    dispatch(checkEmail(values));
   };
 
   return (
@@ -38,10 +38,11 @@ const EntryForm = ({
         viewType="entry"
         placeholder="name@company.com"
         classNameWrapper={styles.inputWrapper}
+        validate={emailValidation}
         component={ReduxInputWrapper}
       />
       <Button
-        viewType={(invalid || submitting || !dirty) && 'white' || 'green'}
+        viewType={(invalid || submitting) && 'white' || 'green'}
         type="submit"
         classNameWrapper={styles.buttonWrapper}
       >
@@ -55,11 +56,11 @@ EntryForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
-  dirty: PropTypes.bool,
   setAuthStatus: PropTypes.func,
   dispatch: PropTypes.func,
 };
 
 export default reduxForm({
   form: 'entryForm',
+  destroyOnUnmount: false,
 })(EntryForm);

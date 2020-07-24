@@ -1,5 +1,6 @@
 import { SubmissionError } from 'redux-form';
-import { SET_AUTH_STATUS, REGISTER_USER } from './actionTypes';
+import { SET_AUTH_STATUS, REGISTER_USER, LOGIN_USER } from './actionTypes';
+import { AUTH_STATUSES } from '../constans';
 import apiServices from '../apiServices';
 
 export const setAuthStatus = (status) => ({
@@ -7,19 +8,34 @@ export const setAuthStatus = (status) => ({
   payload: status,
 });
 
-export const register = (body) => async (dispatch) => {
-  const response = await apiServices.register(body);
+export const getUser = (body, isLogin) => async (dispatch) => {
+  const method = isLogin ? 'login' : 'register';
+  const type = isLogin ? LOGIN_USER : REGISTER_USER;
 
-  const { data, ok } = response;
+  const response = await apiServices[method](body);
 
-  console.log(data);
+  const { data, isSuccess } = response;
 
-  if (!ok) {
+  if (!isSuccess) {
     throw new SubmissionError(data.errors);
   }
 
+  dispatch(setAuthStatus(''));
+
   dispatch({
-    type: REGISTER_USER,
+    type,
     payload: response,
   });
+};
+
+export const checkEmail = (body) => async (dispatch) => {
+  const response = await apiServices.checkEmail(body);
+
+  const { isSuccess } = response;
+
+  if (isSuccess) {
+    dispatch(setAuthStatus(AUTH_STATUSES.signUp));
+  } else {
+    dispatch(setAuthStatus(AUTH_STATUSES.login));
+  }
 };

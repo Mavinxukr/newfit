@@ -12,7 +12,13 @@ import { emailValidation, passwordValidation } from '../../../validates';
 import styles from './Login.scss';
 
 const Login = ({
-  handleSubmit, submitting, invalid, dispatch, setAuthStatus, initialize,
+  handleSubmit,
+  submitting,
+  invalid,
+  dispatch,
+  setAuthStatus,
+  initialize,
+  closePopup,
 }) => {
   const defaultEmail = useSelector((state) => state.form?.entryForm?.values?.email);
 
@@ -21,7 +27,7 @@ const Login = ({
   }, []);
 
   const onSubmit = (values) => {
-    dispatch(getUser(values, true));
+    dispatch(getUser(values, closePopup, true));
   };
 
   return (
@@ -82,6 +88,7 @@ Login.propTypes = {
   dispatch: PropTypes.bool,
   setAuthStatus: PropTypes.func,
   initialize: PropTypes.func,
+  closePopup: PropTypes.func,
 };
 
 export default reduxForm({

@@ -1,4 +1,5 @@
 import { SubmissionError } from 'redux-form';
+import Cookies from 'js-cookie';
 import { SET_AUTH_STATUS, REGISTER_USER, LOGIN_USER } from './actionTypes';
 import { AUTH_STATUSES } from '../constans';
 import apiServices from '../apiServices';
@@ -8,7 +9,7 @@ export const setAuthStatus = (status) => ({
   payload: status,
 });
 
-export const getUser = (body, isLogin) => async (dispatch) => {
+export const getUser = (body, closePopup, isLogin) => async (dispatch) => {
   const method = isLogin ? 'login' : 'register';
   const type = isLogin ? LOGIN_USER : REGISTER_USER;
 
@@ -20,12 +21,14 @@ export const getUser = (body, isLogin) => async (dispatch) => {
     throw new SubmissionError(data.errors);
   }
 
-  dispatch(setAuthStatus(''));
+  Cookies.set('token-easyfit', data.token);
 
   dispatch({
     type,
-    payload: response,
+    payload: data,
   });
+
+  closePopup();
 };
 
 export const checkEmail = (body) => async (dispatch) => {

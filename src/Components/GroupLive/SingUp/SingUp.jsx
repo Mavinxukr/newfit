@@ -6,7 +6,7 @@ import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapp
 import Button from '../../../UI-Kit/Button/Button';
 import { AUTH_STATUSES } from '../../../constans';
 import { getUser } from '../../../actions/auth';
-import { passwordValidation, nameValidation, emailValidation } from '../../../validates';
+import { nameValidation, passwordValidation, emailValidation } from '../../../validates';
 import IconArrowBack from '../../../static/svg/BackArrow.svg';
 import styles from './SingUp.scss';
 
@@ -18,14 +18,18 @@ const SingUp = ({
   dispatch,
   status,
   initialize,
+  closePopup,
 }) => {
-  const defaultEmail = useSelector((state) => state.form?.entryForm?.values?.email);
+  const email = useSelector((state) => state.form?.entryForm?.values?.email);
+  const name = useSelector((state) => state.form?.entryForm?.values?.name);
 
   useEffect(() => {
-    initialize({ email: defaultEmail });
+    initialize({ email, name });
   }, []);
 
-  const onSubmit = (values) => dispatch(getUser(values));
+  const onSubmit = (values) => {
+    dispatch(getUser(values, closePopup));
+  };
 
   return (
     <form className={styles.singUpForm} onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +42,7 @@ const SingUp = ({
       ) || status === AUTH_STATUSES.signUpViaGoogle && (
         <div className={styles.googleBLock}>
           <p className={styles.googleTitle}>Google</p>
-          <p className={styles.username}>@ethpierce</p>
+          <p className={styles.username}>{name || '@username'}</p>
         </div>
       )}
       <button
@@ -75,7 +79,7 @@ const SingUp = ({
       {(status !== AUTH_STATUSES.signUpViaGoogle && status !== AUTH_STATUSES.signUpViaFacebook) && (
         <Field
           name="password"
-          type="text"
+          type="password"
           viewType="entry"
           label="Создайте пароль"
           placeholder="*****"
@@ -104,8 +108,9 @@ SingUp.propTypes = {
   invalid: PropTypes.bool,
   dispatch: PropTypes.func,
   initialize: PropTypes.func,
+  closePopup: PropTypes.func,
 };
 
 export default reduxForm({
-  form: 'signIpForm',
+  form: 'signUpForm',
 })(SingUp);

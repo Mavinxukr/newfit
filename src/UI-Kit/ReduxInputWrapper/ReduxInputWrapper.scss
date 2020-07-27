@@ -9,7 +9,7 @@
   @include styleForText(14px, $fontAdditional, $colorRedDark);
 
   margin-top: 11px;
-  max-width: 267px;
+  max-width: 300px;
 }
 
 .label {
@@ -22,5 +22,6 @@
 @media screen and (max-width: 1600px) {
   .errorText {
     font-size: 12px;
+    max-width: 267px;
   }
 }

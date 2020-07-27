@@ -20,7 +20,7 @@ const withPopup = (Component, { isOpenByDefault = false } = {}) => (props) => {
       <Component {...props} openPopup={openPopup} />  {/*eslint-disable-line*/}
       {isOpenPopup && (
         <Popup closePopup={closePopup} persistToOpenPopup={popupContent}>
-          {popupContent && popupContent || <FormLayout />}
+          {popupContent && popupContent || <FormLayout closePopup={closePopup} />}
         </Popup>
       )}
     </>

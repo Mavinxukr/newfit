@@ -31,7 +31,7 @@ export const passwordValidation = (value) => {
     return 'пароль должен содержать минимум 8 символов';
   }
 
-  if (/[^\s]*/.test(value)) {
+  if (!/(^([a-zA-Z0-9]+)(\d+)?$)/u.test(value)) {
     return 'Буквы все должны быть латиницей (ABC) Без пробелов, или используйте « _ »';
   }
 

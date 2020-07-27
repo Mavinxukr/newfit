@@ -10,6 +10,10 @@
   width: 398px;
 }
 
+.notifyText {
+  @include styleForText($fontSizeLaptop, $fontAdditional, $colorWhite);
+}
+
 .bntBack {
   position: absolute;
   top: 36px;

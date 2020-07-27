@@ -48,9 +48,7 @@ const Input = ({
         type={type}
         value={value || defaultValue}
         onFocus={() => setStatus('active')}
-        onChange={(e) => {
-          onChange(e);
-        }}
+        onChange={onChange}
         className={classNameForInput}
         name={name}
         placeholder={placeholder}

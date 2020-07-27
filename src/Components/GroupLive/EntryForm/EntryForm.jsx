@@ -16,6 +16,7 @@ const EntryForm = ({
   invalid,
   setAuthStatus,
   dispatch,
+  change,
 }) => {
   const onSubmit = (values) => {
     dispatch(checkEmail(values));
@@ -28,7 +29,12 @@ const EntryForm = ({
       <div className={styles.buttons}>
         <FacebookButton responseCallback={() => dispatch(setAuthStatus(AUTH_STATUSES.signUpViaFacebook))} />
         <GoogleButton
-          onSuccess={() => dispatch(setAuthStatus(AUTH_STATUSES.signUpViaGoogle))}
+          onSuccess={(response) => {
+            const { email, name } = response.profileObj;
+            change('email', email);
+            change('name', name);
+            dispatch(setAuthStatus(AUTH_STATUSES.signUpViaGoogle));
+          }}
           onFailure={(response) => console.log(response)}
         />
       </div>
@@ -58,6 +64,7 @@ EntryForm.propTypes = {
   invalid: PropTypes.bool,
   setAuthStatus: PropTypes.func,
   dispatch: PropTypes.func,
+  change: PropTypes.func,
 };
 
 export default reduxForm({

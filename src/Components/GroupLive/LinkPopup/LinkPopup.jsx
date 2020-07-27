@@ -12,7 +12,7 @@ const LinkPopup = ({ handleSubmit, closePopup }) => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    dispatch(notify(<p className={styles.notifyContent}>Готово! Сумма с комиссией -5% будет отправлено в течении 1-2 рабочих дней</p>));
+    dispatch(notify(<p className={styles.notifyContent}>Готово! Сумма с комиссией -5% будет отправлено в течении 1-2 рабочих дней</p>, 5000));
     closePopup();
   };
 

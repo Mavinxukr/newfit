@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { AUTH_STATUSES } from '../../../constans';
 import { setAuthStatus } from '../../../actions/auth';
 import EntryForm from '../EntryForm/EntryForm';
@@ -16,7 +17,7 @@ const FORM_COMPONENTS = {
   [AUTH_STATUSES.reset]: Reset,
 };
 
-const FormLayout = () => {
+const FormLayout = ({ closePopup }) => {
   const status = useSelector((state) => state.auth.status);
   const dispatch = useDispatch();
 
@@ -27,8 +28,13 @@ const FormLayout = () => {
       dispatch={dispatch}
       status={status}
       setAuthStatus={setAuthStatus}
+      closePopup={closePopup}
     />
   );
+};
+
+FormLayout.propTypes = {
+  closePopup: PropTypes.func,
 };
 
 export default FormLayout;

@@ -29,6 +29,7 @@ export const getUser = (body, closePopup, isLogin) => async (dispatch) => {
   });
 
   closePopup();
+  return 'dfjgfdj';
 };
 
 export const checkEmail = (body) => async (dispatch) => {

@@ -26,9 +26,7 @@ const Login = ({
     initialize({ email: defaultEmail });
   }, []);
 
-  const onSubmit = (values) => {
-    dispatch(getUser(values, closePopup, true));
-  };
+  const onSubmit = (values) => dispatch(getUser(values, closePopup, true));
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>

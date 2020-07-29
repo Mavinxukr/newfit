@@ -27,9 +27,7 @@ const SingUp = ({
     initialize({ email, name });
   }, []);
 
-  const onSubmit = (values) => {
-    dispatch(getUser(values, closePopup));
-  };
+  const onSubmit = (values) => dispatch(getUser(values, closePopup));
 
   return (
     <form className={styles.singUpForm} onSubmit={handleSubmit(onSubmit)}>

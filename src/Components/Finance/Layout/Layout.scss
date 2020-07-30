@@ -39,6 +39,10 @@
 .buttonWithdraw {
   padding: 17px 43px;
   width: auto;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .contentBetween {
@@ -172,6 +176,10 @@
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
 }
 
 .finance {

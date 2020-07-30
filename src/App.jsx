@@ -11,16 +11,20 @@ import Notification from './Components/shared/Notification/Notification';
 import Template from './Pages/Template/Template';
 import PaymentReceived from './Pages/PaymentReceived/PaymentReceived';
 import Payments from './Pages/Payments/Payments';
+import { isShowedNotification, isLoadingSelector } from './selectors';
 import history from './history';
 import './index.scss';
 import Training from './Pages/Training/Training';
 
 const App = () => {
-  const isShowedNotification = useSelector((state) => state.notification.isShowed);
+  const isShowed = useSelector(isShowedNotification);
+  const isLoading = useSelector(isLoadingSelector);
+
+  console.log(isLoading);
 
   return (
     <>
-      {isShowedNotification && <Notification />}
+      {isShowed && <Notification />}
       <ConnectedRouter history={history}>
         <Switch>
           <Route

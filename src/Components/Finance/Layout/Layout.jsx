@@ -1,15 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CardForm from '../CardForm/CardForm';
 import Button from '../../../UI-Kit/Button/Button';
 import Withdraw from '../Withdraw/Withdraw';
 import withPopup from '../../../HOC/withPopup';
+import { getFinance } from '../../../actions/finance';
+import { getUserCard } from '../../../actions/userCard';
+import { getIncome } from '../../../actions/income';
+import { isEmptyObject, sliceCard } from '../../../utils';
+import {
+  financeSelector, userCardSelector, incomeSelector, userDataSelector,
+} from '../../../selectors';
 import styles from './Layout.scss';
 
 const Layout = ({ openPopup }) => {
   const [isOpenCardForm, setIsOpenCardForm] = useState(false);
+
+  const finance = useSelector(financeSelector);
+  const userCard = useSelector(userCardSelector);
+  const income = useSelector(incomeSelector);
+  const userData = useSelector(userDataSelector);
+
+  const { data = [] } = income;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFinance());
+    dispatch(getUserCard());
+    dispatch(getIncome());
+  }, []);
 
   return (
     <div className={styles.mainContent}>
@@ -17,16 +40,21 @@ const Layout = ({ openPopup }) => {
       <div className={cx(styles.contentInfoFinance, styles.infoFinanceMain)}>
         <div className={cx(styles.flex, styles.contentBetween)}>
           <div className={styles.column}>
-            <p className={styles.balance}>18 990,89₴</p>
+            <p className={styles.balance}>{userData.money} ₴</p>
             <span className={cx(styles.opacityText, styles.balanceText)}>На вашем аккаунте</span>
           </div>
           <Button
             classNameWrapper={styles.buttonWithdraw}
             type="button"
-            viewType="green"
+            viewType={(isEmptyObject(userCard) || 0) && 'grey' || 'green'}
+            disabled={isEmptyObject(userCard) || 0}
             onClick={() => {
               openPopup({
                 PopupContentComponent: Withdraw,
+                content: {
+                  cardNumber: userCard.card_number,
+                  name: userCard.name,
+                },
               });
             }}
           >
@@ -36,27 +64,24 @@ const Layout = ({ openPopup }) => {
         <div className={styles.flex}>
           <div className={styles.contentMoreInfo}>
             <h5>Выводы</h5>
-            {/* <p className={styles.contentCenter}>Пока не было</p> */}
-            <div className={styles.findings}>
-              <p className={styles.withdrawText}>11 Апр, 2020</p>
-              <p className={cx(styles.withdrawText, styles.mediaPos)}>Ethan Pierce … 9301</p>
-              <p className={cx(styles.opacityTextFindings, styles.withdrawText)}>Ждет подтверждения</p>
-              <p className={styles.withdrawText}>6 314,00₴</p>
-            </div>
-            <div className={styles.findings}>
-              <p className={styles.withdrawText}>2 Апр, 2020</p>
-              <p className={cx(styles.withdrawText, styles.mediaPos)}>Ethan Pierce … 9301</p>
-              <p className={cx(styles.opacityTextFindings, styles.withdrawText)} />
-              <p className={styles.withdrawText}>2 522,10₴</p>
-            </div>
+            {finance.length && finance.map((item) => (
+              <div key={item.id} className={styles.findings}>
+                <p className={styles.withdrawText}>{item.created_at}</p>
+                <p className={cx(styles.withdrawText, styles.mediaPos)}>{item.card_name} … {sliceCard(item.card_number)}</p>
+                <p className={cx(styles.opacityTextFindings, styles.withdrawText)}>{item.status}</p>
+                <p className={styles.withdrawText}>{item.sum}₴</p>
+              </div>
+            )) || <p className={styles.contentCenter}>Пока не было</p>}
           </div>
           <div className={styles.contentMoreInfo}>
             <h5 className={styles.titleFinance}>Доходы</h5>
-            <div className={styles.finance}>
-              <p className={styles.withdrawText}>с 25 Июнь, 2019</p>
-              <p className={styles.withdrawText}>Hardcore Crossfit</p>
-              <p className={styles.withdrawText}>+ 54 009,24₴</p>
-            </div>
+            {data.length && data.map((item) => (
+              <div className={styles.finance}>
+                <p className={styles.withdrawText}>{item.payment_at}</p>
+                <p className={styles.withdrawText}>{item.name}</p>
+                <p className={styles.withdrawText}>+ {item.cost}₴</p>
+              </div>
+            )) || <p className={styles.contentCenter}>Пока не было</p>}
           </div>
         </div>
       </div>
@@ -120,18 +145,22 @@ const Layout = ({ openPopup }) => {
             {isOpenCardForm && (
             <CardForm
               setIsOpenCardForm={setIsOpenCardForm}
-              defaultName="Кирилл"
-              defaultNumber="3453 3454 3453 3455"
+              defaultName={userCard.name}
+              defaultNumber={`54551${userCard.card_number}`}
             />
             ) || (
             <>
-              <p className={styles.text}>Ethan Pierce ... 9301</p>
-              <Button
-                classNameWrapper={styles.btn}
-                type="button"
-                onClick={() => setIsOpenCardForm(true)}
-              >Редактировать
-              </Button>
+              {!isEmptyObject(userCard) ? (
+                <>
+                  <p className={styles.text}>{userCard.name} ... {sliceCard(userCard.card_number)}</p>
+                  <Button
+                    classNameWrapper={styles.btn}
+                    type="button"
+                    onClick={() => setIsOpenCardForm(true)}
+                  >Редактировать
+                  </Button>
+                </>
+              ) : <CardForm setIsOpenCardForm={setIsOpenCardForm} />}
             </>
             )}
           </div>

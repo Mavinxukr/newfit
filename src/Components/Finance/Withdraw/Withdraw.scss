@@ -26,6 +26,10 @@
   margin-top: 3px;
 }
 
+.text {
+  @include styleForText($fontSizeLaptop, $fontAdditional, $colorWhite);
+}
+
 .buttonOutput {
   margin-top: 40px;
   width: 158px;

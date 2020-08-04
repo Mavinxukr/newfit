@@ -1,6 +1,8 @@
 import { SubmissionError } from 'redux-form';
 import Cookies from 'js-cookie';
-import { SET_AUTH_STATUS, REGISTER_USER, LOGIN_USER } from './actionTypes';
+import {
+  SET_AUTH_STATUS, REGISTER_USER, LOGIN_USER, GET_USER,
+} from './actionTypes';
 import { AUTH_STATUSES } from '../constans';
 import apiServices from '../apiServices';
 
@@ -29,7 +31,17 @@ export const getUser = (body, closePopup, isLogin) => async (dispatch) => {
   });
 
   closePopup();
-  return 'dfjgfdj';
+};
+
+export const getUserByToken = () => async (dispatch) => {
+  const response = await apiServices.getUserData();
+
+  const { data: { data } } = response;
+
+  dispatch({
+    type: GET_USER,
+    payload: data,
+  });
 };
 
 export const checkEmail = (body) => async (dispatch) => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import Finance from './Pages/Finance/Finance';
@@ -11,7 +11,8 @@ import Notification from './Components/shared/Notification/Notification';
 import Template from './Pages/Template/Template';
 import PaymentReceived from './Pages/PaymentReceived/PaymentReceived';
 import Payments from './Pages/Payments/Payments';
-import { isShowedNotification, isLoadingSelector } from './selectors';
+import { isLoadingSelector, isShowedNotification } from './selectors';
+import { getUserByToken } from './actions/auth';
 import history from './history';
 import './index.scss';
 import Training from './Pages/Training/Training';
@@ -20,10 +21,20 @@ const App = () => {
   const isShowed = useSelector(isShowedNotification);
   const isLoading = useSelector(isLoadingSelector);
 
-  console.log(isLoading);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserByToken());
+  }, []);
 
   return (
     <>
+      {isLoading && (
+      <p style={{
+        position: 'fixed', top: '0', left: '0', display: 'flex', width: '100%', height: '100%', justifyContent: 'center', alignCenter: 'center', background: 'white', opacity: '0.9', zIndex: '10001',
+      }}
+      />
+      )}
       {isShowed && <Notification />}
       <ConnectedRouter history={history}>
         <Switch>

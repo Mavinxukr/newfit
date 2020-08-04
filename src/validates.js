@@ -37,3 +37,21 @@ export const passwordValidation = (value) => {
 
   return undefined;
 };
+
+export const cardNumberValidation = (value) => {
+  if (!value) {
+    return 'Введите карту';
+  }
+
+  if (value.length < 16) {
+    return 'Введите полный номер карты';
+  }
+};
+
+export const nameCardValidation = (value) => {
+  if (!value) {
+    return 'Это нужно для отправки платежа';
+  }
+
+  return undefined;
+};

@@ -4,21 +4,23 @@ import { useDispatch } from 'react-redux';
 import { createTextMask } from 'redux-form-input-masks';
 import PropTypes from 'prop-types';
 import ReduxInputWrapper from '../../../UI-Kit/ReduxInputWrapper/ReduxInputWrapper';
-import { deleteCard } from '../../../actions/userCard';
-import { nameValidation } from '../../../validates';
+import { deleteCard, createCard, updateCard } from '../../../actions/userCard';
+import { nameCardValidation, cardNumberValidation } from '../../../validates';
 import styles from './CardForm.scss';
 
 const CardForm = ({
-  handleSubmit, initialize, defaultName, defaultNumber,
+  handleSubmit, initialize, userCard: { name = '', card_number: cardNumber = '', id = 0 }, setIsOpenCardForm,
 }) => {
-  const onSubmit = (values) => {
-    console.log(values);
-  };
-
   const dispatch = useDispatch();
 
+  const onSubmit = (values) => {
+    const func = name ? updateCard : createCard;
+    dispatch(func({ ...values, card_number: +values.card_number }, id));
+    setIsOpenCardForm(false);
+  };
+
   useEffect(() => {
-    initialize({ number: defaultNumber, name: defaultName });
+    initialize({ card_number: String(cardNumber), name });
   }, []);
 
   const cardMask = createTextMask({
@@ -30,12 +32,13 @@ const CardForm = ({
     <Form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
       <div className={styles.inputsWrapper}>
         <Field
-          name="number"
+          name="card_number"
           type="text"
           viewType="finance"
           placeholder="0000 0000 0000 0000"
           classNameWrapper={styles.inputWrapper}
           component={ReduxInputWrapper}
+          validate={cardNumberValidation}
           {...cardMask} /*eslint-disable-line*/
         />
         <Field
@@ -45,20 +48,20 @@ const CardForm = ({
           placeholder="Имя на карте"
           classNameWrapper={styles.inputWrapper}
           component={ReduxInputWrapper}
-          validate={nameValidation}
+          validate={nameCardValidation}
         />
       </div>
       <button
         type="submit"
         className={styles.buttonSubmit}
       >
-        {defaultNumber && 'Редактировать' || 'Сохранить'}
+        {name && 'Редактировать' || 'Добавить'}
       </button>
-      {defaultNumber && (
+      {name && (
         <button
           type="button"
           className={styles.buttonSubmit}
-          onClick={() => dispatch(deleteCard())}
+          onClick={() => dispatch(deleteCard(id))}
         >
           Удалить
         </button>
@@ -69,10 +72,13 @@ const CardForm = ({
 
 CardForm.propTypes = {
   handleSubmit: PropTypes.func,
-  setIsOpenCardForm: PropTypes.func,
-  defaultNumber: PropTypes.string,
-  defaultName: PropTypes.string,
   initialize: PropTypes.func,
+  userCard: PropTypes.shape({
+    name: PropTypes.string,
+    card_number: PropTypes.number,
+    id: PropTypes.number,
+  }),
+  setIsOpenCardForm: PropTypes.func,
 };
 
 export default reduxForm({

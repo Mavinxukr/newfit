@@ -7,6 +7,8 @@ class Api {
 
   login = async (body) => api.post('login', body);
 
+  getUserData = () => api.get('user-profile');
+
   reset = async (body) => api.post('password/email', body);
 
   getFinance = async () => api.get('withdrawal-payment');
@@ -15,7 +17,7 @@ class Api {
 
   getUserCard = async () => api.get('card');
 
-  updateCard = async (body, id) => api.post(`card/${id}`, body);
+  updateCard = async (body, id) => api.put(`card/${id}`, body);
 
   createCard = async (body) => api.post('card', body);
 

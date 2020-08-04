@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import CardForm from '../CardForm/CardForm';
+import CardFormContainer from '../CardForm/CardForm';
 import Button from '../../../UI-Kit/Button/Button';
 import Withdraw from '../Withdraw/Withdraw';
 import withPopup from '../../../HOC/withPopup';
@@ -12,7 +12,10 @@ import { getUserCard } from '../../../actions/userCard';
 import { getIncome } from '../../../actions/income';
 import { isEmptyObject, sliceCard } from '../../../utils';
 import {
-  financeSelector, userCardSelector, incomeSelector, userDataSelector,
+  financeSelector,
+  userCardSelector,
+  incomeSelector,
+  userDataSelector,
 } from '../../../selectors';
 import styles from './Layout.scss';
 
@@ -34,6 +37,8 @@ const Layout = ({ openPopup }) => {
     dispatch(getIncome());
   }, []);
 
+  const isDisabledWithdraw = isEmptyObject(userCard) || finance[0]?.status === 'Ждет подтверждения' || userData.money === 0;
+
   return (
     <div className={styles.mainContent}>
       <h3>Финансы</h3>
@@ -46,8 +51,8 @@ const Layout = ({ openPopup }) => {
           <Button
             classNameWrapper={styles.buttonWithdraw}
             type="button"
-            viewType={(isEmptyObject(userCard) || 0) && 'grey' || 'green'}
-            disabled={isEmptyObject(userCard) || 0}
+            viewType={isDisabledWithdraw && 'grey' || 'green'}
+            disabled={isDisabledWithdraw}
             onClick={() => {
               openPopup({
                 PopupContentComponent: Withdraw,
@@ -100,7 +105,7 @@ const Layout = ({ openPopup }) => {
           </div>
           <div className={cx(styles.flex, styles.contentBottom, styles.contentFlexStart)}>
             <div className={styles.column}>
-              <p className={styles.titleLive}>Групповой Live</p>
+              <p className={styles.titleLive}>Принятие оплаты</p>
             </div>
             <div className={styles.itemContent}>
               <p className={styles.itemContentDesc}>
@@ -110,7 +115,7 @@ const Layout = ({ openPopup }) => {
               <ul className={styles.itemContentPriceWrapper}>
                 <li className={styles.itemContentPrice}>
                   <p className={styles.itemContentPriceTitle}>Оплата</p>
-                  <p className={styles.itemContentPriceDesc}>+5% комиссия — комиссия платежной системы (для оплаты участия в занятии вашим клиентам)</p>
+                  <p className={styles.itemContentPriceDesc}>+3% комиссия — комиссия платежной системы (для оплаты участия в занятии вашим клиентам)</p>
                 </li>
                 <li className={styles.itemContentPrice}>
                   <p className={styles.itemContentPriceTitle}>Вывод</p>
@@ -121,7 +126,7 @@ const Layout = ({ openPopup }) => {
           </div>
           <div className={cx(styles.flex, styles.contentBottom, styles.contentFlexStart)}>
             <div className={styles.column}>
-              <p className={styles.titleLive}>Групповой Live</p>
+              <p className={styles.titleLive}>Страница занятия</p>
             </div>
             <div className={styles.itemContent}>
               <p className={styles.itemContentDesc}>
@@ -143,10 +148,9 @@ const Layout = ({ openPopup }) => {
           <div className={cx(styles.flex, styles.contentBottom, styles.cards)}>
             <h5 className={styles.titleTotal}>Вывод</h5>
             {isOpenCardForm && (
-            <CardForm
+            <CardFormContainer
               setIsOpenCardForm={setIsOpenCardForm}
-              defaultName={userCard.name}
-              defaultNumber={`54551${userCard.card_number}`}
+              userCard={userCard}
             />
             ) || (
             <>
@@ -160,7 +164,7 @@ const Layout = ({ openPopup }) => {
                   >Редактировать
                   </Button>
                 </>
-              ) : <CardForm setIsOpenCardForm={setIsOpenCardForm} />}
+              ) : <CardFormContainer setIsOpenCardForm={setIsOpenCardForm} userCard={userCard} />}
             </>
             )}
           </div>

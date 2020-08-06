@@ -8,7 +8,7 @@ export const getFinance = () => async (dispatch) => {
 
   dispatch({
     type: GET_FINANCE,
-    payload: data,
+    payload: data || [],
   });
 };
 
@@ -17,15 +17,8 @@ export const createFinance = () => async (dispatch) => {
 
   const { data: { data }, isSuccess } = response;
 
-  if (isSuccess) {
-    dispatch({
-      type: CREATED_FINANCE,
-      payload: data,
-    });
-  } else {
-    dispatch({
-      type: CREATED_FINANCE,
-      payload: 'error',
-    });
-  }
+  dispatch({
+    type: CREATED_FINANCE,
+    payload: isSuccess ? data : [],
+  });
 };

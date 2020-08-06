@@ -69,7 +69,7 @@ const Layout = ({ openPopup }) => {
         <div className={styles.flex}>
           <div className={styles.contentMoreInfo}>
             <h5>Выводы</h5>
-            {finance.length && finance.map((item) => (
+            {finance?.length && finance.map((item) => (
               <div key={item.id} className={styles.findings}>
                 <p className={styles.withdrawText}>{item.created_at}</p>
                 <p className={cx(styles.withdrawText, styles.mediaPos)}>{item.card_name} … {sliceCard(item.card_number)}</p>

@@ -11,6 +11,7 @@ import Notification from './Components/shared/Notification/Notification';
 import Template from './Pages/Template/Template';
 import PaymentReceived from './Pages/PaymentReceived/PaymentReceived';
 import Payments from './Pages/Payments/Payments';
+import Loader from './UI-Kit/Loader/Loader';
 import { isLoadingSelector, isShowedNotification } from './selectors';
 import { getUserByToken } from './actions/auth';
 import history from './history';
@@ -29,12 +30,7 @@ const App = () => {
 
   return (
     <>
-      {isLoading && (
-      <p style={{
-        position: 'fixed', top: '0', left: '0', display: 'flex', width: '100%', height: '100%', justifyContent: 'center', alignCenter: 'center', background: 'white', opacity: '0.9', zIndex: '10001',
-      }}
-      />
-      )}
+      {isLoading && <Loader />}
       {isShowed && <Notification />}
       <ConnectedRouter history={history}>
         <Switch>

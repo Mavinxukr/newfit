@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import withPopup from '../../../HOC/withPopup';
 import OccupationCard from '../OccupationCard/OccupationCard';
 import styles from './Layout.scss';
 import IconPlus from '../../../static/svg/Group2281.svg';
-import { occupations } from '../data';
+import { getGroupTraining } from '../../../actions/groupTraning';
+import { isAuthSelector, groupTrainingSelector } from '../../../selectors';
 
-const Layout = ({ openPopup }) => {
+const Layout = ({ openPopup, closePopup }) => {
   const [indexForOpenEditForm, setIndexForOpenEditForm] = useState(0);
+
+  const isAuth = useSelector(isAuthSelector);
+  const groupTrainings = useSelector(groupTrainingSelector);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isAuth) {
+      closePopup();
+      dispatch(getGroupTraining());
+    } else {
+      openPopup();
+    }
+  }, [isAuth]);
 
   return (
     <div className={styles.mainContent}>
@@ -43,14 +59,20 @@ const Layout = ({ openPopup }) => {
                 </p>
               </div>
             </div>
-            {occupations.map((item) => (
+            {!!groupTrainings.length && groupTrainings.map((item) => (
               <OccupationCard
                 indexForOpenEditForm={indexForOpenEditForm}
                 setIndexForOpenEditForm={setIndexForOpenEditForm}
                 item={item}
                 openPopup={openPopup}
+                key={item.id}
               />
-            ))}
+            )) || (
+            <p className={cx(styles.notFoundText,
+              styles.opacityText)}
+            >занятий не найдено
+            </p>
+            )}
           </div>
         </div>
         <div className={cx(styles.rightBlock, styles.contentInfo)}>
@@ -79,6 +101,7 @@ const Layout = ({ openPopup }) => {
 
 Layout.propTypes = {
   openPopup: PropTypes.func,
+  closePopup: PropTypes.func,
 };
 
 export default withPopup(Layout);

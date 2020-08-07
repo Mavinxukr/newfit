@@ -5,6 +5,11 @@ export const userDataSelector = createSelector(
   (data) => data,
 );
 
+export const isAuthSelector = createSelector(
+  (state) => state.user.isAuth,
+  (isAuth) => isAuth,
+);
+
 export const isLoadingSelector = createSelector(
   (state) => state.loader.isLoading,
   (isLoading) => isLoading,
@@ -32,5 +37,10 @@ export const userCardSelector = createSelector(
 
 export const incomeSelector = createSelector(
   (state) => state.income.data,
+  (data) => data,
+);
+
+export const groupTrainingSelector = createSelector(
+  (state) => state.groupTraining.data,
   (data) => data,
 );

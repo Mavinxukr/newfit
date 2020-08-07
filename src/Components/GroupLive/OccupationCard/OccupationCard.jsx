@@ -5,28 +5,37 @@ import PropTypes from 'prop-types';
 import styles from './OccupationCard.scss';
 import Button from '../../../UI-Kit/Button/Button';
 import MorePopup from '../MorePopup/MorePopup';
-import IconGreenPlus from '../../../static/svg/greenPlus.svg';
+// import IconGreenPlus from '../../../static/svg/greenPlus.svg';
 import IconCalendar from '../../../static/svg/calendar-2.svg';
-import IconEdit from '../../../static/svg/edit.svg';
-// import IconVideo from '../../../static/svg/Polygon1.svg';
+// import IconEdit from '../../../static/svg/edit.svg';
 import Participants from '../Participants/Participants';
 import ResponsiveTextarea from '../../../UI-Kit/ResponsiveTextarea/ResponsiveTextarea';
 import FormLive from '../FormLive/FormLive';
-import { participants } from '../data';
 import IconCopy from '../../../static/svg/copy1.svg';
+import { copyText } from '../../../utils';
 
 const OccupationCard = ({
-  item, openPopup, indexForOpenEditForm, setIndexForOpenEditForm,
+  item: {
+    cost,
+    id,
+    is_missed_training: isMissedTraining,
+    name,
+    participants,
+    participants_count: participantsCount,
+    total_sum: totalSum,
+    start_at: startAt,
+    user_url: userUrl,
+  }, openPopup, indexForOpenEditForm, setIndexForOpenEditForm,
 }) => {
   const [isOpenButtonsControl, setIsOpenButtonsControl] = useState(false);
-  const [valueTitle, setValueTitle] = useState(item.title || '');
+  const [valueTitle, setValueTitle] = useState(name || '');
 
   return (
     <div className={cx(styles.card, {
-      [styles.cardWithoutBorder]: item.id === indexForOpenEditForm,
+      [styles.cardWithoutBorder]: id === indexForOpenEditForm,
     })}
     >
-      {item.id === indexForOpenEditForm && <FormLive setIndexForOpenEditForm={setIndexForOpenEditForm} />}
+      {id === indexForOpenEditForm && <FormLive setIndexForOpenEditForm={setIndexForOpenEditForm} />}
       <div className={cx(styles.cardWrapper, {
         [styles.firstTitleContentInfoOpacity]: indexForOpenEditForm,
       })}
@@ -36,13 +45,13 @@ const OccupationCard = ({
             <ResponsiveTextarea text={valueTitle} setText={setValueTitle} />
             <button
               className={cx(styles.buttonPrice, {
-                [styles.buttonPriceNull]: !item.price,
+                [styles.buttonPriceNull]: !cost,
               })}
               type="button"
               aria-label="edit"
-              onClick={() => setIndexForOpenEditForm(item.id)}
+              onClick={() => setIndexForOpenEditForm(id)}
             >
-              {item.price} грн
+              {cost} грн
             </button>
           </div>
           <Button
@@ -54,21 +63,22 @@ const OccupationCard = ({
               });
             }}
           >
-            {item.isEditPromoSite && (
-              <IconGreenPlus className={styles.icon} />
-            ) || (
-              <IconEdit className={styles.icon} />
-            )}
-            {item.isEditPromoSite && 'Создать' || 'Редактировать'} промо-сайт
+            {/* {item.isEditPromoSite && ( */}
+            {/*  <IconGreenPlus className={styles.icon} /> */}
+            {/* ) || ( */}
+            {/*  <IconEdit className={styles.icon} /> */}
+            {/* )} */}
+            {/* {item.isEditPromoSite && 'Создать' || 'Редактировать'} промо-сайт */}
+            Редактировать
           </Button>
         </div>
         <div className={cx(styles.secondTitleContentInfo, styles.flexGroupLive)}>
           <p className={cx(styles.count, {
-            [styles.countNull]: !item.countParticipant,
+            [styles.countNull]: participantsCount,
           })}
-          >{item.countParticipant}
+          >{participantsCount}
           </p>
-          {item.countParticipant > 0 && (
+          {participantsCount > 0 && (
             <a
               className={styles.showMore}
               href="/"
@@ -86,23 +96,25 @@ const OccupationCard = ({
         </div>
         <div className={styles.titleContentInfo}>
           <p className={cx(styles.count, styles.countTotal, {
-            [styles.countNull]: !item.totalSum,
+            [styles.countNull]: totalSum,
           })}
-          >{item.totalSum} грн
+          >{totalSum} грн
           </p>
         </div>
         <div className={cx(styles.lastTitleContentInfo, styles.column)}>
           <p className={cx(styles.date, {
-            [styles.dateGreen]: item.statusDate === 'planned',
+            [styles.dateGreen]: isMissedTraining,
           })}
-          >{item.date}
+          >{startAt}
           </p>
-          {item.statusDate === 'planned' && (
+          {!isMissedTraining && (
             <div>
+              <input type="text" value={userUrl} className={styles.copyInput} />
               <Button
                 type="button"
                 viewType="white"
                 classNameWrapper={cx(styles.sizeBtn, styles.sizeBtnMargin, styles.buttonCopy)}
+                onClick={() => copyText(`.${styles.copyInput}`)}
               >
                 <IconCopy className={styles.icon} />
                 Ссылка
@@ -121,11 +133,11 @@ const OccupationCard = ({
           ) || (
             <Button
               type="button"
-              viewType={item.statusDate === 'missed' ? 'green' : 'grey'}
-              classNameWrapper={item.statusDate === 'missed' ? styles.sizeBtn : styles.greyBtn}
+              viewType={!isMissedTraining ? 'green' : 'grey'}
+              classNameWrapper={isMissedTraining ? styles.sizeBtn : styles.greyBtn}
             >
               <IconCalendar className={cx(styles.icon, {
-                [styles.iconGreen]: item.statusDate === 'missed',
+                [styles.iconGreen]: isMissedTraining,
               })}
               />
               Запланировать
@@ -146,7 +158,7 @@ const OccupationCard = ({
                 type="button"
                 className={styles.buttonEdit}
                 onClick={() => {
-                  setIndexForOpenEditForm(item.id);
+                  setIndexForOpenEditForm(id);
                   setIsOpenButtonsControl(false);
                 }}
               >Редактировать
@@ -167,7 +179,17 @@ const OccupationCard = ({
 };
 
 OccupationCard.propTypes = {
-  item: PropTypes.object,
+  item: PropTypes.shape({
+    cost: PropTypes.number,
+    id: PropTypes.number,
+    is_missed_training: PropTypes.bool,
+    name: PropTypes.string,
+    participants: PropTypes.arrayOf(PropTypes.object),
+    participants_count: PropTypes.number,
+    total_sum: PropTypes.number,
+    start_at: PropTypes.string,
+    user_url: PropTypes.string,
+  }),
   openPopup: PropTypes.func,
   setIndexForOpenEditForm: PropTypes.func,
   indexForOpenEditForm: PropTypes.number,

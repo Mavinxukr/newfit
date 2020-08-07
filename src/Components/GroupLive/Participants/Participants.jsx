@@ -9,8 +9,14 @@ import styles from './Participants.scss';
 const Participants = ({ closePopup, content }) => (
   <div className={styles.wrapper}>
     <div className={styles.headerParticipants}>
-      <h4>Участники <span className={styles.num}>23</span></h4>
-      <SimpleCopy classNameWrapper={styles.btnCopy}><IconCopy className={styles.icon} />Копировать</SimpleCopy>
+      <h4>Участники <span className={styles.num}>{content.length}</span></h4>
+      <SimpleCopy
+        classNameWrapper={styles.btnCopy}
+        copyValue={JSON.stringify(content)}
+      >
+        <IconCopy className={styles.icon} />
+        Копировать
+      </SimpleCopy>
       <button
         type="button"
         onClick={closePopup}
@@ -25,12 +31,12 @@ const Participants = ({ closePopup, content }) => (
         <p className={cx(styles.sale, styles.opacityText)}>Скидка</p>
         <p className={cx(styles.date, styles.opacityText)}>Дата</p>
       </div>
-      {content && content.map((item) => (
+      {!!content.length && content.map((item) => (
         <div key={item.id} className={styles.participantsContent}>
           <p className={styles.name}>{item.name}</p>
           <p className={styles.mail}>{item.email}</p>
-          <p className={styles.sale}>{item.sale}</p>
-          <p className={styles.date}>{item.date}</p>
+          <p className={styles.sale}>-{item.discount} Скидка</p>
+          <p className={styles.date}>{item.created_at}</p>
         </div>
       ))}
     </div>
@@ -43,8 +49,8 @@ Participants.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     email: PropTypes.string,
-    sale: PropTypes.string,
-    date: PropTypes.string,
+    created_at: PropTypes.string,
+    discount: PropTypes.string,
   })),
 };
 

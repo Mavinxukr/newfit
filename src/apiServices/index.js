@@ -24,6 +24,14 @@ class Api {
   deleteCard = async (id) => api.delete(`card/${id}`);
 
   getIncome = async () => api.get('user-income');
+
+  getGroupTraining = async () => api.get('group-trainings');
+
+  createGroupTraining = async (body) => api.post('group-trainings', body);
+
+  updateGroupTraining = async (body, id) => api.post(`group-trainings/${id}`, body);
+
+  deleteGroupTraining = async (id) => api.delete(`group-trainings/${id}`);
 }
 
 export default new Api();

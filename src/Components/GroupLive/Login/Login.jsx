@@ -83,7 +83,7 @@ Login.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   invalid: PropTypes.bool,
-  dispatch: PropTypes.bool,
+  dispatch: PropTypes.func,
   setAuthStatus: PropTypes.func,
   initialize: PropTypes.func,
   closePopup: PropTypes.func,

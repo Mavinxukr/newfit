@@ -9,6 +9,7 @@ import { finance } from './finance';
 import { userCard } from './userCard';
 import { income } from './income';
 import { loader } from './loader';
+import { groupTraining } from './groupTraining';
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
@@ -21,5 +22,6 @@ const createRootReducer = (history) => combineReducers({
   income,
   form,
   loader,
+  groupTraining,
 });
 export default createRootReducer;

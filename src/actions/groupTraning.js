@@ -13,7 +13,7 @@ export const getGroupTraining = () => async (dispatch) => {
 
   dispatch({
     type: GET_GROUP_TRAININGS,
-    payload: data,
+    payload: data || [],
   });
 };
 

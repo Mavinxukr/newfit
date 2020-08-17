@@ -5,10 +5,14 @@ import { startLoading, finishLoading } from './actions/loader';
 
 const api = create({
   baseURL: 'http://site.laragrid.online/api/',
-  headers: { Accept: 'application/json', 'Content-Type': 'application/json', Authorization: `Bearer ${Cookies.get('token-easyfit')}` },
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
 });
 
-api.addRequestTransform(() => {
+api.addRequestTransform((request) => {
+  request.headers.Authorization = `Bearer ${Cookies.get('token-easyfit')}`;
   store.dispatch(startLoading());
 });
 

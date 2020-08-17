@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
+import Cookies from 'js-cookie';
 import Finance from './Pages/Finance/Finance';
 import Pricing from './Pages/Pricing/Pricing';
 import GroupLive from './Pages/GroupLive/GroupLive';
@@ -25,7 +26,9 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserByToken());
+    if (Cookies.get('token-easyfit')) {
+      dispatch(getUserByToken());
+    }
   }, []);
 
   return (

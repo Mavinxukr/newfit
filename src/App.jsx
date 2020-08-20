@@ -8,6 +8,9 @@ import GroupLive from './Pages/GroupLive/GroupLive';
 import GroupLiveWaiting from './Pages/GroupLiveWaiting/GroupLiveWaiting';
 import GroupLiveFinish from './Pages/GroupLiveFinish/GroupLiveFinish';
 import Notification from './Components/shared/Notification/Notification';
+import Template from './Pages/Template/Template';
+import PaymentReceived from './Pages/PaymentReceived/PaymentReceived';
+import Payments from './Pages/Payments/Payments';
 import history from './history';
 import './index.scss';
 import Training from './Pages/Training/Training';
@@ -49,6 +52,21 @@ const App = () => {
             exact
             path="/group-live-finish"
             component={GroupLiveFinish}
+          />
+          <Route
+            exact
+            path="/template"
+            component={Template}
+          />
+          <Route
+            exact
+            path="/payment-received"
+            component={PaymentReceived}
+          />
+          <Route
+            exact
+            path="/payments"
+            component={Payments}
           />
         </Switch>
       </ConnectedRouter>

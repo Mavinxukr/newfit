@@ -7,8 +7,10 @@ const Notification = () => {
   const content = useSelector(contentNotification);
 
   return (
-    <div className={styles.container}>
-      {content}
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        {content}
+      </div>
     </div>
   );
 };

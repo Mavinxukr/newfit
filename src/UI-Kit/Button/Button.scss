@@ -61,6 +61,16 @@
   border-radius: 10px;
 }
 
+.linkOccupation {
+  display: flex;
+  align-items: center;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: $colorButtons;
+  border: 1px solid #cce7d1;
+}
+
 .buttonRed {
   border: 1px solid $colorRedDark;
   color: $colorRedDark;

@@ -1,0 +1,29 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.googleButton {
+  margin-left: 8px;
+
+  @include styleForText($fontSizeContent, $fontMain, $colorRed);
+
+  border: 1px solid #FBDBD7;
+  width: 195px;
+  background-color: white;
+  padding: 11px 0 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 5px;
+
+  &::before {
+    content: url("../../static/svg/google-plus.svg");
+    padding-top: 1px;
+    height: 8px;
+    padding-right: 8px;
+  }
+
+  &:hover {
+    background: #FBDBD7;
+    border: 1px solid #FBDBD7;
+  }
+}

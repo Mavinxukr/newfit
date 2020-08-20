@@ -1,0 +1,24 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  @include container(89%);
+}
+
+.cards {
+  margin-top: 120px;
+  margin-bottom: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardsWrapper {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid $colorGreyDark;
+  margin-bottom: 50px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,25 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.facebookButton {
+  @include styleForText($fontSizeContent, $fontMain, $colorBlue);
+
+  border: 1px solid #cbe2f2;
+  width: 195px;
+  background-color: white;
+  padding: 11px 0 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 5px;
+
+  &::before {
+    content: url("../../static/svg/fb-blue.svg");
+    padding-right: 8px;
+  }
+
+  &:hover {
+    background: #CCE2F3;
+    border: 1px solid #CCE2F3;
+  }
+}

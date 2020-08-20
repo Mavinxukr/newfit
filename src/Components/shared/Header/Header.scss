@@ -17,6 +17,11 @@
   z-index: 9997;
   background-color: $colorWhite;
   top: 0;
+  transition: .3s ease-out;
+}
+
+.headerNoteActive {
+  top: 39px;
 }
 
 .logoText {

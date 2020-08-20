@@ -1,0 +1,46 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapperHeader {
+  width: 100%;
+  height: 80px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 9999;
+  background-color: $colorWhite;
+  top: 0;
+  border-bottom: 1px solid $colorGreyDark;
+}
+
+.container {
+  @include container(97%);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.linksGroup {
+  padding: 11px 20px 10px;
+  border-radius: 5px;
+  margin-right: 34px;
+  background-color: $colorButtons;
+}
+
+.linkEntry {
+  @include styleForText($fontSizeContent, $fontMain, $colorWhite);
+
+  padding-right: 15px;
+  border-right: 1px solid #78bf87;
+}
+
+.linkHistory {
+  @include styleForText($fontSizeContent, $fontAdditional, #ddefe1);
+
+  padding-left: 15px;
+}

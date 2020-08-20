@@ -1,0 +1,61 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.content {
+  @include container(89%);
+}
+
+.mainInfoSection {
+  margin-top: 100px;
+  margin-bottom: 180px;
+  display: flex;
+}
+
+.infoPayment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 141px;
+  background-color: $colorAvatarBackground;
+  width: 47%;
+}
+
+.infoPaymentTitle,
+.authBlockTitle {
+  font-size: 42px;
+  text-align: center;
+}
+
+.infoPaymentText {
+  font-family: $fontAdditional;
+  margin-top: 15px;
+}
+
+.infoPaymentButton {
+  margin-top: 50px;
+}
+
+.iconLink {
+  margin-left: 25px;
+
+  & path {
+    stroke: #b6dabe;
+  }
+}
+
+.authBlock {
+  padding: 90px 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.authBlockButtons {
+  display: flex;
+  margin-top: 30px;
+}
+
+.googleButtonWrapper {
+  margin-left: 8px;
+}

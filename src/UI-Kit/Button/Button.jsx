@@ -15,6 +15,7 @@ const classNamesButton = {
   small: styles.buttonSmall,
   simple: styles.buttonSimple,
   indicator: styles.buttonIndicator,
+  linkOccupation: styles.linkOccupation,
 };
 
 const Button = ({
@@ -48,7 +49,7 @@ Button.propTypes = {
   href: PropTypes.string,
   type: PropTypes.string,
   viewType: PropTypes.oneOf(
-    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link', 'simple', 'indicator'],
+    ['white', 'black', 'grey', 'green', 'smallGreen', 'red', 'simpleCopy', 'small', 'link', 'simple', 'indicator', 'linkOccupation'],
   ),
   disabled: PropTypes.bool,
 };
